@@ -1,0 +1,133 @@
+---
+title: "APIG Master Asset Index"
+sidebarTitle: "Asset Index"
+description: "The master index of all APIG operational assets organized by type, with status, location, and relationship references for each registered asset."
+---
+
+The master asset index is the single authoritative reference for every operational asset in the APIG project. AI agents and administrators consult this index before creating any new asset. Every asset has a persistent ID, a status, and a record of its relationships to other assets.
+
+<Warning>
+  This index never contains passwords, API keys, tokens, or authentication secrets. Each record notes only that a credential is required and where to obtain it securely.
+</Warning>
+
+## Asset ID Format
+
+Assets use a structured persistent ID:
+
+```text
+APIG-ASSET-[TYPE]-[NUMBER]
+```
+
+Examples:
+
+```text
+APIG-ASSET-REPO-001    → Repository
+APIG-ASSET-ACCT-001    → Account
+APIG-ASSET-DOMAIN-001  → Domain
+APIG-ASSET-HOST-001    → Hosting service
+APIG-ASSET-BRAND-001   → Brand asset (logo, image, media)
+APIG-ASSET-FORM-001    → Form
+APIG-ASSET-HOOK-001    → Webhook
+APIG-ASSET-SCRIPT-001  → Script or automation
+APIG-ASSET-WF-001      → Workflow
+APIG-ASSET-INT-001     → Integration
+```
+
+## Asset Status Legend
+
+| Status | Meaning |
+| --- | --- |
+| **Active** | In current use |
+| **Inactive** | Exists but not currently used |
+| **Pending Setup** | Planned or partially configured |
+| **Retired** | No longer in use; record preserved for history |
+| **Unknown** | Existence or status unverified |
+
+---
+
+## Accounts
+
+| Asset ID | Name | Status | Location / URL | Purpose | Connected Assets |
+| --- | --- | --- | --- | --- | --- |
+| APIG-ASSET-ACCT-001 | GitHub (apigadministrator-hub) | Active | github.com/apigadministrator-hub | Hosts all APIG code repositories and the AI resource library | APIG-ASSET-REPO-001 |
+| APIG-ASSET-ACCT-002 | Google Workspace | Unknown | — | Email, Drive, Docs, Sheets, Apps Script | To be verified |
+| APIG-ASSET-ACCT-003 | Mintlify | Active | mintlify.com | Documentation hosting for this site | APIG-ASSET-HOST-001 |
+
+---
+
+## Domains
+
+| Asset ID | Name | Status | Registrar | Primary Use | Connected Assets |
+| --- | --- | --- | --- | --- | --- |
+| _(No domains registered yet)_ | — | — | — | — | — |
+
+---
+
+## Hosting
+
+| Asset ID | Name | Status | Provider | Purpose | Connected Assets |
+| --- | --- | --- | --- | --- | --- |
+| APIG-ASSET-HOST-001 | APIG Documentation Site | Active | Mintlify (hobby plan) | Public documentation site | APIG-ASSET-ACCT-003, APIG-ASSET-REPO-001 |
+
+---
+
+## Repositories
+
+| Asset ID | Name | Status | Location / URL | Purpose | Connected Assets |
+| --- | --- | --- | --- | --- | --- |
+| APIG-ASSET-REPO-001 | APIG-AI-Resources | Active | github.com/apigadministrator-hub/APIG-AI-Resources | AI resource library: specifications, procedures, deployment records, task state | APIG-ASSET-ACCT-001 |
+
+---
+
+## Brand Assets
+
+| Asset ID | Name | Status | Location / URL | Purpose | Connected Assets |
+| --- | --- | --- | --- | --- | --- |
+| APIG-ASSET-BRAND-001 | APIG Logo | Active | github.com/apigadministrator-hub/APIG-AI-Resources/blob/main/APIG%20LOGO.png | Primary logo for all APIG properties except the news media section | APIG-ASSET-HOST-001 |
+| APIG-ASSET-BRAND-002 | Pig Monster News Media Logo | Active | github.com/apigadministrator-hub/APIG-AI-Resources/blob/main/Pig%20Monster%20News%20Media%20LOGO.png | Logo for the Pig Monster News Media section of the website | _(Newsroom section — pending)_ |
+
+---
+
+## Integrations
+
+| Asset ID | Name | Status | Provider | Purpose | Connected Assets |
+| --- | --- | --- | --- | --- | --- |
+| _(No integrations registered yet)_ | — | — | — | — | — |
+
+---
+
+## Forms
+
+| Asset ID | Name | Status | Platform | Purpose | Connected Assets |
+| --- | --- | --- | --- | --- | --- |
+| _(No forms registered yet)_ | — | — | — | — | — |
+
+---
+
+## Webhooks
+
+| Asset ID | Name | Status | Source | Destination | Connected Assets |
+| --- | --- | --- | --- | --- | --- |
+| _(No webhooks registered yet)_ | — | — | — | — | — |
+
+---
+
+## Scripts
+
+| Asset ID | Name | Status | Platform | Purpose | Connected Assets |
+| --- | --- | --- | --- | --- | --- |
+| _(No scripts registered yet)_ | — | — | — | — | — |
+
+---
+
+## Workflows
+
+| Asset ID | Name | Status | Trigger | Components | Owner |
+| --- | --- | --- | --- | --- | --- |
+| _(No workflows registered yet)_ | — | — | — | — | — |
+
+---
+
+<Note>
+  This index is a living operational record. AI agents and administrators must update it when any new asset is created, when an existing asset changes materially, or when an asset is retired. Duplicate, obsolete, or unverified records should be flagged for reconciliation.
+</Note>

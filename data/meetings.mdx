@@ -1,0 +1,79 @@
+---
+title: "Meeting Records in APIG"
+sidebarTitle: "Meetings"
+description: "Meetings are APIG entities capturing official or organizational business: date, participants, agenda, minutes, votes, and actions linked to relevant organizations and people."
+---
+
+A meeting in APIG is a distinct entity, not just a date entry. The Wayne County Board of Commissioners meeting on a specific date is a persistent record connected to the organization that held it, the people who attended, the documents produced, and the actions taken. This structure allows APIG to answer questions like: What did this board vote on last year? Who attended this meeting? What documents came out of this session?
+
+## Meeting Record Fields
+
+| Field | Description |
+| --- | --- |
+| Meeting ID | A persistent unique identifier for the meeting |
+| Organization | The organization that convened the meeting |
+| Meeting Type | Classification: regular, special, emergency, committee, public hearing, or executive session |
+| Date | The date the meeting was held or scheduled |
+| Time | The scheduled or actual start time |
+| Location | The physical or virtual location where the meeting occurred |
+| Status | Scheduled, held, cancelled, or postponed |
+| Agenda Document | The document entity containing the meeting agenda, if available |
+| Minutes Document | The document entity containing the meeting minutes, if available |
+| Participants | The people who attended or were present, linked as person entities |
+| Actions Taken | The official actions, votes, or decisions made during the meeting |
+| Votes Recorded | Individual votes on specific items, including roll call when available |
+| Sources | The source records that document or reference this meeting |
+
+## Meeting Types
+
+| Type | Description |
+| --- | --- |
+| Regular | A scheduled recurring meeting, such as a monthly board meeting |
+| Special | A meeting called outside the normal schedule for a specific purpose |
+| Emergency | A meeting convened urgently to address an immediate matter |
+| Committee | A meeting of a subgroup or committee within a larger body |
+| Public Hearing | A formal meeting with a designated period for public comment |
+| Executive Session | A closed session not open to the public; APIG records that it occurred, not its contents unless publicly disclosed |
+
+## What Meetings Establish
+
+Meetings are primary sources for several categories of claims. The official record of a meeting, particularly its minutes, provides direct evidence for facts about personnel, decisions, and organizational actions.
+
+Meetings establish:
+
+- Who held a position on a given date
+- What an organization voted on and the outcome
+- What actions were authorized
+- What personnel changes occurred
+
+```text
+Wayne County Board Regular Meeting, March 12, 2024
+  └── produces Document: Meeting Minutes (March 12, 2024)
+  └── produces Document: Resolution 2024-15
+        └── authorizes Action: Personnel Appointment
+              └── appoints Person A to Position B
+  └── records Vote: Resolution 2024-15
+        └── 5 aye, 2 nay
+  └── lists Participants:
+        └── John Smith, Chair
+        └── Jane Doe, Commissioner
+        └── [additional attendees]
+```
+
+In this example, the meeting is the central entity. It produces documents. Those documents authorize actions. The actions connect people to positions. The meeting also records votes and lists participants, each linked to their respective person entities.
+
+## Meeting vs Document
+
+The meeting itself is an event entity. The agenda and minutes are document entities associated with the meeting. Each has its own persistent ID and record.
+
+| Entity | Role | Example |
+| --- | --- | --- |
+| Meeting | The event that occurred | Wayne County Board Regular Meeting, March 12, 2024 |
+| Agenda Document | The planned items for the meeting | Agenda for March 12, 2024 Regular Meeting |
+| Minutes Document | The official record of what occurred | Minutes of March 12, 2024 Regular Meeting |
+
+You can navigate from a person to the meetings they attended, from an organization to all its meetings, from a document to the meeting that produced it, or from a meeting to the votes and actions it recorded.
+
+<Tip>
+  Meeting minutes are among the strongest primary sources for establishing who held a position, what an organization decided, and when an action occurred.
+</Tip>

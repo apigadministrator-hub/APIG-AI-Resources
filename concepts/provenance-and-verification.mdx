@@ -1,0 +1,118 @@
+---
+title: "Provenance and Verification in APIG"
+sidebarTitle: "Provenance"
+description: "Every significant APIG claim should be traceable to a source. APIG distinguishes fact, source statement, interpretation, allegation, and unknown information."
+---
+
+APIG's credibility depends on its ability to show where information came from and how reliable it is. Every significant factual claim in the system should be traceable to a source. The system preserves the full provenance chain from source to claim to entity to relationship to event, and it maintains clear distinctions between what a source actually says, what APIG records from that source, what is interpreted or inferred from that source, and what remains unknown.
+
+## The Provenance Chain
+
+APIG structures provenance as a navigable chain:
+
+```text
+SOURCE → supports → CLAIM → describes → ENTITY → connects via → RELATIONSHIP → involves → EVENT
+```
+
+This means you can start from any point and trace information back to its origin. When viewing a person, you can navigate to their position, then to the source that establishes that position, then to the original document or record. When viewing a source, you can see every claim it supports, every entity it describes, and every relationship it establishes.
+
+## Source Types
+
+APIG classifies sources to help evaluate reliability:
+
+| Source Type | Examples | Relative Authority |
+| --- | --- | --- |
+| **Primary Government Source** | Statutes, ordinances, resolutions, official meeting minutes, government directories | Highest for governmental facts |
+| **Primary Legal Source** | Court filings, legal codes, charters | Highest for legal authority |
+| **Court Source** | Court records, case documents, judicial orders | Highest for legal proceedings |
+| **Official Organizational Source** | Agency reports, official appointment records, organizational bylaws | High for organizational structure |
+| **Public Record** | Election records, public filings, official databases | High for documented facts |
+| **Secondary News Source** | Newspaper articles, investigative reports | Valuable but distinguishable from primary sources |
+| **Community/User-submitted** | Tips, corrections, public submissions | Must be identified as user-submitted until verified |
+
+## Verification States
+
+Every significant claim in APIG carries a verification status that tells you how much confidence the system has in it:
+
+<Accordion title="Verified">
+  Multiple authoritative sources confirm the claim, or a single highly authoritative primary source establishes it definitively. This is the highest confidence level.
+</Accordion>
+
+<Accordion title="Partially Verified">
+  Some evidence exists but gaps remain. Perhaps one source supports the claim but it has not been independently corroborated, or the source is reliable but the specific claim is not the source's primary focus.
+</Accordion>
+
+<Accordion title="Unverified">
+  The claim has been recorded but not yet checked against authoritative sources. This is common for newly discovered information that has not yet been checked.
+</Accordion>
+
+<Accordion title="Conflicting">
+  Different sources disagree about the claim. Both sources and their conflicting positions are preserved for administrative review. The system does not silently choose one.
+</Accordion>
+
+<Accordion title="Proposed">
+  A contributor has suggested the claim based on available evidence, but it has not completed the verification workflow. Proposed claims remain distinguishable from verified data.
+</Accordion>
+
+<Accordion title="Historical">
+  The claim was verified for a past time period but may not reflect current conditions. Historical claims are preserved even when superseded by newer information.
+</Accordion>
+
+<Accordion title="Unknown">
+  The information cannot be determined from available evidence. This is a valid and preferred state over invention.
+</Accordion>
+
+## Claim vs Interpretation
+
+APIG strictly separates what a source says from what APIG concludes from that source:
+
+<Note>
+  Source: "The board voted 4-1 to terminate the contract."
+</Note>
+
+APIG records the claim: "Board voted 4-1 to terminate contract."
+
+APIG does **not** automatically record: "The board acted improperly." That is an interpretation requiring additional evidence and analysis.
+
+This distinction prevents the system from presenting speculation as established fact. The source statement is preserved exactly; any interpretation is separately identified and supported.
+
+## Unknown Is Valid
+
+When information cannot be established, APIG uses explicit uncertainty states rather than filling gaps with assumptions:
+
+| Missing Information | Preferred Value |
+| --- | --- |
+| Unknown person's name | `Unknown` |
+| Unverified position holder | `Unverified` or `Needs Verification` |
+| Source indicates but not confirmed | `Source indicates` |
+| Pending review | `Pending review` |
+| Historical but incomplete | `Historical` |
+| Disputed information | `Disputed` |
+
+<Note>
+  A verified incomplete record is preferable to a complete-looking record containing guesses.
+</Note>
+
+## Source Hierarchy for Different Questions
+
+The most authoritative source depends on what you are trying to establish:
+
+- **For statutory authority:** Statutes and legal codes are generally stronger than news articles
+- **For current organizational structure:** Current official government sources are preferred
+- **For public reaction:** Public comments and community sources may be directly relevant
+- **For historical reporting:** Contemporaneous records may be more relevant than later summaries
+- **For personnel claims:** Official appointment records, election records, and government directories are preferred
+
+APIG evaluates source suitability in context rather than applying a universal reliability score.
+
+## Preserving Conflicts
+
+When sources conflict, APIG does not silently erase the disagreement. The system preserves:
+
+- Each source
+- The nature of the conflict
+- Relevant dates
+- Verification status of each source
+- Resolution status where applicable
+
+This allows users and administrators to see the full picture and make informed judgments about which source is more reliable for a particular question.

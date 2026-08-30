@@ -1,0 +1,128 @@
+---
+title: "APIG Entity Model: People, Positions, and Organizations"
+sidebarTitle: "Entity Model"
+description: "APIG treats people, positions, organizations, and jurisdictions as distinct persistent entities connected through explicit relationships — not as merged records."
+---
+
+APIG's entity model is built on a foundational principle: a person is not the same thing as their position, a position is not the same thing as an organization, and an organization is not the same thing as a jurisdiction. These entities must remain separate so that relationships can be tracked accurately over time. This separation allows the system to preserve history, prevent false merges, and support meaningful navigation through the information network.
+
+## Why Entities Must Be Separate
+
+When entities are collapsed into one another, critical information is lost:
+
+- If a person and their position are merged, you cannot track who held the position before or after
+- If a position and its organization are merged, you cannot represent vacancies or reorganizations
+- If an organization and its jurisdiction are merged, you cannot represent multi-jurisdictional agencies
+
+<Warning>
+  Records must not collapse Person into Position, Position into Organization, or Source into Event. These distinctions are foundational.
+</Warning>
+
+## Persistent IDs
+
+Every persistent entity in APIG receives a unique internal identifier that remains stable regardless of name changes, personnel changes, or reorganizations.
+
+```text
+PERSON-000001      → Individual person
+ORG-000001         → Organization or agency
+POSITION-000001    → Institutional role
+JURISDICTION-000001 → Geographic/legal sphere
+EVENT-000001       → Documented occurrence
+DOCUMENT-000001    → Discrete documentary object
+SOURCE-000001      → Origin of information
+CLAIM-000001       → Factual proposition
+```
+
+These identifiers do not depend on names. If an organization changes its name, the entity ID remains the same. If a person leaves a position, both the person and position entities continue to exist independently.
+
+## Entity Types
+
+APIG maintains explicit entity types at minimum:
+
+| Entity | Definition | Example |
+| --- | --- | --- |
+| **Person** | Identifiable individual | John R. Smith |
+| **Position** | Persistent institutional role | Wayne County Sheriff |
+| **Organization** | Institutional entity | Wayne County Sheriff's Office |
+| **Jurisdiction** | Defined area of authority | Wayne County, Indiana |
+| **Office** | Institutional office unit | Sheriff's Office |
+| **Document** | Discrete documentary object | Resolution 2024-15 |
+| **Source** | Origin of information | Official county directory |
+| **Event** | Documented occurrence | Appointment, election, resignation |
+| **Claim** | Factual proposition | "Board voted 4-1 to terminate contract" |
+
+## Entity Lifecycle States
+
+Entities may have statuses that reflect their current condition:
+
+| Status | Meaning |
+| --- | --- |
+| **Active** | Currently in operation |
+| **Inactive** | Not currently active but may become active |
+| **Historical** | No longer active, preserved for research |
+| **Dissolved** | Permanently ended |
+| **Merged** | Combined into another entity |
+| **Split** | Divided into multiple entities |
+| **Unknown** | Status cannot be determined |
+
+## Entity vs Name
+
+A name is an attribute of an entity, not the entity itself. A name change does not create a new entity.
+
+```text
+Organization: ABC Housing Authority
+Former name:  ABC Housing Authority
+Current name: XYZ Housing Authority
+Entity ID:    ORG-000042 (unchanged)
+```
+
+The system preserves historical names so that searches and citations remain accurate over time.
+
+## The Core Navigation Chain
+
+The fundamental relationship path through APIG is:
+
+```text
+PERSON → holds → POSITION → belongs to → ORGANIZATION → operates within → JURISDICTION
+```
+
+This chain allows you to navigate from any starting point. For example:
+
+<Steps>
+  <Step title="Start with a person">
+    John Smith holds the position of Wayne County Sheriff
+  </Step>
+  <Step title="Navigate to the position">
+    The Sheriff position belongs to the Wayne County Sheriff's Office
+  </Step>
+  <Step title="Navigate to the organization">
+    The Sheriff's Office operates within Wayne County
+  </Step>
+  <Step title="Navigate to the jurisdiction">
+    Wayne County is within the state of Indiana
+  </Step>
+</Steps>
+
+This same structure works in reverse. Starting from Indiana, you can navigate down to Wayne County, then to the Sheriff's Office, then to the Sheriff position, then to the current officeholder.
+
+## Multiple Relationships per Entity
+
+Because entities are separate, a single person can have multiple simultaneous relationships:
+
+```text
+Person A → holds → County Commissioner
+Person A → serves on → Regional Planning Commission
+Person A → member of → Rotary Club
+```
+
+Each relationship has its own start date, end date, source, and verification status. If Person A later leaves the County Commissioner position, the other relationships remain intact and the historical County Commissioner relationship is preserved.
+
+## Entity Merging and Splitting
+
+Two records should only be merged when evidence establishes they represent the same entity. Records must not be merged solely because names appear similar.
+
+Conversely, an entity may need to be split when a single record incorrectly combines distinct entities, such as two people with the same name or two organizations with similar names.
+
+<Note>
+  If identity cannot be reliably resolved, APIG should preserve ambiguity rather than forcing an incorrect merge.
+</Note>

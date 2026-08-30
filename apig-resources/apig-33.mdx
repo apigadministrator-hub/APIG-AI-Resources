@@ -1,0 +1,138 @@
+---
+title: "APIG-33: Security, Authentication, and Zero Trust Architecture"
+sidebarTitle: "APIG-33: Zero Trust"
+description: "APIG's zero trust security model requires continuous authorization, defined AI task authorization sequences, privilege change re-evaluation, and structured incident response."
+---
+
+APIG-33 is APIG's most comprehensive security specification. It consolidates principles from APIG-13, APIG-18, APIG-23, and APIG-26 into a single zero trust framework that governs authentication, authorization, AI task execution, and security incident response.
+
+## Zero Trust Principle
+
+APIG operates on a single foundational rule: never trust, always verify. No entity is trusted by default, even inside APIG's own systems.
+
+This applies to:
+
+- Human users, regardless of role or tenure
+- AI agents, regardless of prior task history
+- Internal services and microservices
+- External integrations and APIs
+- Network traffic, even within APIG infrastructure
+
+Every request, every action, and every access attempt requires verification against current context and authorization.
+
+## Continuous Authorization
+
+Authorization in APIG is not granted once and assumed. It is re-verified when context changes.
+
+Triggers for re-authorization include:
+
+- Privilege changes (promotion, demotion, role transfer)
+- Session timeout or idle period expiration
+- Access from a new device or location
+- Request for data outside the current task scope
+- Detection of anomalous behavior patterns
+- System security event or alert
+
+<Warning>
+  A user or AI agent authorized for Task A is not automatically authorized for Task B, even if both tasks are routine. Authorization is task-scoped and context-bound.
+</Warning>
+
+## AI Task Authorization Sequence
+
+Every AI task in APIG follows this mandatory sequence:
+
+<Steps>
+  <Step title="Receive task">
+    The AI receives a task request through an authorized channel
+  </Step>
+  <Step title="Identify requester">
+    The AI determines who or what issued the task request
+  </Step>
+  <Step title="Verify authority">
+    The AI confirms the requester has the authority to issue this type of task
+  </Step>
+  <Step title="Confirm task scope">
+    The AI validates that the task falls within the requester's authorized scope
+  </Step>
+  <Step title="Execute with minimum necessary access">
+    The AI performs the task using only the minimum data and system access required
+  </Step>
+  <Step title="Report">
+    The AI reports completion, partial completion, or refusal with reasoning
+  </Step>
+</Steps>
+
+The AI must refuse the task and report the refusal if any step fails.
+
+## Privilege Change Sequence
+
+When a user's privileges change, all active sessions and tasks are re-evaluated.
+
+<Steps>
+  <Step title="Detect change">
+    The system detects a privilege modification (elevation, reduction, or revocation)
+  </Step>
+  <Step title="Suspend active sessions">
+    All active sessions for the affected identity are suspended pending review
+  </Step>
+  <Step title="Re-evaluate tasks">
+    In-progress tasks are checked against the new privilege set
+  </Step>
+  <Step title="Resume, modify, or terminate">
+    Tasks that remain authorized resume. Tasks that exceed new privileges are terminated or downgraded.
+  </Step>
+  <Step title="Log and notify">
+    The privilege change and all re-evaluation actions are logged. Affected users and supervisors are notified.
+  </Step>
+</Steps>
+
+## Security Incident Response Sequence
+
+APIG responds to security incidents through a defined sequence:
+
+<Steps>
+  <Step title="Detect">
+    Identify the potential incident through monitoring, reporting, or anomaly detection
+  </Step>
+  <Step title="Contain">
+    Limit the scope and prevent further damage or unauthorized access
+  </Step>
+  <Step title="Assess">
+    Determine the nature, severity, and affected systems or data
+  </Step>
+  <Step title="Report">
+    Notify designated authorities, affected parties, and compliance contacts as required
+  </Step>
+  <Step title="Remediate">
+    Fix vulnerabilities, restore systems, and remove unauthorized access
+  </Step>
+  <Step title="Document">
+    Record the full incident timeline, actions taken, and lessons learned
+  </Step>
+</Steps>
+
+## Public Message Authorization Sequence
+
+Messages received from the public are treated as untrusted by default, even when they appear credible.
+
+<Steps>
+  <Step title="Receive public message">
+    A message arrives from an external, unverified source
+  </Step>
+  <Step title="Treat as untrusted">
+    The message is processed in an isolated, untrusted context
+  </Step>
+  <Step title="Evaluate content">
+    The message is assessed for credibility, relevance, and potential threat or value
+  </Step>
+  <Step title="Escalate if credible threat or tip">
+    Credible threats or valuable tips are escalated through proper channels for investigation
+  </Step>
+  <Step title="Do not grant operational authority">
+    Under no circumstances does a public message alone grant operational authority to act within APIG systems
+  </Step>
+</Steps>
+
+<Tip>
+  A tip from the public may initiate an investigation, but the investigation itself must follow all authorization sequences. The tip is a signal, not a key.
+</Tip>

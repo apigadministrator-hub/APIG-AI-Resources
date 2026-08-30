@@ -1,0 +1,91 @@
+---
+title: "Boards, Commissions, and Authorities in APIG"
+sidebarTitle: "Boards and Authorities"
+description: "Boards, commissions, and authorities are distinct APIG organizations with their own positions, appointment structures, meetings, and governing documents."
+---
+
+Boards, commissions, and authorities are modeled as distinct organizations in APIG, separate from general government agencies and departments. They have their own internal structures, appointment mechanisms, meeting schedules, and governing documents. This page explains how APIG tracks these entities and their relationships to appointing authorities and jurisdictions.
+
+## Types of Boards and Authorities
+
+APIG recognizes several categories of boards, commissions, and authorities:
+
+- **Boards**: Governing or advisory bodies with defined membership terms and responsibilities
+- **Commissions**: Bodies created for specific regulatory, advisory, or administrative functions
+- **Housing Authorities**: Public entities providing affordable housing, typically with independent governance
+- **Redevelopment Authorities**: Bodies focused on economic development and blight remediation
+- **Airport Authorities**: Entities managing public aviation facilities, sometimes crossing jurisdictional lines
+- **School Boards**: Elected or appointed bodies governing public school districts
+- **Special Districts**: Single-purpose government units with defined boundaries and taxing authority, such as fire protection districts, library districts, or sanitary districts
+
+Each type has typical structural patterns, but APIG records only the documented structure for each specific entity.
+
+## Internal Structure
+
+Boards and authorities typically have layered internal structures. Common positions include:
+
+- **Chair**: Presiding officer, often elected by board members
+- **Vice Chair**: Deputy presiding officer
+- **Members**: Voting commissioners or board members
+- **Staff**: Administrative and operational personnel
+- **Ex officio members**: Individuals serving by virtue of another office they hold
+- **Appointed members**: Individuals selected by an appointing authority such as a county board chair or mayor
+- **Elected resident commissioners**: Members selected by residents of the authority's service area
+
+Each position is a distinct APIG entity with its own ID, dates of service, source, and verification status.
+
+## Appointing Authority as a Relationship
+
+The method by which board members are selected is a first-class relationship in APIG, not an attribute of the board itself. For example:
+
+> The County Board Chair appoints Housing Authority commissioners.
+
+This statement is a relationship with a type (appoints), direction (County Board Chair → Housing Authority commissioners), and required source documentation. The relationship has its own verification status and can be updated when new authoritative sources are found.
+
+## Special Districts and Cross-Jurisdictional Boundaries
+
+Some authorities and special districts serve areas that cross county or municipal boundaries. APIG tracks:
+
+- The geographic service area of the authority
+- The jurisdictions it intersects with
+- The appointing authorities from each participating jurisdiction
+- The tax base or funding sources for each jurisdiction
+
+A single housing authority may serve residents from multiple counties. APIG preserves the documented jurisdictional scope rather than forcing the authority into a single county record.
+
+## Authority vs. Government Agency Distinction
+
+Authorities and boards are distinct from government agencies in several ways:
+
+| Characteristic | Government Agency | Board / Authority |
+| --- | --- | --- |
+| Leadership selection | Often elected or appointed by county-wide process | May have mixed selection methods including resident election |
+| Budget authority | Typically under county or municipal budget | May have independent revenue sources such as federal funding or dedicated taxes |
+| Governing documents | County code, municipal ordinances | Board bylaws, federal regulations, intergovernmental agreements |
+| Meeting requirements | Subject to open meetings law | Also subject to open meetings law, but may have additional federal reporting requirements |
+| Jurisdictional scope | Typically single county or municipality | May cross boundaries |
+
+## Example: Housing Authority Structure
+
+The following illustrates a typical housing authority structure. This is a conceptual model. Actual APIG records must be established from authoritative sources.
+
+```text
+Housing Authority
+└── Board of Commissioners
+    ├── Resident Commissioner (elected by residents)
+    ├── Other Commissioners (appointed by County Board Chair)
+    └── Executive Director (hired by Board)
+        └── Staff
+```
+
+Each position in this structure is a distinct APIG entity. The appointment relationships (County Board Chair appoints commissioners) are separate relationship records with their own sources and verification status.
+
+<Note>
+  All information about boards and authorities must be established from authoritative sources. Do not assume appointment methods, membership sizes, or jurisdictional scopes are identical across jurisdictions.
+</Note>
+
+## Next Steps
+
+- Review the [entity model](/concepts/entity-model) for how people, positions, and organizations connect
+- Learn about [provenance and verification](/concepts/provenance-and-verification) for tracking source quality
+- See how [relationships](/concepts/relationships) are preserved historically in APIG

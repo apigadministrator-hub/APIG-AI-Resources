@@ -1,0 +1,70 @@
+---
+title: "Human Review and Authorization Gates in APIG"
+sidebarTitle: "Human Review"
+description: "APIG requires human review before proposed information becomes authoritative. Consequential actions require explicit administrator authorization before proceeding."
+---
+
+APIG separates discovery from publication and recommendation from action. An AI agent can research, extract, classify, propose, and flag, but it cannot authorize its own conclusions for public presentation, create accounts, spend money, or make decisions that are consequential and irreversible without human review. This design keeps humans accountable for what APIG publishes and how the system operates.
+
+## What Requires Human Review
+
+The following actions must pass through a human review gate before proceeding:
+
+- New entity creation for publication
+- Proposed relationships between entities
+- Conflicting sources requiring resolution
+- Verification status decisions
+- Major architecture or specification changes
+- Any irreversible action
+- Any action exceeding assigned authority
+
+## The Approval Workflow
+
+<Steps>
+  <Step title="AI researches and discovers information">
+    Gather source material, extract structured data, and identify relevant entities and relationships.
+  </Step>
+  <Step title="AI creates a proposed record">
+    Attach the source, set verification status to Proposed or Unverified, and document any uncertainties.
+  </Step>
+  <Step title="Administrator receives the proposal">
+    The proposal enters the review queue with full provenance attached.
+  </Step>
+  <Step title="Administrator reviews source and proposed record">
+    The human reviewer examines the source material and the AI's proposed record for accuracy and completeness.
+  </Step>
+  <Step title="Administrator approves or rejects">
+    Approval changes the record status to Verified or Published. Rejection flags the record with a reason and returns it for correction or dismissal.
+  </Step>
+  <Step title="Approved records become available">
+    Once approved, records are available for public presentation and downstream use.
+  </Step>
+</Steps>
+
+## What AI Can Do Without Human Approval
+
+AI agents may perform the following actions without waiting for human review:
+
+- Research and discovery
+- Extraction and classification
+- Gap identification and reporting
+- Drafting proposed records
+- Generating summaries marked as AI-derived
+- Identifying conflicting sources
+
+These actions are preparatory. They produce proposals and reports, not authoritative records.
+
+## What Always Requires Human Authorization
+
+The following actions require explicit human authorization and cannot be performed by AI alone:
+
+- Creating accounts or services
+- Spending money
+- Entering contracts
+- Disclosing protected information
+- Changing system-wide specifications
+- Publishing information to the public website
+
+<Warning>
+  Human authorization is required before APIG publishes information. AI proposals remain proposals until an authorized human approves them.
+</Warning>

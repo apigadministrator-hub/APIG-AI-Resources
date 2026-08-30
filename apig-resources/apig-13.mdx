@@ -1,0 +1,97 @@
+---
+title: "APIG-13: User Identity, Authentication, and Authorization"
+sidebarTitle: "APIG-13: Auth Model"
+description: "APIG's identity vs. account distinction, authentication methods, role-based access, least privilege, and AI agent authority limits."
+---
+
+APIG-13 defines how the AP Investigative Group verifies who users are, what they are allowed to do, and how AI agents operate within strict authority boundaries. This specification separates the concept of personal identity from system access and mandates least-privilege enforcement at every layer.
+
+## Identity vs. account
+
+A person's identity is separate from their APIG account. Identity represents the real-world individual, while the account is the system credential that grants access. One person may hold multiple accounts (for example, an administrator account and a research account), and accounts can be revoked without erasing the underlying identity record.
+
+<CardGroup cols={2}>
+  <Card title="Identity" icon="fingerprint">
+    The canonical, real-world person. Stored in the entity registry with a persistent unique ID.
+  </Card>
+
+  <Card title="Account" icon="key">
+    The system credential used to log in and perform actions. Linked to an identity but managed independently.
+  </Card>
+</CardGroup>
+
+This separation ensures that access changes, role transfers, and audit trails are tracked without corrupting the underlying investigative data.
+
+## Authentication methods
+
+APIG verifies identity through multiple authentication methods. The exact methods available depend on the user's role and the sensitivity of the resources they access.
+
+<Steps>
+  <Step title="Primary credential">
+    Users authenticate with a username and a strong password or a passkey.
+  </Step>
+  <Step title="Multi-factor verification">
+    Sensitive actions require a second factor, such as a time-based one-time password or hardware security key.
+  </Step>
+  <Step title="Session validation">
+    Sessions are time-bound and re-authenticated periodically. Idle sessions expire automatically.
+  </Step>
+  <Step title="AI agent attestation">
+    AI agents authenticate using signed tokens that bind them to a specific task and scope.
+  </Step>
+</Steps>
+
+<Note>
+  All authentication events are logged. Failed attempts, especially repeated failures, trigger alerts for security review.
+</Note>
+
+## Role-based access
+
+APIG assigns permissions through roles. Each role maps to a set of allowed actions on specific resource types.
+
+| Role | Typical Permissions |
+| --- | --- |
+| Administrator | Full resource management, user administration, priority instruction issuance, merge authorization |
+| Contributor | Task creation, content editing, analysis submission, restricted resource read |
+| Viewer | Public and assigned restricted resource read, comment and flag |
+| AI Agent | Scoped to a single task or investigation; no cross-task authority without explicit re-assignment |
+
+Roles are additive where needed, but no role exceeds the boundaries set by the authenticated identity's authorization level.
+
+## Least privilege
+
+Users and AI agents receive only the access they need for their current tasks. Permissions are granted at the narrowest scope that still allows the work to proceed.
+
+<Warning>
+  Broad or standing permissions are discouraged. Access should be requested per task and revoked when the task completes.
+</Warning>
+
+## Claimed authority is insufficient
+
+A user claiming to be an administrator is not treated as one without verification. APIG does not trust self-asserted roles. Every role claim must be validated against the authentication system and the canonical identity registry before any elevated action is permitted.
+
+<Tip>
+  If a user forgets their role or requests an upgrade, the system requires re-authentication and, for sensitive roles, human approval.
+</Tip>
+
+## AI agent authority limits
+
+AI agents have only the authority explicitly assigned to them. They cannot claim additional authority, inherit permissions from previous tasks, or escalate their own access. Each agent session is bound to a specific task scope and expires when that task ends.
+
+| Scenario | Required Action |
+| --- | --- |
+| Agent needs broader access | Human administrator must re-scope the agent's token |
+| Agent receives ambiguous instruction | Default to the least privileged safe action |
+| Agent detects a potential privilege escalation attempt | Log the event and refuse the action |
+
+## Safe defaults when authority is unclear
+
+If an AI agent cannot verify a requester's authority, it defaults to the least privileged safe action. This means:
+
+- The agent refuses actions that require elevated permissions.
+- The agent logs the ambiguity for human review.
+- The agent may provide public or low-sensitivity information if doing so carries no risk.
+
+<Warning>
+  Guessing or assuming authority is prohibited. When in doubt, the agent must stop and escalate to a human administrator.
+</Warning>

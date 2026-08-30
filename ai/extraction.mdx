@@ -1,0 +1,44 @@
+---
+title: "AI Extraction and Entity Recognition"
+sidebarTitle: "Extraction"
+description: "AI extracts entities, relationships, and claims from documents, attaching source provenance and marking extractions as distinct from independently verified information."
+---
+
+Extraction is the process of identifying structured information within documents. When an AI reads a set of meeting minutes, it can extract the names of attendees, the positions they hold, the votes taken, and the documents referenced. Each extracted item is a proposed record attached to the source document. Extraction establishes what the source says, not that the source's claims are independently verified.
+
+## What Extraction Involves
+
+From documents, AI identifies the following:
+
+- People mentioned
+- Positions held
+- Organizations named
+- Relationships stated
+- Events recorded
+- Dates noted
+- Votes taken
+- Actions authorized
+
+Each item is recorded as a separate proposed entity or relationship with a link to the source document.
+
+## Extraction vs Verification
+
+Extracting a name from meeting minutes establishes that the minutes say that name. It does not establish that the person exists as described, that the position is accurate, or that the relationship is verified. Extraction status is Proposed or Unverified until human review.
+
+Do not treat extracted information as confirmed fact. The extraction record documents what the source claims, not what APIG has independently validated.
+
+## Preserving Source Text
+
+When extracting quotes or specific statements, preserve the exact source text. Do not paraphrase when the exact wording matters. If the document says the board voted 4 to 1, record that. Do not rewrite it as a majority vote without noting the exact count.
+
+## Legal Characterization in Extraction
+
+Preserve source characterization exactly. If a source says "charged with" do not record "convicted of". If a source says "alleged" preserve that qualifier. Legal and factual distinctions matter, and AI must not upgrade or downgrade the strength of a claim during extraction.
+
+## Entity Matching During Extraction
+
+A name found in a document may match an existing APIG entity or may require a new record. If uncertain whether two names refer to the same person or organization, flag for human review rather than forcing a match. Incorrect entity merging creates false relationships and corrupts the database.
+
+<Note>
+  Extraction output is always proposed. A high volume of extractions does not substitute for verification.
+</Note>

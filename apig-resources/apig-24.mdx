@@ -1,0 +1,87 @@
+---
+title: "APIG-24: Data, Records, and Information Management"
+sidebarTitle: "APIG-24: Records"
+description: "APIG classifies every record by type, prefers portable markdown and plain text formats, separates code from deployment configs, and follows a defined AI retrieval sequence."
+---
+
+APIG manages information through a typed, structured record system that ensures accountability, portability, and clear separation between code, documentation, and deployment configuration. This specification defines how records are classified, formatted, documented, and retrieved.
+
+## Record Identity and Classification
+
+Every record in APIG has a type and classification:
+
+- **Type**: What kind of information the record contains (task, specification, code, deployment config, audit log, etc.)
+- **Classification**: The sensitivity and access level (public, internal, restricted, secret)
+
+Records are created with both attributes at inception and they are never changed without an explicit reclassification action that itself becomes a record.
+
+## Markdown and Plain Text Preference
+
+APIG prefers portable formats over proprietary ones:
+
+| Preferred Format | Used For |
+| --- | --- |
+| Markdown | Documentation, specifications, task descriptions, reports |
+| Plain Text | Logs, simple records, configuration templates |
+| JSON | Structured data, API payloads, checkpoint metadata |
+
+<Note>
+  Proprietary formats are only used when required by an external system. When that happens, a markdown or plain text summary is also maintained in APIG's record library.
+</Note>
+
+## Code Documentation Requirements
+
+Code deployed for APIG must be documented. The documentation covers:
+
+- What the code does and why it exists
+- Inputs, outputs, and expected behavior
+- Dependencies and environment requirements
+- How to verify it is working correctly
+
+## Deployment Records
+
+Records of external configurations are kept separately from the code itself:
+
+<CardGroup cols={2}>
+  <Card title="Code Repository" icon="code">
+    Contains the executable code, tests, and code-level documentation
+  </Card>
+
+  <Card title="Deployment Records" icon="server">
+    Contains environment-specific values, infrastructure mappings, and runtime configurations
+  </Card>
+</CardGroup>
+
+This separation ensures code can be audited and reused without exposing environment-specific secrets or configurations.
+
+## AI Retrieval Sequence
+
+When AI needs to look up data, it follows a defined sequence:
+
+<Steps>
+  <Step title="Resource Library">
+    The AI first checks the APIG resource library for the relevant specification or record
+  </Step>
+  <Step title="Task Context">
+    If not found in the library, the AI checks the current task's attached records and checkpoints
+  </Step>
+  <Step title="Authoritative Source">
+    If still not found, the AI may query an authoritative external source with documented provenance
+  </Step>
+  <Step title="Record the Retrieval">
+    The source of any data used in a decision or output is recorded for accountability
+  </Step>
+</Steps>
+
+## Accountability Navigation
+
+Navigating from an event to the responsible party follows typed relationships:
+
+- **Direct conduct**: The entity that performed an action
+- **Oversight responsibility**: The entity accountable for ensuring the action was correct
+
+APIG always distinguishes between an entity that directly did something and one that had oversight responsibility. Both are recorded, and neither is substituted for the other.
+
+<Tip>
+  When reviewing an event, APIG traces both the actor and the oversight chain. Knowing who clicked a button is different from knowing who was responsible for the process that required the button to be clicked.
+</Tip>

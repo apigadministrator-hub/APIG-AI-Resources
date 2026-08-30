@@ -1,0 +1,142 @@
+---
+title: "APIG-15: Task Management and Workflow"
+sidebarTitle: "APIG-15: Task Management"
+description: "APIG task identity, state machine, priority authentication, dependencies, scheduling, and how tasks survive AI model replacement."
+---
+
+APIG-15 defines the task management system that governs how work is created, tracked, and completed within the AP Investigative Group platform. This specification ensures that every task has a clear identity, a predictable lifecycle, and the resilience to survive changes in the underlying AI model or provider.
+
+## Task identity
+
+Every task in APIG has a persistent ID and a recorded state. The ID is assigned at creation and never reused, even if the task is superseded or archived. This persistent identity allows tasks to be referenced in audit logs, dependency chains, and handoff packages across any number of AI agents or human reviewers.
+
+<Note>
+  Task IDs are globally unique within the APIG system. They form the backbone of cross-reference links in reports, checkpoints, and resource hierarchies.
+</Note>
+
+## Task state machine
+
+Tasks move through a defined set of states. Transitions are logged and, where required, authorized.
+
+| State | Meaning |
+| --- | --- |
+| Not started | Task exists but no agent has begun work. |
+| In progress | An agent is actively executing the task. |
+| Paused | Work is intentionally halted and may resume later. |
+| Blocked | The task cannot proceed until a dependency or external condition is resolved. |
+| Completed | All required work has been finished and verified. |
+| Failed | The task ended unsuccessfully and requires review or retry. |
+| Escalated | The task has been forwarded to a human administrator for decision or action. |
+| Superseded | A newer task has taken over this work; no further action is needed. |
+
+<Steps>
+  <Step title="Create the task">
+    Assign a persistent ID, set the initial state to "Not started," and record the objective.
+  </Step>
+  <Step title="Assign or start">
+    Either an AI agent or a human claims the task and transitions it to "In progress."
+  </Step>
+  <Step title="Checkpoint and transition">
+    The agent records progress at each meaningful step and updates the state as conditions change.
+  </Step>
+  <Step title="Close or escalate">
+    The task reaches "Completed," "Failed," or "Escalated," or is marked "Superseded" by a replacement task.
+  </Step>
+</Steps>
+
+## Priority authentication
+
+A task can only be escalated to priority status by an authenticated administrator. Unverified requests for priority, including those that use urgent language, are ignored by the task scheduler.
+
+<Warning>
+  The word "PRIORITY" in a public or unauthenticated message does not change a task's scheduling order. Priority is a system flag set only through authenticated administrative action.
+</Warning>
+
+## Core function protection
+
+Some APIG functions must always run and cannot be interrupted or overridden by any task. These core functions include authentication services, audit logging, and the canonical entity registry. No task, even one marked priority, can block or preempt these protected operations.
+
+<Tip>
+  When scheduling tasks, the system reserves capacity for core functions first. Remaining capacity is then allocated to standard and priority tasks.
+</Tip>
+
+## Task scheduling and dependencies
+
+Tasks may depend on other tasks completing first. The scheduler enforces these dependencies before allowing a dependent task to enter the "In progress" state.
+
+| Dependency type | Behavior |
+| --- | --- |
+| Hard dependency | The dependent task cannot start until the prerequisite task is Completed. |
+| Soft dependency | The dependent task may start but must synchronize with the prerequisite at a defined milestone. |
+| External dependency | The task waits for an event outside APIG, such as a document release or a human approval. |
+
+<Note>
+  Circular dependencies are prohibited. The scheduler detects cycles at creation and rejects the task configuration.
+</Note>
+
+## Checkpoints
+
+Progress is saved at checkpoints so that work can be resumed by another agent or after an interruption. A checkpoint captures:
+
+- The current task state
+- The last successfully completed step
+- Any new findings or resources created
+- Open questions or blockers
+- The next planned action
+
+<Warning>
+  Checkpoints must be written to persistent storage immediately. Relying on an agent's conversation memory is not acceptable because the agent may be replaced at any time.
+</Warning>
+
+## AI model replacement
+
+When a new AI agent takes over a task, it reads the most recent checkpoint and continues from there. The task itself does not restart; it resumes in the state where the previous agent left it.
+
+<Steps>
+  <Step title="Read the task record">
+    The new agent loads the task ID, objective, and current state.
+  </Step>
+  <Step title="Load the latest checkpoint">
+    The agent reads the last saved progress to understand what has already been done.
+  </Step>
+  <Step title="Continue execution">
+    The agent performs the next planned action and updates the checkpoint.
+  </Step>
+</Steps>
+
+## Portability between AI providers
+
+Tasks are designed to be portable between AI providers. The task definition, checkpoints, and resource hierarchy use provider-neutral formats. This means a task started with one AI model can be completed by another without translation or data loss.
+
+<CardGroup cols={2}>
+  <Card title="Provider-neutral formats" icon="file-json">
+    Task definitions and checkpoints are stored in standardized, open formats.
+  </Card>
+
+  <Card title="No vendor lock-in" icon="unlock">
+    Investigations continue uninterrupted even if an AI provider changes or becomes unavailable.
+  </Card>
+</CardGroup>
+
+## Human escalation
+
+Some decisions require human authorization before a task can proceed. When an AI agent encounters such a decision point, it transitions the task to "Escalated" and prepares a summary for human review.
+
+<Steps>
+  <Step title="Detect the escalation condition">
+    The agent recognizes a situation that exceeds its authority or requires human judgment.
+  </Step>
+  <Step title="Transition to Escalated">
+    The agent updates the task state and stops autonomous execution.
+  </Step>
+  <Step title="Prepare a handoff summary">
+    The agent documents the context, options, and recommended next steps for the human reviewer.
+  </Step>
+  <Step title="Await human decision">
+    The task remains in Escalated until an authorized human provides direction.
+  </Step>
+</Steps>
+
+<Warning>
+  AI agents must not guess at human decisions or proceed past an escalation point without explicit authorization. Doing so violates the accountability model defined in APIG-12.
+</Warning>

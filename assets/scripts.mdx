@@ -1,0 +1,30 @@
+---
+title: "APIG Script Registry"
+sidebarTitle: "Scripts"
+description: "Registry of scripts deployed by APIG on external platforms, including platform, purpose, version, and deployment record reference."
+---
+
+Script source code belongs in version control, but this registry tracks what exists, where it is deployed, and why. Each entry records the platform running the script, its deployment location, purpose, current version, and a reference to the deployment record that contains the exact code. Use this registry to audit live scripts, plan updates, and link running logic back to its source.
+
+## Record fields
+
+| Field | Description |
+| --- | --- |
+| Asset ID | Unique identifier for this script record. |
+| Script Name | Human-readable name of the script. |
+| Platform | The environment running the script (e.g., AWS Lambda, Google Apps Script, Vercel). |
+| Deployment Location | The specific URL, function name, or path where the script is deployed. |
+| Purpose | What the script does within APIG. |
+| Version | Current deployed version or commit reference. |
+| Status | Current state: Active, Inactive, Deprecated, or Pending. |
+| Deployment Record Reference | Link or identifier to the deployment record containing the exact code. |
+| Notes | Additional context, dependencies, or change history. |
+
+## Registered scripts
+
+| Asset ID | Script Name | Platform | Deployment Location | Purpose | Version | Status | Deployment Record Reference | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+
+<Note>
+  Each script should have a corresponding deployment record that contains the exact code deployed at the referenced version. Keep the deployment record in your repository or artifact store, and update this registry whenever a new version is promoted.
+</Note>

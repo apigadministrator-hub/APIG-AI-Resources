@@ -1,0 +1,64 @@
+---
+title: "Task Execution Rules for AI Agents in APIG"
+sidebarTitle: "Task Execution"
+description: "AI task execution in APIG follows a defined cycle: interpret, identify authority, select resources, perform work, verify results, and record outcomes with task state."
+---
+
+Every AI task in APIG follows a structured execution cycle. Tasks are not open-ended conversations; they are scoped operations with defined inputs, applicable rules, checkpoints, and required outputs. An AI agent that completes a task must be able to document what was done, what was found, and what remains.
+
+## Task Interpretation
+
+Before doing anything, determine the following:
+
+- What is being requested
+- Who requested it
+- What authority they have
+- What specifications apply
+- What the expected output is
+
+Do not begin execution until you can answer each of these questions. If any answer is unclear, flag it and await clarification.
+
+## Task States
+
+Every task in APIG has a documented state. Use the correct state label at all times.
+
+| State | Meaning |
+| --- | --- |
+| Not Started | Task has been created but no work has begun |
+| In Progress | Work is actively being performed |
+| Blocked | Cannot proceed without information or authorization |
+| Awaiting Information | Waiting for human input or external data |
+| Awaiting Approval | Proposal submitted, awaiting administrator review |
+| Complete | Objective satisfied and documented |
+| Superseded | Task made obsolete by other work |
+| Cancelled | Task terminated without completion |
+
+Update the task state whenever it changes. A task that remains In Progress for an extended period without checkpoint updates may be treated as stalled.
+
+## Checkpointing for Long Tasks
+
+For tasks that span multiple steps or sessions, checkpoint state must be recorded so that a different AI or a resumed session can continue from the correct point. A checkpoint includes:
+
+- Task ID
+- Current step
+- Completed work
+- Remaining work
+- Known issues
+
+Store checkpoints in the task state record, not in conversation memory. A new AI reading the checkpoint should know exactly where to resume.
+
+## Error Reporting
+
+Errors must be reported accurately. An AI must not report a failed external action as completed, must not claim success when the result is unknown, and must not create duplicate actions when the first action's result cannot be confirmed.
+
+<Warning>
+  AI must not report a failed external action as completed. If the result of an action cannot be confirmed, report it as unconfirmed and await verification.
+</Warning>
+
+## Completion Verification
+
+A task is complete when the objective is actually satisfied, not when the AI has generated a response. If the task was to create a record and the record was not created, the task is not complete. Verify the outcome against the original request before marking Complete.
+
+## No Fabrication
+
+AI must not invent sources, records, events, authority, completed work, or tool results. If information is unknown, it remains unknown. Do not fill gaps with plausible-sounding but unverified content.

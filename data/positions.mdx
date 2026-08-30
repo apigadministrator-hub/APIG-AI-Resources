@@ -1,0 +1,107 @@
+---
+title: "Position and Office Records in APIG"
+sidebarTitle: "Positions"
+description: "A position is a persistent institutional role distinct from the person occupying it. APIG tracks position type, appointing authority, term, and historical holders."
+---
+
+APIG treats every position as a persistent structural entity that exists independently of the person who occupies it. A position may be vacant, may have multiple occupants over time, and may persist through elections, appointments, resignations, and reorganizations. The central principle is: **Position does not equal Person**.
+
+## Position types
+
+Every position is classified according to how it is filled. The classification must be evidence-based, not assumed:
+
+- **Elected**: filled through an election (for example, Mayor, Sheriff, County Commissioner, County Clerk)
+- **Appointed**: filled through an appointment process with a documented appointing authority
+- **Hired**: filled through ordinary employment (for example, Administrative Assistant, Deputy, Analyst, Clerk)
+- **Contract**: filled through a contractual arrangement
+- **Volunteer**: filled without compensation
+- **Ex officio**: held by virtue of another office
+- **Unknown**: classification cannot be established from available evidence
+
+Not every jurisdiction uses the same elected offices. APIG does not assume a position exists in one jurisdiction merely because it exists in another.
+
+## Position versus person
+
+The position persists after the person leaves. If John Smith holds the position of Wayne County Coroner and later leaves, the position continues to exist. Another person may subsequently hold it. The position record remains stable while occupant relationships change.
+
+## Position-to-organization relationship
+
+Every position normally connects to the organization responsible for that position. For example:
+
+- Sheriff → belongs to → Sheriff's Department
+- County Clerk → belongs to → County Government / Clerk's Office
+- Mayor → belongs to → City Government
+
+This permits navigation between the position and its organization, and from there to the jurisdiction.
+
+## Term tracking
+
+Positions may have defined terms. Where applicable, APIG records:
+
+- Start date and end date
+- Election date or appointment date
+- Resignation date, removal date, or vacancy date
+- Term length and renewal provisions
+- Succession information
+
+When a term expires, APIG determines from evidence whether the person left, was reelected, was reappointed, or the position became vacant. The system does not automatically assume departure.
+
+## Multiple people occupying the same position over time
+
+A position may have many occupants across different periods. APIG preserves the full sequence with individual dates and sources for each relationship:
+
+```text
+POSITION: Wayne County Sheriff (APIG-POSITION-000001)
+
+2018–2022 → Person A
+2022–2026 → Person B
+2026–2030 → Person C
+```
+
+The position itself remains the same conceptual entity connecting the historical record.
+
+<Accordion title="Elected positions">
+  An elected position is filled through an election. APIG records the relationship between the person, position, election, jurisdiction, term, and source. Where available, the system may record election date, election result, term beginning, term ending, reelection, primary election, general election, vacancy, and special election. Election information must be sourced.
+</Accordion>
+
+<Accordion title="Appointed positions">
+  An appointed position is filled through an appointment process. The record identifies the appointing authority, appointment date, position, organization, term, and source. An appointment is never represented as an election. Examples include Department Director, Board Member, Commission Member, and Executive Director.
+</Accordion>
+
+<Accordion title="Hired positions">
+  A hired position is filled through ordinary employment and may not have a formal governmental term. Examples include Administrative Assistant, Deputy, Analyst, Clerk, Department Employee, and Staff Member. Employment relationships are represented according to available evidence.
+</Accordion>
+
+## Vacancy and unknown status
+
+A position may exist without a current occupant. These are separate conditions:
+
+- **Vacant**: evidence establishes that nobody currently occupies the position.
+- **Unknown**: APIG does not have sufficient evidence to determine the current occupant.
+
+The system must not treat unknown as vacant, and it must not invent a name merely because the position is expected to have an occupant.
+
+## Acting and interim positions
+
+A person may temporarily serve in an acting or interim capacity. The system distinguishes the permanent holder from the acting holder when the source establishes the distinction. For example:
+
+```text
+Position: Executive Director
+Permanent status: Vacant
+Interim holder: Person A
+```
+
+The interim relationship carries appropriate dates and is marked separately from the permanent occupancy.
+
+## Position history preservation
+
+APIG preserves the historical history of a position, including:
+
+- Previous occupants and terms
+- Elections and appointments
+- Vacancies, resignations, and removals
+- Position renaming
+- Organizational changes
+- Position abolition and recreation
+
+When a position is abolished, the historical record remains. When a position is renamed, APIG determines from evidence whether it is the same position with a new name, a new position, or an organizational restructuring.

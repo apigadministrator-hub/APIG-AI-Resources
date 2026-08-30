@@ -1,0 +1,43 @@
+---
+title: "APIG Account Registry"
+sidebarTitle: "Accounts"
+description: "Registry of all accounts and service subscriptions used by APIG, with purpose, status, owner, and secure credential location noted for each entry."
+---
+
+The account registry documents every service account, platform subscription, and organizational account used by APIG. It identifies what each account does, who controls it, and where its credentials are stored. No credentials, passwords, API keys, or tokens appear in this registry.
+
+<Warning>
+  Never store passwords, API keys, tokens, or any other secrets in this registry. Record only the location where the credential is kept (for example, a secure credential store or password manager).
+</Warning>
+
+## Asset record template
+
+Use the following template when adding a new account to this registry.
+
+```text
+Asset ID:           APIG-ASSET-ACCT-###
+Name:               <account or service name>
+Type:               <account type>
+Provider/Platform:  <provider name>
+Owner:              <owner or responsible party>
+Login/Username:     <identifier only — no password>
+Purpose:            <what this account is used for>
+URL:                <service URL>
+Status:             <Active / Inactive / Unknown / To Be Verified>
+Credential Location: <where to find the secret — not the secret itself>
+Connected Assets:   <related asset IDs>
+Last Verified:      <date>
+Notes:              <additional context>
+```
+
+## Known accounts
+
+| Asset ID | Name | Platform | Purpose | Status | Credential Location |
+| --- | --- | --- | --- | --- | --- |
+| APIG-ASSET-ACCT-001 | GitHub | apigadministrator-hub | Code repository hosting | Active | Secure credential store |
+| APIG-ASSET-ACCT-002 | Google Workspace | Email, Drive, Sheets, Apps Script | Unknown | To be verified | Secure credential store |
+| APIG-ASSET-ACCT-003 | Mintlify | Documentation hosting | Active | Secure credential store |
+
+<Note>
+  Add a row to this table whenever a new account is created for APIG.
+</Note>

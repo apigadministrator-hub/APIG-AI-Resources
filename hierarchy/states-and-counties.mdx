@@ -1,0 +1,73 @@
+---
+title: "States and Counties in the APIG Hierarchy"
+sidebarTitle: "States and Counties"
+description: "States are APIG top-level jurisdictions. Counties are subdivisions containing municipalities, county government, agencies, and organizations."
+---
+
+States serve as the top-level jurisdictions in APIG. Every state contains counties, which in turn contain municipalities, county government structures, agencies, and organizations. This page explains how APIG structures states and counties, and why the county is the fundamental working unit for APIG development.
+
+## State Records
+
+A state record in APIG establishes the boundary for all jurisdictions and entities within that state. State-level information includes:
+
+- State government structure and elected offices
+- State agencies and departments
+- Counties within the state
+- State-level documents, meetings, and sources
+- Relationships to federal and neighboring state jurisdictions
+
+State records provide the starting point for geographic navigation. From any state, you can navigate to its counties, then to municipalities, agencies, and people.
+
+## County Records
+
+Counties are the primary subdivisions APIG uses to organize local government information. A county record contains structured information about:
+
+| Field | Description |
+| --- | --- |
+| Official name | The legal name of the county |
+| State | The state the county belongs to |
+| County government | The elected and appointed governing body |
+| Municipalities | Cities, towns, and villages within the county |
+| Agencies | Sheriff departments, clerk offices, courts, and other county organizations |
+| Elected officials | Positions and people holding county-wide elected office |
+| Documents | County records, ordinances, resolutions, and other official documents |
+| Meetings | County board meetings, committee meetings, and public hearings |
+| Sources | Primary government sources, public records, and verified news sources |
+
+## County as a Working Unit
+
+APIG builds its architecture county by county. The county is the working unit because it contains a complete, self-contained government ecosystem: elected officials, appointed positions, departments, boards, municipalities, documents, and meetings.
+
+The same structural model applies to every county APIG covers. Once the architecture is established for one county, it scales to additional counties without fundamental redesign. This is why Wayne County, Illinois serves as the primary development example.
+
+## Wayne County Structure (Conceptual Example)
+
+The following illustrates how APIG models a county conceptually. This is a structural example, not an assertion of current factual data. All actual information must be established from authoritative sources.
+
+```text
+Illinois
+└── Wayne County
+    ├── County Government (Wayne County Board)
+    ├── Municipalities (e.g., Fairfield, Cisne, Wayne City)
+    ├── Agencies
+    │   ├── Sheriff's Department
+    │   ├── Coroner's Office
+    │   ├── Clerk's Office
+    │   └── Treasurer's Office
+    ├── Boards and Authorities
+    │   ├── Housing Authority
+    │   └── Airport Authority
+    └── Courts
+```
+
+Each node in this structure is a distinct APIG entity with its own ID, provenance, verification status, and relationships to other entities.
+
+<Tip>
+  APIG develops county by county. The architecture is designed so the same structure applies to every new county without fundamental redesign.
+</Tip>
+
+## Next Steps
+
+- Learn how [agencies and offices](/hierarchy/agencies-and-offices) are modeled within counties
+- Explore [boards and authorities](/hierarchy/boards-and-authorities) as distinct organizations
+- See the [Wayne County working example](/jurisdictions/wayne-county) for the first implemented county

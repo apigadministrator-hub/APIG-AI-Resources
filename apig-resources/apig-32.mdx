@@ -1,0 +1,102 @@
+---
+title: "APIG-32: Privacy, Data Protection, and Information Handling"
+sidebarTitle: "APIG-32: Data Protection"
+description: "APIG classifies data by sensitivity, minimizes collection, limits purpose, guards against aggregation risks, and balances accountability with privacy protections."
+---
+
+APIG-32 establishes how APIG classifies, handles, and protects information. This specification governs everything from initial data collection through publication, with particular attention to the risks of combining non-sensitive data into sensitive profiles.
+
+## Classification Framework
+
+All data in APIG is classified by sensitivity into four tiers:
+
+| Classification | Description | Handling |
+| --- | --- | --- |
+| **Public** | Information intended for public release | Standard publication controls |
+| **Limited** | Internal use with no special sensitivity | Access limited to authorized APIG personnel |
+| **Sensitive** | Information that could harm individuals or operations if disclosed | Restricted access, need-to-know basis |
+| **Restricted** | Information with legal, safety, or severe operational implications | Highest controls, explicit authorization required |
+
+Every record carries its classification label. Classification is not static: records are re-evaluated when context changes or when data is aggregated.
+
+## Data Minimization
+
+APIG collects only what is needed for documented purposes. Before adding any data element, you must be able to state:
+
+- The specific purpose for which it is needed
+- The operational or analytical task it supports
+- Why less information would be insufficient
+
+<Warning>
+  Collecting data "just in case" violates APIG's data minimization principle. If you cannot articulate a current, documented purpose, do not collect the data.
+</Warning>
+
+## Purpose Limitation
+
+Data collected for one purpose is not repurposed without authorization. The original collection purpose is recorded with the data. Any new use requires:
+
+1. A documented new purpose
+2. Compatibility assessment with the original purpose
+3. Authorization from the data owner or a designated authority
+4. Updated access controls if the new purpose changes the audience
+
+## Aggregation and Linkage Risk
+
+Combining individually non-sensitive data can create sensitive profiles. APIG is aware of this risk and manages it actively.
+
+<Accordion title="Example: aggregation risk">
+  A person's public job title, public property records, and public meeting attendance are each non-sensitive in isolation. Combined, they may reveal political affiliation, religious practice, or health status through inference. APIG evaluates such combinations before publication or analysis.
+</Accordion>
+
+Mitigation measures include:
+
+- Reviewing datasets before linkage
+- Applying statistical disclosure controls
+- Documenting aggregation decisions
+- Re-classifying combined data when the profile becomes sensitive
+
+## False Identification Avoidance
+
+APIG must not incorrectly identify a person as someone they are not. This applies to:
+
+- Name matching across records
+- Photo or biometric comparison
+- Social media account attribution
+- Organizational affiliation claims
+
+Every identification carries a confidence level and the method used to establish it. Low-confidence identifications are flagged for human review before any consequential action.
+
+## Sensitive Attribute Inference
+
+APIG does not infer sensitive characteristics unless directly relevant and sourced. Sensitive characteristics include health status, religion, sexual orientation, political affiliation, and union membership.
+
+Inference is permitted only when:
+
+- The characteristic is directly relevant to a documented investigative purpose
+- The inference is based on explicit, attributable source information
+- The inference is labeled as such, not presented as direct fact
+- The inference has been reviewed for necessity and proportionality
+
+## AI and Privacy Protections
+
+An AI agent cannot bypass privacy protections even if technically capable of doing so. Technical access to data does not override classification, purpose limitation, or minimization rules.
+
+AI systems operating in APIG must:
+
+- Respect the same classification boundaries as human users
+- Request authorization for data access rather than assuming it
+- Log all data access for audit
+- Refuse tasks that would violate privacy rules, even when instructed
+
+## Accountability and Privacy Balance
+
+People in public positions have reduced privacy expectations regarding their exercise of public authority, but retain privacy in non-public domains.
+
+| Domain | Expectation |
+| --- | --- |
+| Public actions in official capacity | Lower privacy; subject to scrutiny and documentation |
+| Personal life, family, health, private communications | Higher privacy; protected unless directly relevant to public accountability |
+
+<Note>
+  The fact that someone holds public office does not open their entire life to APIG documentation. Relevance to public accountability is the standard for reduced privacy, not public status alone.
+</Note>

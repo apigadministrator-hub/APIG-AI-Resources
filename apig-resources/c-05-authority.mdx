@@ -1,0 +1,97 @@
+---
+title: "APIG-05: Authority, Accountability, and Chain of Command"
+sidebarTitle: "Authority"
+description: "How APIG represents authority relationships, appointment powers, supervisory chains, oversight, and accountability — without propagating blame through organizational structure."
+---
+
+APIG-05 defines how authority is represented in the APIG information system. Authority is a first-class component of the data architecture. APIG must allow users and AI systems to navigate authority relationships upward, downward, and laterally — while preserving critical distinctions between types of authority and between structural relationships and personal accountability.
+
+## Core Principle: Authority Belongs to Positions
+
+Where possible, authority is attached to the position or organizational role, not permanently to the individual occupying it. When the County Board Chair changes, the Chair's appointment authority over Housing Authority commissioners continues because the authority belongs to the position.
+
+```text
+Person → occupies → Position
+Position → possesses → Authority
+Authority → applies to → Organization / Position / Person / Jurisdiction
+```
+
+## Authority Types
+
+| Type | Meaning |
+| --- | --- |
+| Supervisory | Direct chain of command; directs work and manages performance |
+| Appointment | Power to appoint an individual or board to a position |
+| Removal | Power to remove a person from a position (must not be assumed from appointment authority alone) |
+| Governing | A board or body that governs an organization through policies and major decisions |
+| Oversight | Broader accountability responsibility without daily management involvement |
+| Reporting | Obligation to report to another authority |
+| Delegated | Authority granted from one authority to another, with documented scope and limits |
+| Jurisdictional | Geographic or legal authority of a governmental unit |
+| Regulatory | Authority to regulate another entity without supervising its employees |
+| Financial | Budget approval, spending authority, contract approval |
+| Legal | Authority granted by statute, ordinance, charter, resolution, or court order |
+
+## The Authority Graph
+
+APIG maintains an authority graph separate from the organizational tree. The organizational tree answers "How is this organization structured?" The authority graph answers "Who has what authority over whom?" Both are preserved.
+
+**Example authority chain:**
+
+```text
+County Board Chair
+  ↓ appointment/oversight authority
+Housing Authority Commissioners
+  ↓ governing authority
+Housing Authority
+  ↓ reporting relationship
+Executive Director
+  ↓ direct supervisory authority
+Maintenance Employee
+```
+
+Each relationship is labeled with its type. Users can navigate up or down the chain and see the relationship type at every step.
+
+## What Authority Is NOT
+
+<Warning>
+  Authority must not be inferred from job title, seniority, organizational proximity, political status, physical location, or informal influence. Authority must be established from organizational structure or authoritative sources. Instructional authority (telling someone what to do) is not the same as supervisory authority. Informal influence is not formal authority.
+</Warning>
+
+## The Accountability Principle
+
+APIG **may** propagate navigation and relevance through an authority chain.
+
+APIG **must not** propagate accusations, guilt, misconduct, or personal liability merely because an authority relationship exists.
+
+**Example:** If a maintenance employee has a documented DUI, the system may allow navigation upward through the chain (employee → supervisor → board → appointing authority). This provides accountability context. It does not mean the supervisor, board, or appointing authority committed or caused the DUI.
+
+Events, documents, and news remain associated with their actual subject. The authority graph provides context and navigation — not transferred blame.
+
+## Due Process and Characterization
+
+When displaying allegations or misconduct-related information, APIG distinguishes:
+
+| Stage | Description |
+| --- | --- |
+| Allegation | A claim has been made |
+| Complaint | A formal complaint has been filed |
+| Investigation | An investigation is underway |
+| Arrest | A person was arrested |
+| Charge | A formal charge has been filed |
+| Conviction | A court has entered a conviction |
+| Finding | An administrative or regulatory finding |
+| Discipline | Formal discipline was imposed |
+| Dismissal | Charges or complaints were dismissed |
+| Exoneration | The person was cleared |
+| Unknown outcome | The outcome is not documented |
+
+A reported event must not automatically be represented as proven misconduct.
+
+## Authority Sources
+
+Every significant authority relationship should have a source: statute, ordinance, charter, resolution, bylaws, policy, administrative rule, appointment records, meeting minutes, or government website. Unknown authority must remain unknown — APIG never invents authority relationships.
+
+## Verification States for Authority
+
+Verified, Partially Verified, Proposed, Conflicting, Historical, Unknown. AI-generated authority relationships must remain distinguishable from verified relationships.

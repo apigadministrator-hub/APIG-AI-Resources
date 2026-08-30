@@ -1,0 +1,66 @@
+---
+title: "AI Handoff and Task Continuity"
+sidebarTitle: "Handoff"
+description: "When an AI model is replaced, the incoming AI reads persistent resources, reviews documented task state, and continues from the checkpoint without relying on conversation memory."
+---
+
+APIG is designed so that no task is lost when an AI session ends or a model is replaced. Task state, completed work, remaining steps, and relevant constraints are documented in persistent resources rather than held in conversation memory. A new AI beginning a handoff task reads the same resources as the outgoing AI and continues from the documented state.
+
+## The Handoff Package
+
+A complete handoff includes the following:
+
+- Task ID
+- Objective
+- Current status
+- Completed work summary
+- Remaining work
+- Relevant resource paths
+- Constraints and rules that apply
+- Important decisions made
+- Known errors or blockers
+- Recommended next action
+
+The outgoing AI is responsible for ensuring the handoff package is complete and stored in the correct persistent location. The incoming AI is responsible for reading it in full before taking any action.
+
+## What the Incoming AI Must Do
+
+<Steps>
+  <Step title="Read APIG-AI-START-HERE.md">
+    Begin at the root routing document to understand current system state.
+  </Step>
+  <Step title="Navigate to the relevant specification">
+    Load the specification for the task type you are continuing.
+  </Step>
+  <Step title="Review the current task state record">
+    Read the task state to understand what has been done and what remains.
+  </Step>
+  <Step title="Review the checkpoint and completed work">
+    Examine the handoff package for completed steps, decisions, and known issues.
+  </Step>
+  <Step title="Identify the next action">
+    Determine the correct next step based on the documented state, not on assumptions.
+  </Step>
+  <Step title="Continue from the documented state">
+    Resume work exactly where the previous AI left off.
+  </Step>
+</Steps>
+
+## What the Incoming AI Must Not Do
+
+The incoming AI must avoid the following:
+
+- Assume previous AI memory is available
+- Treat undocumented assumptions as authoritative
+- Restart work that is already documented as complete
+- Take consequential actions not authorized in the task record
+
+If the handoff package is incomplete, flag it and request clarification before proceeding.
+
+## Provider-Neutral Documentation
+
+Task records and handoff packages must use language that works across AI providers. No provider-specific syntax, internal names, or assumed capabilities. A handoff package should be readable and actionable by any AI agent that understands standard instructions and file operations.
+
+<Note>
+  Critical APIG information must exist in persistent resources, not in a conversation. If it matters, it must be documented.
+</Note>

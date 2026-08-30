@@ -1,0 +1,112 @@
+---
+title: "APIG-04: People, Positions, and Organizations"
+sidebarTitle: "People and Orgs"
+description: "How APIG represents people, positions, offices, organizations, and agencies as distinct persistent entities with their own identities, histories, and relationships."
+---
+
+APIG-04 consolidates the specifications governing how people, positions, and organizations are represented in the APIG system. The foundational principle is that a person, a position, and an organization are always distinct entities. A person is not their position. A position is not the organization. An organization is not the person who leads it.
+
+## The Entity Separation Principle
+
+```text
+PERSON  ≠  POSITION  ≠  ORGANIZATION  ≠  JURISDICTION
+
+Person → holds → Position
+Position → belongs to → Organization
+Organization → operates within → Jurisdiction
+```
+
+This separation allows a person to hold multiple positions, change positions, leave and return, and have a historical record independent of any single organization.
+
+## People
+
+A person is an individual with a stable, persistent Person ID that does not change when they change jobs, positions, or organizations. A person record may include:
+
+- Name and alternative names or aliases
+- Positions held (current and historical)
+- Organizations associated with
+- Documents in which they appear
+- Meetings attended
+- Votes and actions documented
+- Contact information where publicly available
+- Verification status per field
+- Historical information
+
+**Identity resolution:** When multiple sources mention what may be the same person, APIG must make an explicit, sourced decision about whether they are the same individual. False merges (incorrectly combining two different people) and false splits (incorrectly treating one person as two) are both serious data quality problems.
+
+**Multiple simultaneous positions:** A person may hold multiple positions at the same time. Each position is tracked separately with its own effective dates.
+
+## Positions and Offices
+
+A position is a persistent structural entity that exists independently of its current occupant. When the occupant changes, the position remains. When the occupant is unknown, the position still exists.
+
+| Position Type | Description |
+| --- | --- |
+| Elected | Selected through a public election process |
+| Appointed | Selected by an appointing authority (board, executive, official) |
+| Hired | Employed through a personnel process |
+| Contracted | Engaged through a contract |
+| Volunteer | Unpaid service role |
+| Ex officio | Holds the position by virtue of another office |
+
+An **office** is an established governmental or organizational function (Office of the Mayor, County Clerk's Office, Sheriff's Office). An office may contain one or more positions.
+
+**Position history:** Previous holders remain part of the position's historical record. The position record shows who held it and when.
+
+## Organizations and Agencies
+
+An organization is a persistent entity — it does not disappear when its leadership changes. Organizations include:
+
+- Government agencies and departments
+- Boards and commissions
+- Housing authorities and special districts
+- Nonprofit organizations
+- Civic and community organizations
+- Political organizations
+- Businesses and advocacy organizations
+
+Organizations may have parent/child relationships. Organization mergers, splits, and dissolutions are preserved historically — the record is not deleted, it is marked as historical with the appropriate successor or predecessor relationship.
+
+**Organization hierarchy example:**
+
+```text
+County Government
+→ County Board (governing body)
+→ County Clerk's Office
+→ County Sheriff's Office
+→ Wayne County Housing Authority (separate entity)
+  → Housing Authority Board
+  → Executive Director
+  → Staff positions
+```
+
+## Relationships Between People, Positions, and Organizations
+
+All relationships are explicit and sourced. Key relationship types:
+
+- Person holds Position (with effective dates)
+- Position belongs to Organization
+- Organization operates within Jurisdiction
+- Person served on Board (with term dates)
+- Person appeared in Document
+- Person attended Meeting
+- Organization is parent of Organization
+
+## Verification Per Field
+
+Every field in a person, position, or organization record may have its own verification status. A person's name may be verified while their current position status is unverified.
+
+| Status | Meaning |
+| --- | --- |
+| Verified | Confirmed by authoritative sources |
+| Partially Verified | Some elements confirmed |
+| Unverified | Not yet confirmed but not contradicted |
+| Source Indicates | A source makes this claim — APIG has not independently verified |
+| Pending Review | Awaiting administrator review |
+| Conflicting | Multiple sources with incompatible claims |
+| Historical | Previously accurate, current status unknown |
+| Unknown | No information available |
+
+<Note>
+  AI must not merge two people without an explicit sourced decision. AI must not invent a position holder when the holder is unknown. If information cannot be established, Unknown is the correct value.
+</Note>

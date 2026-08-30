@@ -1,0 +1,54 @@
+---
+title: "Jurisdiction Framework: How APIG Covers Government"
+sidebarTitle: "Overview"
+description: "APIG organizes government coverage into hierarchical jurisdictions with slugs, entity tracking, data sources, and researcher assignments. Learn how coverage expands from county to state and national levels."
+---
+
+APIG uses a hierarchical jurisdiction framework to organize coverage of government bodies, public officials, and civic institutions. Each jurisdiction receives a unique slug, a defined scope of tracked entities, assigned data sources, and dedicated researchers. This structure lets the system grow from a single county pilot to statewide and eventually national coverage while maintaining data integrity and provenance at every level.
+
+A jurisdiction in APIG is any geographic or administrative boundary where public entities operate: a county, a state, a federal district, or a special administrative region. The system treats each jurisdiction as a self-contained data domain with its own sources, monitoring rules, and quality standards.
+
+## Jurisdiction Statuses
+
+Jurisdictions move through three lifecycle stages:
+
+| Status | Description |
+| --- | --- |
+| **Active** | Full entity tracking, automated monitoring, and active researcher assignment. Data is continuously updated and verified. |
+| **Limited Coverage** | Partial entity set tracked; some sources are manual or pending integration. Useful for transitional phases. |
+| **Planned** | Jurisdiction is scoped and queued for onboarding. No live data yet; preparation steps are documented. |
+
+## Jurisdiction Attributes
+
+Every jurisdiction record contains the following fields:
+
+- **Slug**: A machine-readable identifier built from ISO and postal codes. Example: `us-il-wayne` for Wayne County, Illinois.
+- **Display Name**: Human-readable label used in the interface. Example: "Wayne County, Illinois".
+- **Coverage Scope**: The entity types tracked within this jurisdiction. Examples: county board members, municipal officials, school districts, courts.
+- **Data Sources List**: URLs, APIs, RSS feeds, and document inboxes that feed data into this jurisdiction.
+- **Active Monitoring Status**: Whether automated scraping, RSS polling, and AI extraction are enabled.
+- **Assigned Researchers**: Human contributors and AI workflows responsible for data quality in this jurisdiction.
+
+## Current Jurisdictions
+
+<CardGroup cols={2}>
+  <Card title="Illinois / Wayne County" icon="map-pin" href="/jurisdictions/illinois/wayne-county">
+    The primary active pilot jurisdiction. Full coverage of county board, elected officials, municipalities, school districts, and courts. Slug: `us-il-wayne`.
+  </Card>
+
+  <Card title="Add New Jurisdiction" icon="plus" href="/jurisdictions/adding-a-jurisdiction">
+    Expand APIG coverage to a new county, state, or region. Requires Admin authorization and a structured onboarding process.
+  </Card>
+</CardGroup>
+
+## Expansion Roadmap
+
+APIG is designed to scale horizontally. The framework supports adding new jurisdictions without disrupting existing data or relationships. When a new jurisdiction is added, the system:
+
+1. Creates an isolated data domain under the jurisdiction slug.
+2. Ingests seed entities from public rosters and official directories.
+3. Connects automated monitoring sources.
+4. Assigns researchers and sets coverage SLAs.
+5. Enables AI extraction and gap analysis for that domain.
+
+To begin onboarding a new jurisdiction, see [Adding a New Jurisdiction](/jurisdictions/adding-a-jurisdiction).

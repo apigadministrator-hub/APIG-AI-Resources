@@ -1,0 +1,90 @@
+---
+title: "APIG-26: Security, Access, and Authentication Architecture"
+sidebarTitle: "APIG-26: Auth Architecture"
+description: "APIG's complete identity, authentication, and authorization model, including session security, credential protection, break-glass access, and AI security boundaries."
+---
+
+APIG-26 defines how APIG protects its systems, data, and operations through a layered security architecture. This specification covers identity management, access control, session handling, credential protection, and the boundaries that constrain AI agent behavior. Every design decision in this document follows the principle of least privilege: no user or agent receives more access than their current task requires.
+
+## Identity, Authentication, and Authorization
+
+APIG treats these three concepts as permanently distinct. Conflating them creates security gaps.
+
+| Concept | Definition | Example |
+| --- | --- | --- |
+| **Identity** | Who the entity claims to be | A staff member's user account or an AI agent's assigned identifier |
+| **Authentication** | Proving that claim | Password verification, API key validation, or multi-factor confirmation |
+| **Authorization** | What the authenticated entity may do | Role-based permissions that grant read access to specific records |
+
+Authentication confirms identity. Authorization determines scope. Neither substitutes for the other.
+
+## Least Privilege
+
+Every user and AI agent receives only the access needed for their current task. Default assignments are minimal. Elevated access requires explicit grant, documented justification, and periodic revalidation.
+
+<Warning>
+  Standing access is discouraged. Temporary elevation with automatic expiration is preferred for any operation beyond routine duties.
+</Warning>
+
+## Session Security
+
+Sessions are time-limited and authenticated. Inactive sessions expire automatically. Re-authentication is required for sensitive operations even within an active session.
+
+Session attributes include:
+
+- Maximum lifetime, regardless of activity
+- Idle timeout for inactive connections
+- Re-authentication triggers for high-risk actions
+- Binding to the originating context to reduce session hijacking risk
+
+## Credential Protection
+
+Passwords, API keys, and secrets are never placed in documentation or AI conversations. This rule applies without exception, including to internal drafts and temporary messages.
+
+<Warning>
+  Never paste credentials into chat interfaces, shared documents, or version-controlled files. If a credential is exposed, rotate it immediately and report the incident.
+</Warning>
+
+## Secret Separation from Documentation
+
+Secrets live in secure credential stores, not in APIG's public resource library. Documentation may describe where a secret is used and how it is referenced, but never the secret itself.
+
+| Location | Permitted Content |
+| --- | --- |
+| Resource library | Architecture descriptions, integration patterns, rotation procedures |
+| Credential store | Actual passwords, API keys, tokens, certificates |
+| AI conversations | Neither secrets nor credential store access paths |
+
+## Public-Facing Accounts
+
+Messages received on public-facing accounts (social media, contact forms) are treated as coming from untrusted public senders. These channels do not authenticate the sender as an APIG operator, and they cannot authorize privileged actions.
+
+<Tip>
+  Treat every public message as unverified until it passes through authenticated channels. Public contact points are for intake, not for operational instruction.
+</Tip>
+
+## Break-Glass Access
+
+Break-glass procedures provide emergency access when normal authorization channels are unavailable. These procedures are:
+
+- Documented in advance, not improvised during an incident
+- Restricted to specific, named emergency scenarios
+- Logged with full audit trails
+- Subject to mandatory post-access review
+
+Break-glass is not a bypass for convenience. It is a controlled exception for genuine emergencies, and every use is reviewed.
+
+## AI Security Boundary
+
+AI agents operate within a defined security boundary. They cannot cross it to access unauthorized resources. This boundary is enforced by the system architecture, not by prompt instructions alone.
+
+Key constraints:
+
+- Agents access only the resources explicitly provisioned for their role
+- Agents cannot escalate their own permissions
+- Agents cannot read from or write to systems outside their assigned scope
+- Agent actions are logged and attributable
+
+## Portability
+
+APIG's security architecture is designed to work across AI providers. Security rules do not depend on a single vendor's behavior or configuration. This ensures that switching or augmenting AI services does not create gaps in protection.

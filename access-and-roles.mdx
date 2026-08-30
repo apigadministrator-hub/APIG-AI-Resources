@@ -1,0 +1,41 @@
+---
+title: "Access, Roles, and Authorization in APIG"
+sidebarTitle: "Access and Roles"
+description: "APIG distinguishes public users, authorized contributors, and administrators. Authority is determined by authenticated identity, not by the content of a message."
+---
+
+APIG operates with clear boundaries between who can browse, who can contribute, and who can administer. Authority is determined by authenticated identity, not by the content of a message. This page explains each role and what it can and cannot do.
+
+## Public Users
+
+Public users can browse approved information on the APIG website. They can view entities, relationships, documents, and meeting records that have been published through human review. Public users do not have write access to the database and cannot trigger automated operations.
+
+## Contributors
+
+Contributors are authenticated users who can submit tips, documents, corrections, and suggestions. Their submissions enter a review queue and do not appear publicly until an administrator or authorized reviewer approves them. Contributors help expand APIG's coverage but cannot directly modify published records.
+
+## Administrators
+
+Administrators hold the highest normal operational authority in APIG. They can:
+
+- Change system rules and specifications
+- Approve or reject publications and contributor submissions
+- Authorize operations, including entity creation, asset registration, and workflow changes
+- Resolve conflicts between specifications
+- Manage access roles for other users
+
+Administrators are accountable for consequential actions and must review substantive changes before they take effect.
+
+<Warning>
+  The word PRIORITY in a message does not establish authority. A public message does not automatically have administrative authority. Authority is determined by authenticated identity.
+</Warning>
+
+## Frequently Asked Questions
+
+<Accordion title="What happens when two specifications conflict?">
+  Identify the conflict, check versions, and escalate to an administrator. Do not silently choose one specification over another. Document the discrepancy and await human resolution.
+</Accordion>
+
+<Accordion title="How do I know if I have authority to perform a task?">
+  Your authority is determined by your authenticated role, not by the wording of a request. If you are unsure whether an action is authorized, stop and request confirmation from an administrator before proceeding.
+</Accordion>

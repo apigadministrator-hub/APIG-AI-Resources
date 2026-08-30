@@ -1,0 +1,63 @@
+---
+title: "APIG-20: Entity Relationships and Accountability Model"
+sidebarTitle: "APIG-20: Accountability"
+description: "APIG uses typed relationship edges to model supervision, oversight, appointment, and instruction. Downstream accountability provides context without transferring conduct across layers."
+---
+
+APIG-20 defines how APIG represents relationships between entities and how accountability flows through those relationships. Every edge has a specific type, and accountability is navigated without transferring conduct from one party to another.
+
+## Typed Relationships
+
+APIG never represents relationships as generic connections. Each edge has a specific type that determines how it should be interpreted. The four primary relationship types are:
+
+| Type | Meaning | Accountability Implication |
+| --- | --- | --- |
+| Supervision | Direct oversight of a person's work | Accountable for quality of oversight |
+| Oversight | Monitoring or review of a function or body | Accountable for the oversight process |
+| Appointment | Selecting someone for a role | Accountable for the selection decision |
+| Instruction | Directing someone to take a specific action | Accountable for the instruction given |
+
+Using untyped or generic relationships is prohibited. The type determines what accountability applies.
+
+## Downstream Accountability Without Conduct Transfer
+
+Knowing who appointed someone provides accountability context, but it does not mean the appointing authority committed or endorsed the subordinate's acts. APIG separates two ideas:
+
+- **Accountability for the relationship**: the appointing authority is accountable for the appointment decision and any oversight obligations that come with it
+- **Conduct of the subordinate**: the subordinate's independent actions remain their own
+
+<Note>
+  Downstream accountability shows structure. It does not assign blame for events that occurred after the relationship was formed.
+</Note>
+
+## Example Accountability Model
+
+APIG uses a layered accountability model. Consider this chain:
+
+```text
+County Chair → Board → Executive Director → Staff
+```
+
+Each layer is accountable for its own decisions, not automatically for those below:
+
+- The **county chair** is accountable for appointing the board and setting its mandate
+- The **board** is accountable for its governance decisions and for selecting the executive director
+- The **executive director** is accountable for operational leadership and for staff management practices
+- **Staff** are accountable for their own conduct and assigned duties
+
+A staff member's misconduct does not automatically implicate the executive director, the board, or the county chair. Each layer's accountability is evaluated based on its own decisions and obligations, not on the independent actions of those below.
+
+## Portable Entity Model
+
+The entity and relationship model is designed to work across jurisdictions. The same typed edges and accountability rules apply whether the entities are in a county, state, federal, or international context. This portability ensures consistency in how APIG represents organizations and their structures regardless of geographic or jurisdictional boundaries.
+
+## All Relationships Are Typed
+
+APIG never represents relationships as generic. Every edge in the system has a specific type, and that type governs:
+
+- How the relationship is displayed
+- What accountability it implies
+- How it can be queried and navigated
+- What inferences are permitted
+
+Untyped edges are rejected at ingestion. If a relationship type cannot be determined, the edge is held for classification rather than admitted as generic.

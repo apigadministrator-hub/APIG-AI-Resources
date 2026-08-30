@@ -1,0 +1,73 @@
+---
+title: "APIG-02: Core Architecture and Entity System"
+sidebarTitle: "APIG-02: Architecture"
+description: "APIG's core entity types, their relationships, multiple navigation paths, AI-assisted operations, and administrator approval requirements."
+---
+
+APIG is built around a structured entity system that connects jurisdictions, organizations, agencies, positions, people, documents, sources, meetings, events, claims, and relationships. This page describes the core architecture and how these entities interact within the system.
+
+## Core Entity Types
+
+APIG tracks the following entity types:
+
+<CardGroup cols={2}>
+  <Card title="Jurisdictions" icon="map">
+    Geographic and legal boundaries such as states, counties, and municipalities
+  </Card>
+
+  <Card title="Organizations" icon="building">
+    Entities including government bodies, agencies, and external groups
+  </Card>
+
+  <Card title="Agencies" icon="landmark">
+    Specific departments, bureaus, and offices within organizations
+  </Card>
+
+  <Card title="Positions" icon="id-card">
+    Defined roles and offices, tracked separately from the people who hold them
+  </Card>
+
+  <Card title="People" icon="user">
+    Individuals identified and resolved as unique entities
+  </Card>
+
+  <Card title="Documents" icon="file">
+    Public records, filings, reports, and other documentary evidence
+  </Card>
+
+  <Card title="Sources" icon="book">
+    Origins of information, including URLs, publications, and records
+  </Card>
+
+  <Card title="Meetings" icon="calendar">
+    Scheduled gatherings of public bodies with agendas and minutes
+  </Card>
+
+  <Card title="Events" icon="clock">
+    Occurrences with timestamps, including elections, appointments, and actions
+  </Card>
+
+  <Card title="Claims" icon="quote">
+    Statements or assertions with required source attribution
+  </Card>
+
+  <Card title="Relationships" icon="link">
+    Connections between entities, such as employment, membership, or reporting lines
+  </Card>
+</CardGroup>
+
+## Multiple Navigation Paths
+
+From any entity in APIG, you can navigate to related entities. This means you can start with a person and find their positions, agencies, and meetings, or start with a meeting and find the people, agencies, and documents connected to it. This web of connections is a core feature of the architecture.
+
+## AI-Assisted Operations
+
+AI researches, extracts, organizes, and connects information within the APIG system. AI can suggest new entities, identify relationships, and help populate fields. However, substantive changes and consequential actions require human approval.
+
+<Warning>
+  Administrator approval is required for consequential actions. AI suggestions are flagged for review before they are committed to the system.
+</Warning>
+
+## Scalability and Expansion
+
+The architecture is designed for scalability and jurisdictional expansion. New jurisdictions, agencies, and entity types can be added without redesigning the core system. This supports APIG's goal of starting with Illinois and Wayne County while remaining ready for broader coverage.

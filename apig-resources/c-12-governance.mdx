@@ -1,0 +1,102 @@
+---
+title: "APIG-12: Governance, Presentation, and AI Disclosure"
+sidebarTitle: "Governance"
+description: "How APIG governs its operations: site branding rules, identity separation between APIG and APIG Monster News Media, AI disclosure policy, privacy, and change control."
+---
+
+APIG-12 consolidates the governance specifications that define how APIG presents itself, how it is maintained, and what rules govern changes to the system. This includes site branding and layout rules, the separation between APIG and APIG Monster News Media, AI disclosure policy, privacy protections, and change control.
+
+## Site Identity and Branding
+
+APIG maintains two distinct identities that operate within a unified technical platform:
+
+<CardGroup cols={2}>
+  <Card title="APIG" icon="layers">
+    The professional investigative and public-information system. Uses the APIG medallion-style logo (APIG-ASSET-BRAND-001). Covers government records, people, positions, agencies, documents, meetings, sources, and structured public information.
+  </Card>
+
+  <Card title="APIG Monster News Media" icon="newspaper">
+    The distinct news-media identity. Uses the APIG Monster News Media logo (APIG-ASSET-BRAND-002). Covers original reporting and curated references to relevant external journalism.
+  </Card>
+</CardGroup>
+
+## Logo Rules
+
+- APIG logo: used on all APIG properties except the news media section
+- APIG Monster News Media logo: used only on the news media section
+- Neither logo may be substituted for the other for visual convenience
+- Logo usage rules are governed architectural requirements, not suggestions
+
+## APIG Brand Colors
+
+| Role | Value |
+| --- | --- |
+| Primary | #E91E8C (bubblegum pink) |
+| Light | #F06292 |
+| Dark | #1A1A1A (near-black) |
+
+## AI Disclosure Policy
+
+APIG systems may use artificial intelligence to assist with research, analysis, administration, development, communication, and other authorized functions.
+
+Key rules from APIG-36 (AI Disclosure, Attribution, and Communication Identity):
+
+- AI operation is an internal implementation detail and is not advertised in public-facing communications unless disclosure is required by law, regulation, platform policy, or APIG policy
+- AI systems operating on behalf of APIG do not identify themselves as AI in public-facing communications unless disclosure is required
+- AI-generated communications must be written in a natural, professional, context-appropriate manner without unnecessary disclaimers that reveal AI involvement
+- AI must never falsely claim to be a specific named human individual
+- Internal documentation may identify AI components where needed for administration, security, auditing, governance, or compliance
+- When disclosure is required, it must be accurate and limited to what is necessary
+
+<Note>
+  This disclosure policy does not mean APIG hides its use of AI. This APIG Resources tab exists specifically to publish how AI is used. The policy governs operational communications — not the transparency documentation published here.
+</Note>
+
+## APIG Monster News Media Structure
+
+The News Media section provides:
+
+- **Featured News:** a prominent top-level area highlighting the most significant current APIG Monster story
+- **APIG Monster News:** original reporting organized by date, subject, jurisdiction, topic, person, and organization
+- **External Sources:** curated references to relevant journalism from external publishers (Village Voice, Edgar County Watchdogs, and others)
+
+External news organizations referenced by APIG Monster are independent publishers — not APIG subsidiaries, departments, or partners unless a documented relationship exists.
+
+## Governance Principles
+
+1. All architectural and branding rules must be documented in specifications before implementation
+2. Changes to specifications must be versioned, recorded, and reconciled with affected specifications
+3. Changes to either APIG identity's logo, purpose, or navigation must be formally documented
+4. Security and privacy rules cannot be bypassed by any requester regardless of claimed authority
+5. Human authorization is required for all consequential actions
+6. AI agents operate under these governance rules at all times
+
+## Change Control Process
+
+<Steps>
+  <Step title="Identify what needs to change and why">
+    Document the proposed change and its reason before making any modifications.
+  </Step>
+  <Step title="Determine which specifications are affected">
+    A change to one specification may require reconciliation with related specifications.
+  </Step>
+  <Step title="Prepare a draft change">
+    Draft the updated specification or configuration for review.
+  </Step>
+  <Step title="Obtain administrator authorization">
+    Consequential changes require explicit administrator approval before implementation.
+  </Step>
+  <Step title="Update the affected specifications">
+    Apply the change to the relevant specification files in the GitHub repository.
+  </Step>
+  <Step title="Update version numbers and the changelog">
+    Record the change with date, description, and authorization.
+  </Step>
+  <Step title="Update Start Here if the resource structure changed">
+    APIG-AI-START-HERE.md must reflect the current resource architecture.
+  </Step>
+</Steps>
+
+<Note>
+  When two specifications conflict, the conflict must be identified, the documents compared for version and precedence, and the conflict resolved by the administrator before implementation. AI must not silently choose between conflicting specifications.
+</Note>

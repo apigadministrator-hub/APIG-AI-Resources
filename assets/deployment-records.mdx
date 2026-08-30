@@ -1,0 +1,41 @@
+---
+title: "APIG Deployment Records"
+sidebarTitle: "Deployment Records"
+description: "Historical records of every external deployment, configuration, or setup instruction APIG has issued, preserving exactly what was deployed and when."
+---
+
+Deployment records preserve the exact history of what was deployed on external platforms (Google Apps Script, webhooks, third-party services, and manual configuration instructions). They are the institutional memory of operational changes: if a script breaks, a webhook misfires, or a service needs to be rebuilt, these records tell you what was done, how it was done, and whether it worked.
+
+## What a Deployment Record Contains
+
+| Field | Description |
+| --- | --- |
+| Record ID | Unique identifier for this deployment record. |
+| Date | When the deployment or configuration occurred. |
+| Platform | Where it was deployed (Google Apps Script, Mintlify, GitHub, etc.). |
+| Asset ID | Link to the related asset in the registry, if applicable. |
+| Purpose | Why this deployment was made. |
+| Instructions Given | Exact steps or commands issued, including any manual instructions. |
+| Code or Configuration Supplied | The actual code, JSON, YAML, or settings that were applied. |
+| Result | Success, partial success, failure, or unknown. |
+| Errors Encountered | Any errors, warnings, or deviations from expected behavior. |
+| Current Status | Whether the deployment is active, superseded, or retired. |
+| Superseded By | Record ID of the newer deployment that replaced this one, if any. |
+| Notes | Additional context, links, or caveats. |
+
+## Three-Way Distinction
+
+| Type | Purpose | Example |
+| --- | --- | --- |
+| Specification | What APIG is supposed to do | APIG-14 AI Operations |
+| Deployment Record | What was actually deployed and how | Google Apps Script deployed 2026-08-30 |
+| Asset Registry | What currently exists and its status | APIG-ASSET-SCRP-001 |
+
+<Note>
+  If you gave a human exact code to paste into a service, preserve it here. A deployment record is only useful if it contains the actual instructions and artifacts, not just a vague summary of what was supposed to happen.
+</Note>
+
+## Deployment Records Log
+
+| Record ID | Date | Platform | Purpose | Asset ID | Status |
+| --- | --- | --- | --- | --- | --- |

@@ -1,0 +1,35 @@
+---
+title: "APIG Integration Registry"
+sidebarTitle: "Integrations"
+description: "Registry of APIs, third-party services, and platform integrations used by APIG, with endpoint references, authentication type, and connected asset mapping."
+---
+
+The integration registry documents every connection between APIG systems and external platforms. Before integrating a new service, check this registry to determine whether an existing integration already covers the need.
+
+## Integration record fields
+
+| Field | Description |
+| --- | --- |
+| Asset ID | Unique identifier for this integration asset |
+| Name | Human-readable name for the integration |
+| Provider | The external service or platform |
+| Integration Type | API, OAuth, Webhook, or Service Connector |
+| Purpose | What APIG uses this integration for |
+| Endpoint or Base URL | The public API endpoint or base URL |
+| Authentication Method | Type only (for example, API Key, OAuth 2.0, Webhook Secret) |
+| Connected Assets | Related APIG asset IDs |
+| Status | Active, Inactive, Pending, or Archived |
+
+## Registered integrations
+
+| Asset ID | Name | Provider | Integration Type | Purpose | Endpoint or Base URL | Authentication Method | Connected Assets | Status |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| APIG-ASSET-INT-000 | Placeholder | Example Provider | API | Placeholder format | [https://api.example.com](https://api.example.com) | API Key | APIG-ASSET-ACCT-000 | Pending |
+
+<Note>
+  Before creating a new integration, verify no existing integration serves the same purpose.
+</Note>
+
+<Warning>
+  Record only the authentication method type here (for example, API Key, OAuth 2.0, Webhook Secret). Store the actual credential in the secure credential management system.
+</Warning>

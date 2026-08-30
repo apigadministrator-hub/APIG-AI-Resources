@@ -1,0 +1,84 @@
+---
+title: "APIG-06: Organizations and Agencies"
+sidebarTitle: "APIG-06: Organizations"
+description: "How APIG models government and nongovernment organizations, including parent/child structures, org types, and historical relationships."
+---
+
+APIG-06 defines how the AP Investigative Group represents organizations and agencies within its knowledge model. This specification covers the full range of organizational types, from government bodies to civic groups, and establishes rules for tracking their structure, history, and relationships over time.
+
+## Organization Types
+
+APIG supports a broad taxonomy of organizational types. These are classified into government and nongovernment categories.
+
+<CardGroup cols={2}>
+  <Card title="Government Organizations" icon="landmark">
+    - Agencies
+    - Departments
+    - Offices
+    - Divisions
+    - Boards
+    - Commissions
+    - Authorities
+    - Special districts
+  </Card>
+
+  <Card title="Nongovernment Organizations" icon="users">
+    - Nonprofits
+    - Civic organizations
+    - Advocacy groups
+    - Community associations
+  </Card>
+</CardGroup>
+
+## Parent/Child Organizational Relationships
+
+Organizations in APIG are modeled with explicit hierarchical relationships. A parent organization may contain multiple child organizations, and those children may have their own subdivisions.
+
+<Steps>
+  <Step title="Define the parent organization">
+    Identify the top-level entity, such as a state department or a city government.
+  </Step>
+  <Step title="Map child organizations">
+    Link subordinate entities like divisions, offices, or boards under the parent.
+  </Step>
+  <Step title="Track relationship changes">
+    Record reorganizations, mergers, or splits that alter the hierarchy.
+  </Step>
+</Steps>
+
+<Note>
+  Parent/child relationships are time-bound. A division that moves from one department to another is tracked as a historical change, not a permanent reassignment.
+</Note>
+
+## Organizations vs. People
+
+An organization in APIG is never conflated with the people associated with it. The organization entity represents the institutional body itself, while person entities represent the individuals who occupy positions within it.
+
+| Entity | What It Represents |
+| --- | --- |
+| Organization | The institutional body (e.g., "County Board of Elections") |
+| Person | An individual human being |
+| Position | A role within an organization (e.g., "Board Chair") |
+
+<Warning>
+  Do not attribute organizational actions to individual persons unless the record explicitly links a specific occupant to the action through a position at the relevant time.
+</Warning>
+
+## Organizational History
+
+Organizations in APIG carry full historical records. These include founding dates, dissolution events, reorganizations, and name changes.
+
+<Accordion title="Historical Event Types">
+  - **Founding**: The date and context under which the organization was created.
+  - **Dissolution**: The termination of the organization, including legal basis if applicable.
+  - **Reorganization**: Structural changes such as mergers, splits, or department realignments.
+  - **Renaming**: Name changes, with preservation of the prior name as a historical alias.
+</Accordion>
+
+## Explicit Relationship Tracking
+
+Relationships between organizations are explicitly modeled rather than inferred. If two agencies share oversight responsibility or one appoints members to another, that relationship is recorded as a distinct edge in the graph.
+
+<Tip>
+  When modeling inter-organizational relationships, always specify the relationship type (e.g., "oversight," "funding," "appointment") and the time period during which it was active.
+</Tip>

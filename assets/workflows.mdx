@@ -1,0 +1,28 @@
+---
+title: "APIG Workflow Registry"
+sidebarTitle: "Workflows"
+description: "Registry of automated workflows in APIG, documenting triggers, step chains, tools, and operational status."
+---
+
+Workflows connect forms, webhooks, scripts, and external services into coherent, repeatable processes. This page serves as the canonical registry for every automated workflow APIG relies on, capturing how each process starts, what steps it follows, which tools it invokes, and whether it is currently operational.
+
+## Workflow Record Fields
+
+| Field | Description |
+| --- | --- |
+| Asset ID | Unique identifier for the workflow (e.g., APIG-ASSET-WF-001). |
+| Workflow Name | Human-readable name describing the process. |
+| Trigger | What starts the workflow (webhook, form submission, schedule, manual). |
+| Steps Summary | Ordered list of actions the workflow performs. |
+| Tools Used | External services, scripts, or integrations invoked. |
+| Status | Active, paused, deprecated, or broken. |
+| Notes | Any caveats, known issues, or context. |
+
+## Registered Workflows
+
+| Asset ID | Workflow Name | Trigger | Steps Summary | Tools Used | Status | Notes |
+| --- | --- | --- | --- | --- | --- | --- |
+
+<Note>
+  A workflow that exists only in memory is a single point of failure. If the person who built it leaves or forgets the details, the process vanishes. Every workflow should be registered here with enough detail that someone else can reconstruct or debug it.
+</Note>

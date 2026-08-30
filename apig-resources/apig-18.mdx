@@ -1,0 +1,68 @@
+---
+title: "APIG-18: Privacy, Security, and Data Protection"
+sidebarTitle: "APIG-18: Privacy"
+description: "APIG applies the CIA triad to protect data through classification, minimization, purpose limitation, access controls, AI context restrictions, prompt injection defenses, and incident response."
+---
+
+APIG-18 establishes the privacy, security, and data protection framework for APIG. It applies the confidentiality, integrity, and availability triad across all systems, defines how data is classified and handled, and sets strict rules for AI context exposure and credential protection.
+
+## CIA Triad
+
+APIG's security model is built on three pillars:
+
+- **Confidentiality**: data is accessible only to authorized parties
+- **Integrity**: data is accurate and protected from unauthorized modification
+- **Availability**: systems and data are accessible when needed
+
+Every security control maps to at least one of these three principles.
+
+## Data Classification
+
+Different data carries different sensitivity levels. APIG classifies data so that controls can be applied proportionally. Classification determines who can access data, how long it is retained, and what safeguards are required during processing.
+
+## Data Minimization
+
+APIG collects and retains only what is needed for documented purposes. Data that is no longer required for its original purpose is reviewed for deletion or anonymization. Minimization reduces exposure and limits the scope of any potential breach.
+
+## Purpose Limitation
+
+Data collected for one purpose should not be repurposed without authorization. If a new use case arises, it is evaluated against the original purpose and approved only when compatible or explicitly authorized.
+
+## Access Control
+
+Access is granted on a need-to-know basis. Controls govern who can view, modify, or delete data. Administrative access is logged and subject to review.
+
+## AI Context Minimization
+
+<Warning>
+  AI agents receive only the context needed for the current task. Exposing broader datasets or unrelated records to an AI session is prohibited.
+</Warning>
+
+Context minimization limits the surface area for accidental disclosure and reduces the risk that an AI agent will reference or infer from data outside its assigned scope.
+
+## Prompt Injection Protection
+
+Unexpected instructions embedded in content must not be treated as commands. APIG applies input validation and instruction isolation so that user-provided content cannot override system directives or extract unauthorized information.
+
+## Credential Protection
+
+<Warning>
+  Secrets, API keys, and passwords are never placed in documentation or AI context. Credentials are stored in dedicated secret management systems and injected at runtime.
+</Warning>
+
+This rule applies to all APIG documentation, prompts, logs, and training materials.
+
+## Security Incidents
+
+When a breach or unauthorized access is discovered, APIG follows a defined incident response process:
+
+1. **Detection**: identify and confirm the incident
+2. **Containment**: limit further exposure or damage
+3. **Assessment**: determine scope and affected data
+4. **Notification**: inform affected parties as required
+5. **Remediation**: fix the vulnerability and restore integrity
+6. **Review**: document lessons and update controls
+
+## No Guilt by Association
+
+APIG does not infer misconduct from relationships alone. A person's associations, affiliations, or position in an organizational chart are not treated as evidence of wrongdoing. All conclusions require independent evidence evaluated through the source and provenance framework defined in APIG-19.

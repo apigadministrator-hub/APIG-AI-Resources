@@ -1,0 +1,59 @@
+---
+title: "Illinois: APIG Jurisdiction Overview"
+sidebarTitle: "Illinois"
+description: "Illinois is the initial development state for APIG. The architecture established here applies to every Illinois county and scales to additional states."
+---
+
+Illinois is the starting jurisdiction for APIG development. The state provides the first implementation of the full APIG architecture, from state-level government down through counties, municipalities, agencies, and individual positions. This page explains why Illinois was selected as the initial jurisdiction and how the architecture scales from Illinois to additional states.
+
+## Why Illinois Is the Starting Jurisdiction
+
+APIG begins with Illinois for practical development reasons. The state has a well-documented government structure, accessible public records laws, and a county system that provides a clear template for the APIG hierarchy model. Starting with one state allows the team to validate the entity model, relationship tracking, and verification workflows before expanding.
+
+The Illinois implementation establishes:
+
+- State government structure and elected offices
+- The 102-county system and how counties relate to the state
+- County-level government, agency, and board patterns
+- Municipal structures within counties
+- Document and meeting tracking workflows
+- Source hierarchy and verification standards
+
+## Illinois County Structure
+
+Illinois contains 102 counties, each with its own government structure, elected officials, and agencies. APIG models each county as a distinct jurisdiction with relationships to the state, its municipalities, and its internal organizations.
+
+At the state level, APIG tracks:
+
+- Illinois state government branches and elected offices
+- State agencies and departments
+- State-level documents, statutes, and administrative rules
+- State board and commission structures
+- Relationships between state and county jurisdictions
+
+## State-to-County Relationships
+
+In APIG, Illinois and its counties are connected by documented relationships, not implied hierarchy. The state legislature may pass laws affecting counties. State agencies may oversee county operations. Counties may report data to state authorities. Each of these relationships is a distinct record with type, direction, source, and verification status.
+
+County governments are not sub-departments of the state. They are independent jurisdictions with their own elected leadership, operating under state law. APIG preserves this distinction in its relationship model.
+
+## Expansion from Illinois
+
+The architecture developed for Illinois is designed to scale to additional states without redesign. When APIG expands to a new state, the same entity types apply:
+
+- State record with government structure and agencies
+- County records with their documented internal structures
+- Municipal, agency, board, and authority organizations
+- Positions, people, documents, meetings, and sources
+
+Each new state requires its own authoritative source establishment. APIG does not assume that Indiana counties have the same structure as Illinois counties, or that Texas special districts operate like Illinois special districts. The architecture is portable. The data is jurisdiction-specific.
+
+<Warning>
+  All APIG information about Illinois must be established from authoritative sources. Do not assume county structures are identical across Illinois.
+</Warning>
+
+## Next Steps
+
+- Explore [Wayne County](/jurisdictions/wayne-county), the first fully developed Illinois county in APIG
+- Learn about the [APIG government hierarchy model](/hierarchy/overview)
+- Review how [states and counties](/hierarchy/states-and-counties) are structured in the system

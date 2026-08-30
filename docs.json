@@ -1,0 +1,262 @@
+{
+  "theme": "luma",
+  "name": "APIG",
+  "colors": {
+    "primary": "#E91E8C",
+    "light": "#F06292",
+    "dark": "#1A1A1A"
+  },
+  "logo": {
+    "light": "https://raw.githubusercontent.com/apigadministrator-hub/APIG-AI-Resources/main/APIG%20LOGO.png",
+    "dark": "https://raw.githubusercontent.com/apigadministrator-hub/APIG-AI-Resources/main/APIG%20LOGO.png"
+  },
+  "favicon": "https://raw.githubusercontent.com/apigadministrator-hub/APIG-AI-Resources/main/APIG%20LOGO.png",
+  "navbar": {
+    "links": []
+  },
+  "footer": {
+    "socials": {}
+  },
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "cursor",
+      "mcp"
+    ],
+    "display": "header"
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Overview",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "index",
+              "quickstart",
+              "access-and-roles"
+            ]
+          },
+          {
+            "group": "Core Concepts",
+            "pages": [
+              "concepts/what-is-apig",
+              "concepts/entity-model",
+              "concepts/relationships",
+              "concepts/provenance-and-verification"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Data Architecture",
+        "groups": [
+          {
+            "group": "Entities",
+            "pages": [
+              "data/overview",
+              "data/persons",
+              "data/positions",
+              "data/organizations",
+              "data/jurisdictions"
+            ]
+          },
+          {
+            "group": "Evidence",
+            "pages": [
+              "data/sources",
+              "data/documents",
+              "data/meetings",
+              "data/verification"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Government Hierarchy",
+        "groups": [
+          {
+            "group": "Hierarchy Model",
+            "pages": [
+              "hierarchy/overview",
+              "hierarchy/states-and-counties",
+              "hierarchy/agencies-and-offices",
+              "hierarchy/boards-and-authorities"
+            ]
+          },
+          {
+            "group": "Illinois",
+            "pages": [
+              "jurisdictions/illinois",
+              "jurisdictions/wayne-county"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "AI Operations",
+        "groups": [
+          {
+            "group": "How AI Works in APIG",
+            "pages": [
+              "ai/overview",
+              "concepts/ai-portability",
+              "ai/resource-navigation",
+              "ai/task-execution",
+              "ai/human-review"
+            ]
+          },
+          {
+            "group": "AI Procedures",
+            "pages": [
+              "ai/research",
+              "ai/extraction",
+              "ai/gap-analysis",
+              "ai/handoff"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "News Media",
+        "groups": [
+          {
+            "group": "APIG Monster News Media",
+            "pages": [
+              "news/overview",
+              "news/apig-monster-news",
+              "news/featured-news"
+            ]
+          },
+          {
+            "group": "External Sources",
+            "pages": [
+              "news/external-sources",
+              "news/village-voice",
+              "news/edgar-county-watchdogs"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "APIG Resources",
+        "groups": [
+          {
+            "group": "About This Library",
+            "pages": [
+              "apig-resources/index",
+              "apig-resources/start-here"
+            ]
+          },
+          {
+            "group": "System Foundation",
+            "pages": [
+              "apig-resources/c-01-mission",
+              "apig-resources/c-02-architecture",
+              "apig-resources/c-03-hierarchy"
+            ]
+          },
+          {
+            "group": "Entities and Data",
+            "pages": [
+              "apig-resources/c-04-people-positions-orgs",
+              "apig-resources/c-05-authority",
+              "apig-resources/c-06-sources",
+              "apig-resources/c-07-data-model"
+            ]
+          },
+          {
+            "group": "Operations and Governance",
+            "pages": [
+              "apig-resources/c-08-ai-operations",
+              "apig-resources/c-09-security",
+              "apig-resources/c-10-records",
+              "apig-resources/c-11-assets",
+              "apig-resources/c-12-governance"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "System Resources",
+        "hidden": true,
+        "groups": [
+          {
+            "group": "Asset Registry",
+            "pages": [
+              "resources/overview",
+              "resources/asset-index",
+              "resources/accounts",
+              "resources/domains",
+              "resources/hosting",
+              "resources/repositories"
+            ]
+          },
+          {
+            "group": "Integrations",
+            "pages": [
+              "resources/integrations",
+              "resources/forms",
+              "resources/webhooks",
+              "resources/scripts"
+            ]
+          },
+          {
+            "group": "Operations",
+            "pages": [
+              "resources/workflows",
+              "resources/deployment-records",
+              "resources/changelog"
+            ]
+          },
+          {
+            "group": "Specifications",
+            "pages": [
+              "resources/spec-index",
+              "resources/site-layout",
+              "resources/identity-separation"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Assets",
+        "hidden": true,
+        "groups": [
+          {
+            "group": "Asset Index",
+            "pages": [
+              "assets/index",
+              "assets/accounts",
+              "assets/domains",
+              "assets/hosting",
+              "assets/repositories",
+              "assets/brand"
+            ]
+          },
+          {
+            "group": "Integrations and Services",
+            "pages": [
+              "assets/integrations",
+              "assets/forms",
+              "assets/webhooks",
+              "assets/scripts"
+            ]
+          },
+          {
+            "group": "Operations",
+            "pages": [
+              "assets/workflows",
+              "assets/deployment-records",
+              "assets/changelog"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

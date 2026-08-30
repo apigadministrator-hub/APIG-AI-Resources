@@ -1,0 +1,60 @@
+---
+title: "Agencies and Offices in APIG"
+sidebarTitle: "Agencies and Offices"
+description: "Government agencies and offices are distinct APIG organizations with type classifications, position hierarchies, jurisdictions, documents, and meeting records."
+---
+
+Government agencies and offices are modeled as distinct organizations in APIG, each with its own type classification, position hierarchy, jurisdictional scope, documents, and meeting records. This page explains how APIG structures agencies and offices, and why they are treated as separate entities from the county government that contains them.
+
+## Agency Types
+
+APIG classifies agencies and offices by their function. Common types include:
+
+- **Sheriff's Department**: County-level law enforcement, typically led by an elected sheriff
+- **Police Department**: Municipal law enforcement, distinct from county sheriff operations
+- **Coroner's Office**: Death investigation and certification, typically led by an elected coroner
+- **Clerk's Office**: Record-keeping, elections administration, and official document management
+- **Treasurer's Office**: Tax collection, financial record-keeping, and disbursement
+- **Court**: Judicial bodies including circuit courts, appellate courts, and specialized courts
+
+Each agency type carries expectations about leadership structure, funding, and jurisdictional scope, but APIG records only the documented structure for each specific agency. AI must not assume every county has identical offices.
+
+## Agencies Are Separate from County Government
+
+In APIG, the county government and the agencies within it are distinct entities connected by relationships. The Wayne County Board does not "become" the Sheriff's Department. Rather, the county government contains or oversees the Sheriff's Department as a documented relationship.
+
+This separation matters because:
+
+- Agencies may have their own budgets, leadership selection methods, and operational independence
+- An agency head may be elected independently from the county board
+- Agencies may serve multiple jurisdictions or have overlapping service areas
+- Documents and meetings belong to the agency that produces them, not generically to the county
+
+## Courthouse Distinction
+
+APIG distinguishes between a courthouse as a physical building and the offices that operate within it. The building itself may be managed by one entity while multiple independent offices (clerk, court, treasurer, recorder) operate inside it. Each office is a separate organization with its own positions, documents, and meetings.
+
+## Elected vs. Appointed Office Heads
+
+Agency leadership structure varies. Some agency heads are elected (sheriff, coroner, clerk), while others are appointed by the county board or another authority. APIG records the actual selection method for each position from authoritative sources. The selection method is a relationship with its own provenance and verification status.
+
+## Evidence Requirements for Organizational Structure
+
+AI must not assume every county has the same offices or the same structure. The actual documented structure of each jurisdiction controls. Before recording an agency or office, AI must identify an authoritative source establishing:
+
+- The agency exists in that jurisdiction
+- Its official name and type
+- Its leadership structure and selection method
+- Its relationship to the county government and other entities
+
+When authoritative sources conflict or are unavailable, APIG records the status as Unknown or Conflicting rather than inventing a structure.
+
+<Warning>
+  AI must not assume identical county structures. Every agency, office, and position must be established from authoritative sources for that specific jurisdiction.
+</Warning>
+
+## Next Steps
+
+- Explore [boards and authorities](/hierarchy/boards-and-authorities) as a separate organizational category
+- Learn about the [entity model](/concepts/entity-model) connecting people, positions, and organizations
+- See how [relationships](/concepts/relationships) are tracked between entities

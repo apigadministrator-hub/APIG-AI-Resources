@@ -1,0 +1,77 @@
+---
+title: "What Is APIG and What Does It Do"
+sidebarTitle: "What Is APIG"
+description: "APIG is a persistent investigative information system connecting governments, agencies, people, documents, meetings, and relationships through structured data."
+---
+
+APIG (AP Investigative Group) is a persistent investigative information system designed to organize, research, document, analyze, and present publicly relevant information about governments, agencies, organizations, people, documents, meetings, public records, news, relationships, and evidence. Unlike temporary AI conversations or simple websites, APIG is built as a structured database with a website as its presentation layer, ensuring that every piece of information has a persistent identity, provenance, and verification status.
+
+## Mission
+
+APIG exists to make publicly relevant information easier to discover, understand, verify, connect, and preserve. The system connects people, organizations, positions, jurisdictions, documents, events, and sources while preserving the distinction between evidence and inference. This mission comes directly from the APIG-01 specification, section 23.
+
+## What APIG Is
+
+APIG is a structured information network with these defining characteristics:
+
+<CardGroup cols={2}>
+  <Card title="Persistent Database" icon="database">
+    People, positions, agencies, jurisdictions, documents, meetings, and relationships are stored as distinct persistent entities with unique IDs, provenance, and verification status.
+  </Card>
+
+  <Card title="Website as Presentation Layer" icon="globe">
+    The public website displays information from the structured database. Users browse relationships rather than reading flat pages.
+  </Card>
+
+  <Card title="Evidence-Based Research" icon="magnifying-glass">
+    Every claim in APIG is traceable to a source. The system preserves the distinction between what a source says and what the record concludes.
+  </Card>
+
+  <Card title="Built for Expansion" icon="expand">
+    The system starts with Illinois and Wayne County as the primary working example, but the architecture supports expansion to additional jurisdictions without fundamental redesign.
+  </Card>
+</CardGroup>
+
+## What APIG Is Not
+
+Understanding APIG requires understanding what it deliberately avoids:
+
+<Warning>
+  APIG is **not** a simple website. The website is a presentation layer over a structured database with persistent entity relationships, provenance, and verification status.
+</Warning>
+
+<Warning>
+  APIG is **not** a flat database. Records are connected through explicit, typed, directional relationships with provenance and verification status.
+</Warning>
+
+## Types of Entities Tracked
+
+APIG maintains distinct persistent entities for:
+
+| Entity Type | Description |
+| --- | --- |
+| **Person** | Individual people, distinct from their positions |
+| **Position** | Institutional roles (mayor, sheriff, board member) |
+| **Organization** | Government agencies, nonprofits, civic groups, boards |
+| **Jurisdiction** | Geographic and legal spheres of authority |
+| **Document** | Resolutions, ordinances, meeting minutes, reports |
+| **Meeting** | Public meetings with agendas, minutes, and actions |
+| **Source** | Origins of information with reliability assessments |
+| **Relationship** | Explicit connections between entities with type and direction |
+
+## Public-Interest Purpose
+
+APIG prioritizes information that can be supported by publicly available sources and records. The system preserves the distinction between what a source says and what APIG concludes from that source. When information cannot be established, "Unknown" is a valid and preferred value over invention.
+
+<Note>
+  A verified incomplete record is preferable to a complete-looking record containing guesses.
+</Note>
+
+## Core Architectural Principle
+
+The most important principle of APIG is that the website is a presentation layer over a structured database. This means:
+
+- Data exists independently of how it was discovered or who reported it
+- Relationships are stored as structured data, not just text on a page
+- Historical information is preserved, not overwritten when circumstances change
+- The system can expand to new jurisdictions without rebuilding the architecture

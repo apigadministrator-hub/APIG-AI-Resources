@@ -1,0 +1,176 @@
+---
+title: "Relationships Are First-Class Information in APIG"
+sidebarTitle: "Relationships"
+description: "Relationships between APIG entities have explicit types, direction, dates, provenance, and verification status. They are not incidental text."
+---
+
+In APIG, relationships are not merely text links or implied connections. They are first-class information objects with their own attributes: type, direction, dates, source, verification status, and scope. This means every significant connection between entities is explicitly documented, traceable, and reviewable. A relationship is not just a note that two things are connected; it is a structured record of how, when, and why they are connected.
+
+## Why Relationships Are First-Class
+
+When relationships are treated as incidental text, critical information is lost:
+
+- You cannot determine when a relationship began or ended
+- You cannot trace who reported the relationship or whether it was verified
+- You cannot distinguish "supervises" from "reports to"
+- You cannot preserve historical relationships when current ones change
+- You cannot detect conflicts between different sources about the same relationship
+
+By making relationships first-class objects, APIG preserves the full context of every connection.
+
+## Relationship Attributes
+
+Every important relationship in APIG carries structured metadata:
+
+| Attribute | Purpose |
+| --- | --- |
+| **Type** | What kind of relationship (occupies, supervises, belongs to, etc.) |
+| **Direction** | Which entity is the subject and which is the object |
+| **Start date** | When the relationship began |
+| **End date** | When the relationship ended (if applicable) |
+| **Source** | The document or record that establishes this relationship |
+| **Verification status** | Whether the relationship has been verified |
+| **Scope** | What the relationship applies to |
+| **Authority type** | For authority relationships, what kind of authority is involved |
+
+## Relationship Types
+
+APIG maintains a controlled vocabulary of relationship types organized into categories:
+
+**Authority relationships:**
+
+- Supervises
+- Appoints
+- Governs
+- Oversees
+- Regulates
+- Approves
+
+**Organizational relationships:**
+
+- Contains
+- Belongs to
+- Operates within
+- Affiliates with
+
+**Personnel relationships:**
+
+- Occupies
+- Employs
+- Formerly occupied
+- Serves on
+
+**Provenance relationships:**
+
+- Supports
+- Contradicts
+- Establishes
+- References
+
+## Direction Matters
+
+Relationship direction changes meaning. These are not equivalent:
+
+```text
+Person A → supervises → Person B
+```
+
+```text
+Person B → supervises → Person A
+```
+
+The first means Person A has supervisory authority over Person B. The second means the opposite. APIG preserves direction explicitly so that navigation and accountability tracing work correctly.
+
+Some relationships are symmetrical:
+
+```text
+Person A ↔ spouse of ↔ Person B
+```
+
+The data model preserves the distinction between directional and symmetrical relationships.
+
+## Temporal Relationships
+
+Relationships change over time, and APIG preserves the full timeline:
+
+```text
+Person A → occupies → County Sheriff
+            Period: 2020–2024
+            Status: Historical
+
+Person B → occupies → County Sheriff
+            Period: 2024–present
+            Status: Verified
+```
+
+When Person A left the position, the relationship was not deleted. It was marked as historical with an end date. This allows researchers to answer questions like "Who held this position in 2022?" and "What was the sequence of officeholders?"
+
+## Relationship Verification States
+
+Relationships support the same verification states as other APIG claims:
+
+| Status | When to Use |
+| --- | --- |
+| **Verified** | Multiple authoritative sources confirm the relationship |
+| **Partially Verified** | Some evidence exists but gaps remain |
+| **Unverified** | Claimed but not yet confirmed |
+| **Conflicting** | Different sources disagree about the relationship |
+| **Proposed** | Contributor suggestion awaiting review |
+| **Historical** | Relationship existed in the past |
+| **Unknown** | Cannot be determined from available evidence |
+
+## Derived vs Inferred Relationships
+
+Some relationships can be derived from other verified relationships:
+
+```text
+Person A → occupies → Executive Director Position
+Executive Director Position → supervises → Maintenance Position
+
+Therefore (derived):
+Person A → supervises → Maintenance Position
+```
+
+Derived relationships should be identifiable as derived. Inferred relationships must be marked as such and are not treated as verified facts.
+
+<Warning>
+  APIG must not infer relationships merely from job titles, seniority, physical proximity, shared organization, shared surname, political affiliation, or public reputation.
+</Warning>
+
+## Example Relationship Chains
+
+The power of APIG's relationship model becomes clear when tracing connections through multiple steps:
+
+### Upward accountability traversal
+
+```text
+Employee → supervised by → Executive Director
+Executive Director → overseen by → Board
+Board → appointed by → County Authority
+```
+
+### Downward authority traversal
+
+```text
+County Board Chair → Housing Authority Board → Executive Director → Staff Positions → Staff
+```
+
+### Lateral navigation
+
+```text
+Board Member → Other Board Members → Committees → Related Organizations
+```
+
+Each step in these chains is a distinct relationship with its own type, direction, and provenance. The chain provides context without creating unsupported claims.
+
+## Preserving Conflicts
+
+When sources disagree about a relationship, APIG does not silently choose one. Both relationships are preserved with their sources and marked as conflicting:
+
+```text
+Source A: Person A → supervises → Person B
+Source B: Person C → supervises → Person B
+Status: Conflicting (awaiting review)
+```
+
+This approach preserves transparency and allows administrators to evaluate the evidence before making a determination.

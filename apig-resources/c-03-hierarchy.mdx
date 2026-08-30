@@ -1,0 +1,61 @@
+---
+title: "APIG-03: Government and Jurisdiction Hierarchy"
+sidebarTitle: "Gov. Hierarchy"
+description: "How APIG represents the hierarchical structure of government: states, counties, cities, agencies, offices, special districts, and the relationships between them."
+---
+
+APIG-03 defines how the APIG system represents governmental and jurisdictional hierarchy. The hierarchy establishes the structural relationships between states, counties, municipalities, agencies, departments, offices, positions, and people. APIG begins with Illinois and Wayne County as its primary development jurisdiction.
+
+## Core Hierarchy
+
+```text
+State
+→ County
+  → City / Town / Village / Township
+    → Agency / Department / Office / Board / Authority
+      → Position
+        → Person
+```
+
+<Note>
+  Actual jurisdictions vary. APIG does not force every governmental structure into a single template. The documented structure of the relevant jurisdiction controls.
+</Note>
+
+## Jurisdictions vs Organizations
+
+A **jurisdiction** is a geographic or governmental unit with legal authority over a defined area. An **organization** is an entity that operates within or across jurisdictions. The distinction matters: a county is a jurisdiction; the county highway department is an organization operating within that jurisdiction. Both are tracked separately as distinct entity types.
+
+## Counties as the Working Unit
+
+APIG treats counties as the primary working unit for initial development. State-level information provides context and hierarchy. County-level information is where detailed tracking of agencies, positions, people, meetings, and documents occurs. Wayne County, Illinois is the primary development example and structural template.
+
+## Special Districts and Authorities
+
+Many governmental functions are handled by entities that cross or operate independently of county boundaries: housing authorities, school districts, water districts, fire protection districts, airport authorities, and similar entities. APIG tracks these as organizations with their own jurisdiction records, noting their geographic service area and their relationship to the appointing governmental authority.
+
+Example:
+
+```text
+Wayne County Housing Authority
+→ Jurisdiction: Wayne County (primary service area)
+→ Appointing Authority: County Board Chair
+→ Governing Authority: Housing Authority Board
+→ Executive: Executive Director
+→ Positions: Commissioner x5, Executive Director, Staff...
+```
+
+## Navigating the Hierarchy
+
+APIG provides breadcrumb navigation through the governmental hierarchy. A user viewing a position record can navigate upward to the agency, then to the county, then to the state. A user starting from the state can drill down to counties, then to agencies, then to positions and people.
+
+## Illinois as Initial Jurisdiction
+
+Illinois is the initial development state. Illinois contains 102 counties. Wayne County is the primary working example and structural template. The architecture is designed to expand to additional counties and states without fundamental redesign.
+
+## Expansion Principle
+
+Adding a new county requires: creating the county jurisdiction record, its agency and organization records, its position records, and populating person records and relationships. The underlying structure does not change. The same architecture applies to every county and state.
+
+<Tip>
+  The architecture is designed so that a second county can be added without rebuilding any system-level components. Only the county-specific records need to be created.
+</Tip>

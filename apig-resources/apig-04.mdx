@@ -1,0 +1,57 @@
+---
+title: "APIG-04: Person Identity and Resolution"
+sidebarTitle: "APIG-04: Person Identity"
+description: "How APIG identifies, resolves, and tracks persons separately from their positions, with source attribution and verification status."
+---
+
+APIG treats a Person as a unique entity, separate from Position and Organization. This page describes how APIG identifies individuals, resolves duplicate records, tracks positions held over time, and maintains source attribution and verification status for every person record.
+
+## Person as a Unique Entity
+
+A Person in APIG is not the same as a Position or an Organization. Each person receives a unique Person ID, and name components are stored separately to support accurate matching and display. This separation allows APIG to track one individual across multiple roles and affiliations over time.
+
+## Identity Resolution
+
+APIG resolves whether two records refer to the same person. This process compares name components, biographical details, source overlaps, and relationship patterns. When resolution is uncertain, the records remain separate and are flagged for further review.
+
+<Tip>
+  Identity resolution is an ongoing process. Records may be merged or split as new evidence becomes available.
+</Tip>
+
+## Multiple Positions
+
+A person may hold multiple positions simultaneously or sequentially. Because Person is separate from Position, APIG can represent this accurately without creating duplicate person records or conflating roles.
+
+## Source Attribution
+
+Every person record traces to its sources. This includes the origin of the name, biographical details, position history, and any claims or relationships. Source attribution is required, not optional.
+
+## Verification Status
+
+Each person record carries a verification status that reflects the confidence in the data:
+
+<CardGroup cols={2}>
+  <Card title="Verified" icon="check">
+    The information is confirmed by multiple independent sources or direct evidence
+  </Card>
+
+  <Card title="Unverified" icon="question">
+    The information comes from a single source or has not yet been independently confirmed
+  </Card>
+
+  <Card title="Disputed" icon="triangle-exclamation">
+    Conflicting sources exist, and the correct information is under review
+  </Card>
+
+  <Card title="Historical" icon="clock-rotate-left">
+    The record reflects past information that has been superseded by newer evidence
+  </Card>
+</CardGroup>
+
+## Privacy Protections
+
+Privacy protections apply to person records. APIG collects and publishes only publicly relevant information, and follows applicable privacy standards for sensitive data.
+
+## Audit Trail
+
+Changes to person records are tracked. This includes edits, merges, splits, verification status changes, and relationship updates. The audit trail supports accountability and allows errors to be identified and corrected.

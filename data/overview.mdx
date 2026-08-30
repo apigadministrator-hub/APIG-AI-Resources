@@ -1,0 +1,61 @@
+---
+title: "APIG Data Architecture Overview"
+sidebarTitle: "Overview"
+description: "APIG structures information as a connected graph of persistent entities: people, positions, organizations, jurisdictions, documents, sources, and relationships."
+---
+
+APIG is a persistent information system built around a connected graph of entities. Every person, position, organization, jurisdiction, document, meeting, and source exists as a distinct record with a stable identifier, provenance, and verification status. This architecture lets you navigate from any entry point to related facts without losing context or history.
+
+## How the graph model works
+
+The core structure follows a single chain:
+
+**Person → holds → Position → belongs to → Organization → operates within → Jurisdiction**
+
+Each arrow is a typed relationship with its own dates, source, and verification status. Because entities are separate, a person can hold multiple positions, a position can outlast its occupant, and an organization can serve multiple jurisdictions without creating duplicate records.
+
+<CardGroup cols={2}>
+  <Card title="Persons" icon="user" href="/data/persons">
+    Distinct persistent entities with stable IDs, separate from any positions or organizations they are connected to.
+  </Card>
+
+  <Card title="Positions" icon="briefcase" href="/data/positions">
+    Institutional roles that persist independently of the people who occupy them.
+  </Card>
+
+  <Card title="Organizations" icon="building" href="/data/organizations">
+    Governmental and nongovernmental bodies with type, hierarchy, and historical preservation.
+  </Card>
+
+  <Card title="Jurisdictions" icon="map" href="/data/jurisdictions">
+    Geographic or governmental areas of authority, distinct from the organizations operating within them.
+  </Card>
+
+  <Card title="Sources" icon="book-open" href="/data/sources">
+    First-class entities with type, reliability, and explicit relationships to the claims they support or contradict.
+  </Card>
+
+  <Card title="Documents" icon="file-text" href="/data/documents">
+    Discrete records that establish, describe, modify, or contradict entities and relationships.
+  </Card>
+
+  <Card title="Meetings" icon="calendar" href="/data/meetings">
+    Official or organizational business captured as entities with participants, agendas, minutes, and actions.
+  </Card>
+
+  <Card title="Verification" icon="shield-check" href="/data/verification">
+    Status assigned to entities, relationships, and claims so AI-generated information does not become authoritative without review.
+  </Card>
+</CardGroup>
+
+## Why persistence matters
+
+APIG is not a collection of temporary AI conversations. The database is the source of truth, and the website is a presentation layer over it. When an AI model is replaced, the new model reads the same persistent resources and continues from the documented state. Historical relationships are preserved rather than silently overwritten, and "Unknown" is a valid value instead of a gap to be filled with invention.
+
+## Key design principles
+
+- **Entity separation**: A person is not a position, a position is not an organization, and an organization is not a jurisdiction.
+- **Relationship history**: Every relationship carries start dates, end dates, sources, and verification status.
+- **Evidence first**: Significant claims are traceable to sources through a provenance graph.
+- **Verification at the field level**: A person record may be verified while a specific position relationship on that record remains unverified.
+- **No assumed continuity**: A previous officeholder is not automatically treated as current when evidence is missing.

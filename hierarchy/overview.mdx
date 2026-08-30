@@ -1,0 +1,59 @@
+---
+title: "APIG Government Hierarchy Model"
+sidebarTitle: "Overview"
+description: "APIG navigates government from state to county to municipality to agency to position to person, while preserving the actual documented structure of each jurisdiction."
+---
+
+APIG organizes government information as a persistent, navigable hierarchy. You can move from broad jurisdictions down to specific people, positions, and documents, or jump directly to any entity through search. This page explains the core hierarchy model and the multiple ways you can navigate government data in APIG.
+
+## Core Hierarchy
+
+APIG uses a general navigation model to structure government information. This is a guide for exploration, not an absolute rule. Actual government structures vary, and APIG preserves the documented structure of each jurisdiction rather than forcing data into a rigid template.
+
+```text
+STATE → COUNTY → MUNICIPALITY → AGENCY / ORGANIZATION → POSITION → PERSON
+```
+
+At each level, you can also access documents, meetings, sources, and relationships connected to that entity. The hierarchy helps you understand context. A sheriff is not just a person. They hold a position within a department that operates within a county that exists within a state.
+
+## Multiple Navigation Paths
+
+You do not need to follow the hierarchy from top to bottom. APIG supports several navigation approaches:
+
+- **Geographic**: Start at a state, drill into a county, then explore municipalities, agencies, and people
+- **Agency**: Start at an organization like the Wayne County Sheriff's Department and navigate to its positions and people
+- **Person**: Start at a person and follow their positions to the agencies and jurisdictions they serve
+- **Document**: Start at a document and navigate to the people, agencies, and jurisdictions it concerns
+- **News**: Start at a news article and navigate to the entities it references
+
+## Breadcrumb Navigation
+
+When you view any entity in APIG, you see breadcrumbs showing its place in the hierarchy. This helps you maintain context as you move between related entities.
+
+```text
+Home → Indiana → Wayne County → Coroner's Office → Coroner → John Smith
+```
+
+Breadcrumbs are generated from verified relationships, not assumed structures. If a position reports to multiple agencies or serves multiple jurisdictions, all valid paths may be shown with appropriate source attribution.
+
+## Search as an Alternative
+
+Search lets you bypass the hierarchy entirely. You can search for a person, agency, document, or meeting by name, keyword, or identifier. Search results include the entity type, jurisdiction, and verification status so you can quickly identify the correct result.
+
+<CardGroup cols={2}>
+  <Card title="States and Counties" icon="map" href="/hierarchy/states-and-counties">
+    Learn how APIG structures states as top-level jurisdictions and counties as working units containing government, agencies, and municipalities.
+  </Card>
+
+  <Card title="Agencies and Offices" icon="building" href="/hierarchy/agencies-and-offices">
+    Explore how APIG models government agencies and offices as distinct organizations with positions, documents, and meeting records.
+  </Card>
+
+  <Card title="Boards and Authorities" icon="users" href="/hierarchy/boards-and-authorities">
+    Understand how boards, commissions, and authorities are tracked as separate organizations with their own structures and appointment relationships.
+  </Card>
+
+  <Card title="Wayne County" icon="landmark" href="/jurisdictions/wayne-county">
+    See the primary working example for APIG county-level architecture.
+  </Card>
+</CardGroup>

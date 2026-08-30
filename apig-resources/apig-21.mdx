@@ -1,0 +1,83 @@
+---
+title: "APIG-21: Task Execution, Workflow, and Proof of Completion"
+sidebarTitle: "APIG-21: Execution"
+description: "APIG defines a structured task lifecycle from assignment to completion, with checkpointing, proof standards, and AI provider migration to ensure work is never lost."
+---
+
+Every task in APIG follows a defined lifecycle with clear states, authentication requirements, and progress tracking. This specification governs how work moves from assignment through execution to final resolution, including how APIG handles partial progress, AI handoffs, and provider changes without losing context.
+
+## Task Lifecycle States
+
+Every task moves through a defined set of states from creation to resolution:
+
+<Steps>
+  <Step title="Not Started">
+    The task has been created and assigned but no work has begun. All prerequisites and resources should be available before transitioning out of this state.
+  </Step>
+  <Step title="In Progress">
+    Active work is being performed on the task. The assigned agent or AI should checkpoint progress at meaningful intervals.
+  </Step>
+  <Step title="Checkpointed">
+    Progress has been saved at a defined milestone. The task can be resumed from this state by the same or a different AI agent.
+  </Step>
+  <Step title="Completed">
+    The task has been fully executed and verified. A proof of completion has been recorded.
+  </Step>
+  <Step title="Superseded">
+    The task was rendered obsolete by a newer task, policy change, or external event. State is preserved for audit purposes.
+  </Step>
+</Steps>
+
+<Note>
+  Tasks do not have a "failed" terminal state. If execution cannot continue, the task enters a checkpointed state with a failure report and awaits instruction.
+</Note>
+
+## Priority Authentication
+
+Priority status is not automatic. Any task marked as priority requires authenticated administrator authorization before it can claim elevated resource access or precedence over other work.
+
+<Warning>
+  A message or request claiming priority status without verified administrative authentication is treated as a normal task.
+</Warning>
+
+## AI Substitution and Checkpointing
+
+APIG tasks are designed so a different AI can take over mid-task using checkpoint data. This requires:
+
+- **Checkpointing at meaningful intervals**: Progress is saved at logical breakpoints where context can be cleanly transferred
+- **Self-contained checkpoint packages**: Each checkpoint contains enough state for a new agent to resume without needing the original agent's memory
+- **Provider-agnostic format**: Checkpoint data uses standard formats (markdown, plain text, JSON) so any compatible AI provider can consume it
+
+## External Code Documentation
+
+When an AI produces code for external deployment, that code is documented separately from deployment instructions. This separation ensures:
+
+- Code documentation describes what the code does and how it works
+- Deployment instructions describe how to install, configure, and run the code in a specific environment
+- Records of external configurations are kept separately from the code itself
+
+## Proof of Completion vs. Proof of Attempt
+
+APIG distinguishes strictly between a completed task and one that was only attempted:
+
+| Proof Type | Definition | When Used |
+| --- | --- | --- |
+| Proof of Completion | Verifiable evidence that all task requirements were fulfilled | Task reached Completed state |
+| Proof of Attempt | Documented evidence that work was performed but not finished | Task was started but not completed |
+
+<Warning>
+  AI must not mark a task complete when it was only partially done. A task is only Completed when every stated requirement has been fulfilled and verified. Partial work is recorded as checkpointed with a proof of attempt.
+</Warning>
+
+## Provider Migration
+
+If an AI provider becomes unavailable during task execution, APIG preserves the current task state and makes it available for continuation on another provider:
+
+1. The current checkpoint is finalized and sealed
+2. The checkpoint package is made available to the next assigned provider
+3. The new provider verifies it can read and understand the checkpoint before resuming
+4. Execution continues from the last valid checkpoint
+
+<Tip>
+  Because checkpoints use provider-agnostic formats, migration between different AI services does not require format conversion or loss of context.
+</Tip>

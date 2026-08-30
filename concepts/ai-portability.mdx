@@ -1,0 +1,146 @@
+---
+title: "ai-portability"
+sidebarTitle: "AI Portability"
+description: "APIG is designed so any AI model can be replaced without losing institutional knowledge. The resource library, not the AI, is the persistent memory."
+---
+
+APIG is designed so that no critical architecture depends on a single AI model. AI providers may change, models may be replaced, conversations may be lost, and capabilities may evolve. The APIG resource library, not the AI, serves as the project's persistent institutional memory. Any future AI should be able to understand APIG by reviewing its documented resources, not by inheriting the memory of a previous AI conversation.
+
+## The Core Portability Principle
+
+The most important principle is simple: APIG must not depend on the memory of any particular AI model. This means:
+
+- Specifications, procedures, and deployment records exist in persistent files
+- Task states are documented independently of any AI's temporary context
+- The resource library is the source of institutional continuity
+- The AI model is the worker; the resource library is the memory
+
+<Warning>
+  If information is important enough that a future AI needs it, it belongs in persistent APIG resources, not in a conversation.
+</Warning>
+
+## What Happens When AI Is Replaced
+
+When a different AI model takes over APIG operations, the replacement should be able to continue seamlessly:
+
+<Steps>
+  <Step title="Read the Start Here document">
+    The new AI begins with `APIG-AI-START-HERE.md` to understand the resource structure and navigation rules.
+  </Step>
+  <Step title="Identify the current task">
+    The AI reviews persistent task records to determine what work is in progress, what has been completed, and what remains.
+  </Step>
+  <Step title="Read relevant specifications">
+    The AI consults only the specifications and resources relevant to the current task, not the entire library.
+  </Step>
+  <Step title="Review current implementation">
+    The AI checks deployment records, code records, and current state documentation to understand what has been built and configured.
+  </Step>
+  <Step title="Continue from documented state">
+    The AI proceeds with the task using the documented state as its starting point, without depending on a previous AI's undocumented assumptions.
+  </Step>
+</Steps>
+
+## What Persistent Knowledge Looks Like
+
+APIG's institutional memory is stored in structured, machine-readable resources:
+
+| Resource Type | Purpose | Example |
+| --- | --- | --- |
+| **Specifications** | How APIG is designed to work | APIG-01 Mission, APIG-11 Entity Model |
+| **Procedures** | How specific tasks should be performed | Research workflows, verification steps |
+| **Deployment Records** | What was actually configured or deployed | Google Apps Script deployment, Tally form setup |
+| **Code Records** | Documentation of implemented code | Integration scripts, automation logic |
+| **Task State** | Current status of ongoing work | Task ID, completed steps, next action |
+| **Change History** | What changed, when, and why | Specification updates, architecture decisions |
+
+<Tip>
+  If information is important enough that a future AI needs it, it belongs in persistent APIG resources — not in a conversation.
+</Tip>
+
+## The AI Handoff Standard
+
+When one AI hands work to another, the transfer must include enough information for the receiving AI to continue without requiring the outgoing AI to explain verbally. A proper handoff package includes:
+
+- Task ID and objective
+- Current status and completed work
+- Remaining work and known blockers
+- Relevant resources and specifications consulted
+- Constraints and important decisions made
+- Known errors or issues
+- Recommended next action
+
+This handoff standard ensures that task continuity does not depend on any single AI model remaining available.
+
+## Provider-Neutral Language Requirement
+
+Core APIG specifications avoid depending on proprietary internal memory or undocumented behavior of one AI provider. The resource structure should remain usable if APIG changes between providers such as OpenAI, Google, Anthropic, or open-source models. Provider-specific implementation details are isolated in appropriate documentation rather than embedded in core architectural specifications.
+
+## The Continuity Test
+
+APIG should periodically verify that a new AI can:
+
+1. Find the Start Here document (`APIG-AI-START-HERE.md`)
+2. Understand the resource hierarchy and folder structure
+3. Locate relevant specifications for a given task
+4. Identify current task state and outstanding work
+5. Continue work from the documented state without requiring conversation memory
+
+If any of these steps fails, the gap should be addressed by improving the persistent documentation rather than relying on a particular AI's memory.
+
+## Why This Matters
+
+Without portability, APIG would face these risks:
+
+- **Provider changes:** If the current AI provider becomes unavailable, expensive, or unsuitable, switching would require rebuilding institutional knowledge
+- **Model updates:** New models with different capabilities should be able to participate without retraining on APIG-specific context
+- **Conversation loss:** Temporary AI sessions may end unexpectedly; work must survive these interruptions
+- **Cost management:** Free or lower-cost models should be usable for appropriate tasks without losing system understanding
+- **Auditability:** Persistent records allow humans to review what was done, why, and on what authority
+
+## Resource Hierarchy for AI Navigation
+
+The APIG resource library is organized so that an AI can navigate it systematically:
+
+```text
+APIG-AI-START-HERE.md (root navigation)
+├── Specifications/          (how APIG is designed)
+├── AI Operations/           (how AI should behave)
+├── Task Types/              (procedures for recurring tasks)
+├── Deployment Records/      (what was configured)
+├── Code Records/            (what was implemented)
+├── Data Architecture/       (database structures)
+├── Research Procedures/     (research methods)
+├── Source & Evidence/       (source evaluation rules)
+├── Website/                 (website architecture)
+├── Database/                (database operations)
+├── Newsroom/                (news operations)
+├── FOIA/                    (public records workflows)
+└── Archives/                (historical resources)
+```
+
+When an AI receives a task, it should follow this hierarchy: Start Here → identify relevant folder → read applicable spec → perform task → record result.
+
+## AI Model Replacement Procedure
+
+<Steps>
+  <Step title="New AI reads Start Here">
+    The replacement AI begins with the root document to understand the resource architecture.
+  </Step>
+  <Step title="Identify relevant resource category">
+    Based on the task, the AI determines which folder contains the applicable rules (Specifications, AI Operations, Task Types, etc.).
+  </Step>
+  <Step title="Read applicable specifications">
+    The AI reads only the resources needed for the task, not the entire library.
+  </Step>
+  <Step title="Review current task state">
+    The AI checks task records, checkpoints, and deployment records to understand what has been done.
+  </Step>
+  <Step title="Continue work">
+    The AI proceeds from the documented state, recording its actions and preserving task continuity.
+  </Step>
+</Steps>
+
+<Note>
+  A replacement AI should not assume that a previous AI's memory is available, and should not treat a previous AI's undocumented assumptions as authoritative.
+</Note>

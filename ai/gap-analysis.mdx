@@ -1,0 +1,45 @@
+---
+title: "AI Gap Analysis and Audit Functions"
+sidebarTitle: "Gap Analysis"
+description: "APIG uses AI to identify missing entities, unsupported claims, stale records, broken relationships, and conflicting sources that require administrator attention."
+---
+
+Gap analysis is how APIG maintains the integrity of its information over time. An AI agent reviewing the database can identify positions without current holders, relationships without sources, claims with expired verification dates, duplicate records that may represent the same entity, and structural inconsistencies between how different parts of the system represent the same information.
+
+## Types of Gaps AI Should Identify
+
+AI agents should flag the following categories of gaps:
+
+- Positions with no documented current holder
+- Positions or organizations with no source establishing their existence
+- Relationships with no provenance
+- Verification dates that have expired for time-sensitive records
+- Possible duplicate entities with similar names
+- Conflicting organizational structures
+- Organizations known to exist in a jurisdiction but not yet recorded
+- Claims marked Proposed that have not been reviewed
+
+## How Gap Reports Are Structured
+
+Each gap report includes the following:
+
+- Gap type
+- Affected entity or record ID
+- Description of what is missing or inconsistent
+- Suggested resolution (if any)
+- Priority level
+- Date identified
+
+Gap reports are stored separately from verified records. They are research tasks, not assertions of fact.
+
+## Gap vs Error
+
+A gap is a known unknown. It is not necessarily a defect requiring immediate correction. Some gaps may be acceptable because information is genuinely unavailable. Others may indicate research tasks. Gap reports are distinguishable from verified records and should be treated as actionable research items rather than system failures.
+
+## Escalation
+
+When a gap affects a consequential decision or a high-priority record, flag for administrator review rather than silently noting it. A missing source for a published relationship is more urgent than a missing source for a draft record.
+
+<Tip>
+  A gap report is a research agenda, not a list of failures. Identifying what is missing is the first step to finding it.
+</Tip>

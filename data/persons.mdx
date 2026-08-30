@@ -1,0 +1,93 @@
+---
+title: "Person Identity and Profile Model"
+sidebarTitle: "Persons"
+description: "APIG represents each person as a distinct persistent entity with a stable ID, separate from any positions they hold or organizations they belong to."
+---
+
+APIG treats every person as a distinct, persistent entity with a unique internal identifier. A person is not the same thing as their position, their organization, or any jurisdiction they are connected to. This separation allows APIG to preserve historical roles, support multiple simultaneous positions, and prevent false identity merges.
+
+## Person record fields
+
+A person record may include the following fields, populated only when supported by appropriate evidence:
+
+- **Person ID**: a unique, stable internal identifier that does not change when the person changes jobs, names, or organizations.
+- **Full legal or publicly documented name**
+- **Preferred public name**
+- **First name, middle name, last name, suffix, prefix**
+- **Known aliases and previous names**
+- **Position relationships** (current and historical)
+- **Organization relationships** (employment, membership, board service)
+- **Jurisdiction relationships**
+- **Contact information** (only where legally and publicly available)
+- **Source records**
+- **Verification status per field**
+- **Historical information**
+- **Record creation and modification dates**
+
+Only fields supported by appropriate evidence should be populated as verified information. If a field cannot be established, it remains explicitly unknown.
+
+## Identity resolution
+
+Same name does not mean same person. APIG must distinguish identity through corroborating information rather than automatic merging. When evaluating whether two records represent the same individual, the system compares:
+
+- Name, middle name or initial, and suffix
+- Organization and position
+- Jurisdiction
+- Career, election, and appointment history
+- Other reliable identifying information
+
+No single matching field should automatically determine identity in ambiguous cases. If identity cannot be established confidently, the records should remain separate and flagged for review.
+
+## False merge prevention
+
+Two individuals named John Smith may both work in government. If one is a city council member and the other is a county employee, APIG must not assume they are the same person. When identity is uncertain, the system preserves separate records rather than risking an incorrect merge.
+
+## Multiple and historical positions
+
+A person may hold multiple positions at the same time. Each relationship is represented separately with its own organization, start date, end date, status, source, and verification status. Historical positions are never overwritten when a person changes roles. For example:
+
+```text
+PERSON: John R. Smith (APIG-PERSON-000001)
+
+CURRENT POSITION
+  Position: Wayne County Coroner
+  Organization: Wayne County Coroner's Office
+  Jurisdiction: Wayne County, Indiana
+  Status: Verified
+  Last Verified: 2026-08-30
+  Source: Official government directory
+
+HISTORICAL POSITION
+  Position: Deputy Coroner
+  Organization: Wayne County Coroner's Office
+  Period: 2019–2023
+  Status: Historical
+  Source: Official meeting minutes
+```
+
+## Vacancy handling
+
+If a person leaves a position and no successor has been verified, the position remains active while its occupant is marked **Unknown**. This is preferable to inventing a successor. The system does not assume that a previous officeholder continues in the role merely because no replacement has been found.
+
+## Verification at the field level
+
+A person record may be verified while a particular relationship involving that person is not. For example, the person identity may be verified while their current position remains unverified. The system allows verification at the appropriate level rather than treating the entire record as automatically verified.
+
+<Warning>
+  AI must never create unsupported information merely to complete a profile. The system must not invent middle names, birth dates, addresses, employment history, family relationships, positions, education, credentials, contact information, or political affiliations. If information is unknown, it should remain unknown.
+</Warning>
+
+## Core person relationships
+
+The person model supports relationships including:
+
+- Holds position / formerly held position
+- Appointed to / elected to
+- Employed by / member of
+- Serves on / chairs
+- Reports to / supervises
+- Represents / associated with
+- Mentioned in / appears in / quoted in
+- Verified by source
+
+Each relationship is a first-class record with its own type, direction, dates, source, and verification status.

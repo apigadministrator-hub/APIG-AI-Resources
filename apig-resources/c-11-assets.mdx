@@ -1,0 +1,73 @@
+---
+title: "APIG-11: Asset Tracking and Management"
+sidebarTitle: "Asset Tracking"
+description: "How APIG tracks its operational assets: accounts, domains, hosting, repositories, integrations, brand assets, and other resources using a centralized machine-readable registry."
+---
+
+APIG-11 defines the asset tracking and management system for APIG operational resources. The asset registry is a centralized, machine-readable record of every account, service, domain, repository, integration, brand asset, and other operational resource that APIG uses. AI agents must check the registry before creating new assets.
+
+## Why the Registry Exists
+
+Without a registry, AI agents and administrators repeatedly recreate or duplicate assets because they do not know what already exists. The registry prevents that. It provides a single source of truth about what APIG owns, what it uses, how assets relate to each other, and what the current status of each asset is.
+
+## Registry Principles
+
+1. **Check before creating:** AI must check the asset registry before creating any new account, service, domain, integration, or other resource
+2. **No secrets in the registry:** The asset registry never contains passwords, API keys, tokens, or credentials of any kind
+3. **Relationships tracked:** Assets may depend on or connect to other assets — these relationships are recorded
+4. **Human authorization required:** Creating accounts, spending money, entering contracts, and other consequential asset actions require administrator authorization
+5. **Status tracked:** Every asset has a status (Active, Inactive, Unknown, Deprecated, Archived)
+
+## Asset ID Format
+
+```text
+APIG-ASSET-[TYPE]-[NUMBER]
+
+Types:
+ACCT      Account (GitHub, Google, Mintlify, etc.)
+HOST      Hosting service
+REPO      Code repository
+BRAND     Brand asset (logo, favicon, color palette)
+DOMAIN    Domain name
+INTG      Integration (webhook, form, API connection)
+FORM      Data collection form
+WEBHOOK   Webhook endpoint
+SCRIPT    Deployed script or automation
+WORKFLOW  Defined automation workflow
+```
+
+## Asset Record Fields
+
+| Field | Description |
+| --- | --- |
+| Asset ID | Permanent APIG-ASSET-\[TYPE\]-\[NUMBER\] identifier |
+| Name | Human-readable name |
+| Type | Category (see types above) |
+| Status | Active, Inactive, Unknown, Deprecated, Archived |
+| Owner/Provider | The platform or service provider |
+| Purpose | What this asset is used for |
+| Created | Date created or first registered |
+| Last Verified | Date status was last confirmed |
+| Related Assets | IDs of assets this one depends on or connects to |
+| Notes | Additional context |
+| Authorized By | Who authorized creation or registration |
+
+<Warning>
+  The asset registry must never contain passwords, API keys, access tokens, private keys, secrets, or any credential of any kind. Credentials belong in a secure credential manager, not in documentation.
+</Warning>
+
+## Currently Registered Assets
+
+| Asset ID | Name | Type | Status |
+| --- | --- | --- | --- |
+| APIG-ASSET-ACCT-001 | GitHub (apigadministrator-hub) | Account | Active |
+| APIG-ASSET-ACCT-002 | Google Workspace | Account | Unknown (to be verified) |
+| APIG-ASSET-ACCT-003 | Mintlify | Account | Active |
+| APIG-ASSET-HOST-001 | Mintlify Documentation Site | Hosting | Active |
+| APIG-ASSET-REPO-001 | APIG-AI-Resources | Repository | Active |
+| APIG-ASSET-BRAND-001 | APIG Logo | Brand Asset | Active |
+| APIG-ASSET-BRAND-002 | APIG Monster News Media Logo | Brand Asset | Active |
+
+## Asset Relationships
+
+Assets may relate to each other. APIG-ASSET-HOST-001 (Mintlify Documentation Site) depends on APIG-ASSET-ACCT-003 (Mintlify account). APIG-ASSET-REPO-001 (APIG-AI-Resources) is hosted under APIG-ASSET-ACCT-001 (GitHub account). Asset relationships help AI and administrators understand the impact of changes — if an account is deactivated, the hosted assets that depend on it are immediately identifiable.

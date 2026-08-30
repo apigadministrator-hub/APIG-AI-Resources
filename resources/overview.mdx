@@ -1,0 +1,94 @@
+---
+title: "System Resources and Asset Registry Overview"
+sidebarTitle: "Overview"
+description: "APIG maintains a centralized machine-readable asset registry so AI agents and administrators can determine what exists, where it is, and how it connects — without repeatedly asking."
+---
+
+APIG operates a network of accounts, domains, hosting services, repositories, integrations, forms, webhooks, scripts, and workflows. The System Resources registry is the single source of truth for all of these operational assets. Both human administrators and AI agents use this registry to understand what APIG already has, where assets are located, and how they connect to one another.
+
+<Warning>
+  This registry never contains passwords, API keys, tokens, or authentication secrets. Asset records note that a credential is required and identify where an authorized operator can obtain it securely.
+</Warning>
+
+## Registry Principles
+
+The asset registry follows four core rules derived from APIG-34:
+
+<Steps>
+  <Step title="Registry before creation">
+    Before creating any new asset, AI agents and administrators must search this registry. Reuse existing assets when possible. Only create new assets when no suitable asset exists.
+  </Step>
+  <Step title="No secrets in the registry">
+    Asset records include a credential reference field that notes where to find a secret, not the secret itself. All credentials belong in a separate secure credential management system.
+  </Step>
+  <Step title="Asset relationships are tracked">
+    Assets are connected in chains. For example, a Tally form may trigger a webhook, which runs a Google Apps Script, which updates a workflow. These relationships are documented as part of each asset record.
+  </Step>
+  <Step title="Human authorization gates">
+    The registry does not grant AI authority to create accounts, spend money, enter contracts, or disclose protected information. AI may propose, document, and track assets. Consequential actions require human review and authorization.
+  </Step>
+</Steps>
+
+## Registry Sections
+
+<CardGroup cols={2}>
+  <Card title="Asset Index" icon="list" href="/resources/asset-index">
+    The master index of all APIG assets organized by type with status, location, and relationship references.
+  </Card>
+
+  <Card title="Accounts" icon="user-circle" href="/resources/accounts">
+    Service accounts, credentials references, and subscriptions used by APIG.
+  </Card>
+
+  <Card title="Domains" icon="globe" href="/resources/domains">
+    Domains owned or used by APIG with registrar, DNS, and hosting target tracking.
+  </Card>
+
+  <Card title="Hosting" icon="server" href="/resources/hosting">
+    Hosting services, infrastructure, databases, and deployed applications.
+  </Card>
+
+  <Card title="Repositories" icon="code" href="/resources/repositories">
+    GitHub and other code repositories with purpose, visibility, and deployment links.
+  </Card>
+
+  <Card title="Integrations" icon="plug" href="/resources/integrations">
+    APIs, third-party services, and platform connectors with endpoint references.
+  </Card>
+
+  <Card title="Forms" icon="form-input" href="/resources/forms">
+    Tally forms and other data collection forms with connected webhooks and destinations.
+  </Card>
+
+  <Card title="Webhooks" icon="webhook" href="/resources/webhooks">
+    Webhooks connecting forms, services, and automated workflows.
+  </Card>
+
+  <Card title="Scripts" icon="terminal" href="/resources/scripts">
+    Google Apps Scripts and other automation scripts deployed to external platforms.
+  </Card>
+
+  <Card title="Workflows" icon="workflow" href="/resources/workflows">
+    End-to-end operational workflows composed of multiple connected assets.
+  </Card>
+
+  <Card title="Deployment Records" icon="rocket" href="/resources/deployment-records">
+    Exact instructions, code, and configuration used when setting up external services.
+  </Card>
+
+  <Card title="Changelog" icon="clock" href="/resources/changelog">
+    Running record of material changes to APIG system resources and the asset registry.
+  </Card>
+</CardGroup>
+
+## How AI Uses This Registry
+
+When an AI agent is assigned a task that involves APIG infrastructure, it must:
+
+1. Read the relevant registry section to determine what already exists.
+2. Identify dependencies before proposing any modification.
+3. Reuse existing assets rather than creating duplicates.
+4. Update registry records when authorized to create or change an asset.
+5. Request human intervention when authorization or credentials are required.
+
+If an asset is missing from the registry, the AI must flag it and propose an update rather than assume the asset does not exist.

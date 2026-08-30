@@ -1,0 +1,108 @@
+---
+title: "APIG-34: Asset Tracking and Management"
+sidebarTitle: "APIG-34: Asset Registry"
+description: "APIG maintains a centralized asset registry for all accounts, services, domains, and brand assets. Records exclude secrets, and AI must check before creating new assets."
+---
+
+APIG-34 defines how APIG tracks and manages its complete inventory of digital and brand assets. Every account, service, domain, repository, integration, script, form, and brand asset is registered in a centralized system with standardized records and controlled lifecycle states.
+
+## Centralized Asset Registry
+
+All APIG assets are tracked in a single registry. There is no shadow inventory. If an asset exists, it is registered.
+
+Asset types in the registry include:
+
+- Accounts (service accounts, user accounts, API accounts)
+- Services (internal and external services, APIs, microservices)
+- Domains and subdomains
+- Repositories (code, documentation, data)
+- Integrations (third-party connections, webhooks, data feeds)
+- Scripts (automation, ETL, deployment)
+- Forms (data collection, intake, public submission)
+- Brand assets (logos, templates, style guides, approved imagery)
+
+## Asset Record Contents
+
+Every asset record contains the following fields:
+
+| Field | Description |
+| --- | --- |
+| **ID** | Unique identifier (e.g., `APIG-ASSET-SVC-042`) |
+| **Name** | Human-readable name |
+| **Type** | Asset category from the approved type list |
+| **Description** | Purpose and function of the asset |
+| **Purpose** | Documented business or operational reason for the asset's existence |
+| **Provider** | Organization or team responsible for the asset |
+| **URL** | Primary access point or location |
+| **Status** | Current lifecycle state |
+| **Relationships** | Links to dependent or integrated assets |
+
+## What Asset Records Must Never Contain
+
+Asset records must **never** contain:
+
+- Passwords
+- API keys
+- Secrets or tokens
+- Credentials of any kind
+
+<Warning>
+  Secrets belong in a dedicated secrets management system, never in the asset registry. An asset record may reference the secret store location by identifier, but the secret value itself must never appear in the registry.
+</Warning>
+
+## AI Asset Check Requirement
+
+Before requesting creation of a new account or service, AI must verify that an equivalent asset does not already exist.
+
+The check sequence is:
+
+1. Query the asset registry by name, type, and purpose
+2. Review existing assets with similar names or functions
+3. Confirm no duplicate or overlapping asset exists
+4. If a suitable existing asset is found, use it instead of creating a new one
+5. If no equivalent exists, proceed with creation request
+
+<Tip>
+  Duplication of assets creates maintenance burden, security surface area, and confusion. The AI asset check is a mandatory gate, not a suggestion.
+</Tip>
+
+## Human Authorization for Consequential Actions
+
+Creating, modifying, or decommissioning assets requires human authorization. AI may prepare requests, document rationale, and identify dependencies, but a human must approve the action.
+
+Consequential actions include:
+
+- Creating new accounts or services
+- Modifying production asset configurations
+- Decommissioning or archiving active assets
+- Changing asset relationships that affect dependent systems
+- Registering new domains or subdomains
+
+## Asset Status Lifecycle
+
+Assets move through defined states:
+
+| Status | Meaning |
+| --- | --- |
+| **Active** | In production use |
+| **Inactive** | Registered but not currently in use |
+| **Pending** | Approved for creation but not yet deployed |
+| **Archived** | Retired from active use but retained for reference or compliance |
+| **Decommissioned** | Fully removed from service, with removal documented |
+
+Status transitions are logged with timestamp, authorizer, and reason.
+
+## Asset Relationships
+
+Assets may depend on or integrate with other assets. These relationships are tracked in the registry.
+
+Relationship types include:
+
+- **Depends on**: Asset A requires Asset B to function
+- **Integrates with**: Asset A exchanges data or control with Asset B
+- **Replaces**: Asset A supersedes Asset B (B should be decommissioned)
+- **Replicates**: Asset A is a copy or mirror of Asset B
+
+<Note>
+  Relationship data supports impact analysis. Before decommissioning an asset, review its dependents to avoid unintended outages.
+</Note>

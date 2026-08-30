@@ -1,0 +1,101 @@
+---
+title: "APIG-02: Core System Architecture and Navigation"
+sidebarTitle: "Architecture"
+description: "How APIG is structured as a system: primary information hierarchy, entity types, navigation paths, and the relationship between the database and the public presentation layer."
+---
+
+APIG-02 defines the core architecture of the APIG information system. It establishes the primary information hierarchy, the types of entities APIG tracks, how those entities relate to each other, how users navigate the system, and the principles that govern how information is organized and presented.
+
+## Architectural Objective
+
+APIG is a presentation layer over a structured database. Every significant entity — person, position, organization, jurisdiction, document, meeting, source, relationship — has a persistent identity, provenance, verification status, and history. The website presents this structured information in a navigable, human-readable form.
+
+```text
+DATABASE: Persistent entities with IDs, relationships, provenance, history
+    ↓
+PRESENTATION LAYER: The website renders database entities in human-readable form
+    ↓
+USER: Navigates relationships without seeing database structure
+```
+
+## Primary Information Hierarchy
+
+```text
+Jurisdiction (State / County / City / Municipality)
+→ Organization / Agency / Department
+  → Position / Office
+    → Person
+
+Every entity can connect to:
+→ Documents
+→ Meetings
+→ Sources and Claims
+→ Relationships
+→ News
+→ Events
+```
+
+## Entity Types
+
+| Entity | Description |
+| --- | --- |
+| Jurisdiction | Geographic or governmental unit (state, county, city, municipality) |
+| Organization | Government agency, department, board, authority, or non-governmental organization |
+| Position | A formal role or office that exists independently of its current occupant |
+| Person | An individual who may hold positions, appear in documents, attend meetings, or be referenced in news |
+| Document | A formal record (ordinance, resolution, meeting minutes, report, public filing) |
+| Meeting | A formal or public meeting with records, agenda, minutes, and participants |
+| Source | The origin of a piece of information, with provenance and verification status |
+| Relationship | An explicitly represented connection between any two entities |
+
+## Navigation Paths
+
+Users can enter from multiple starting points and navigate through relationships.
+
+**Person-first navigation:**
+
+```text
+Person → Position → Organization → Jurisdiction
+```
+
+**Geographic-first navigation:**
+
+```text
+State → County → Agency → Position → Person
+```
+
+**Document-first navigation:**
+
+```text
+Document → Organization → Position → Person
+```
+
+APIG supports breadcrumb navigation showing where the user is in the hierarchy and allowing backward movement at every level.
+
+## Claims and Verification
+
+A source may contain claims. A claim is a statement attributed to a source — it is not automatically a verified fact. Every important factual statement in APIG should be traceable to a source with a verification status:
+
+| Status | Meaning |
+| --- | --- |
+| Verified | Confirmed by authoritative independent sources |
+| Partially Verified | Some elements confirmed, others not |
+| Unverified | Not yet confirmed but not contradicted |
+| Conflicting | Multiple incompatible claims from different sources |
+| AI-generated | Produced by AI analysis — requires review before publication |
+| Historical | Previously accurate, may have changed |
+| Unknown | No information available |
+
+## Relationships Are First-Class Information
+
+Relationships in APIG are explicit entities with their own attributes: type, effective dates, source, verification status, and history. A relationship is not just a database join — it is a documented connection that can be navigated, sourced, verified, and historically preserved.
+
+Because relationships have dates and sources, APIG can answer: "Who supervised this person between 2019 and 2022?" or "What boards was this person connected to during this period?"
+
+## Public Interface Layers
+
+The APIG public interface presents information at multiple levels. Users do not need to understand the underlying database structure. Technical complexity remains behind the interface. Mobile accessibility is a requirement — important functions must work on a cell phone.
+
+## Separation of Functions
+
+APIG may contain multiple public-facing sections with different purposes: APIG investigative information, government and agency directory, people and organization profiles, documents, search, news, APIG Monster News Media, FOIA functions, and future community functions. Different sections may use different visual treatments while remaining part of the same underlying system.

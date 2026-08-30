@@ -1,0 +1,73 @@
+---
+title: "APIG Account Registry"
+sidebarTitle: "Accounts"
+description: "Registry of all external platform accounts used by APIG, including service provider, purpose, status, and administrative notes."
+---
+
+This page records every external platform account associated with APIG operations. Credentials are never stored here.
+
+## Account Record Fields
+
+| Field | Description |
+| --- | --- |
+| Asset ID | Unique APIG asset identifier (e.g., APIG-ASSET-ACCT-001). |
+| Service | External platform or provider name. |
+| Account Name/Handle | Username, organization name, or handle on the platform. |
+| Purpose | Brief description of what the account is used for. |
+| Status | Current asset status (Active, Inactive, Pending, Unknown, Deprecated, Archived). |
+| URL | Direct link to the account or organization page, if applicable. |
+| Administrator | Person or team responsible for the account. |
+| Notes | Additional operational details, plan tier, or restrictions. |
+| Credentials | Never stored in this registry. |
+
+## Registered Accounts
+
+### APIG-ASSET-ACCT-001
+
+| Field | Value |
+| --- | --- |
+| Asset ID | APIG-ASSET-ACCT-001 |
+| Service | GitHub |
+| Account Name/Handle | apigadministrator-hub |
+| Purpose | Source control and collaboration for APIG projects |
+| Status | Active |
+| URL | [https://github.com/apigadministrator-hub](https://github.com/apigadministrator-hub) |
+| Administrator | APIG Administrator |
+| Notes | Mintlify GitHub App installed |
+| Credentials | Not stored |
+
+### APIG-ASSET-ACCT-002
+
+| Field | Value |
+| --- | --- |
+| Asset ID | APIG-ASSET-ACCT-002 |
+| Service | Google Workspace |
+| Account Name/Handle | Unknown |
+| Purpose | APIG productivity and communication suite |
+| Status | Unknown |
+| URL | Unknown |
+| Administrator | Requires verification |
+| Notes | Details require administrator verification |
+| Credentials | Not stored |
+
+### APIG-ASSET-ACCT-003
+
+| Field | Value |
+| --- | --- |
+| Asset ID | APIG-ASSET-ACCT-003 |
+| Service | Mintlify |
+| Account Name/Handle | a-pig-monster |
+| Purpose | Documentation hosting and publication |
+| Status | Active |
+| URL | [https://a-pig-monster.mintlify.app](https://a-pig-monster.mintlify.app) |
+| Administrator | APIG Administrator |
+| Notes | Hobby plan |
+| Credentials | Not stored |
+
+<Warning>
+  Credentials are never stored in this registry. Passwords, API keys, tokens, and other secrets must be kept in a dedicated secrets manager with appropriate access controls.
+</Warning>
+
+<Note>
+  Always check the [Asset Registry](/assets) before creating a new account. Duplicate accounts create security risks and unnecessary costs.
+</Note>

@@ -1,0 +1,137 @@
+---
+title: "APIG-11: Entity, Relationship, and Data Model"
+sidebarTitle: "APIG-11: Data Model"
+description: "APIG's canonical entity types, typed relationship edges, temporal relationships, and the entity registry with merging requirements."
+---
+
+APIG-11 defines the canonical data model that underpins every investigation in the AP Investigative Group platform. This specification establishes the entity types, relationship edges, temporal tracking, and merging rules that keep the knowledge graph accurate and auditable.
+
+## Entity types
+
+APIG recognizes nine canonical entity types. Every record in the system is classified as one of the following:
+
+<CardGroup cols={3}>
+  <Card title="Person" icon="user">
+    Individual human beings, named or pseudonymous.
+  </Card>
+
+  <Card title="Organization" icon="building">
+    Companies, agencies, NGOs, political parties, and other structured groups.
+  </Card>
+
+  <Card title="Jurisdiction" icon="map-pin">
+    Geopolitical areas such as countries, states, provinces, or municipalities.
+  </Card>
+
+  <Card title="Position" icon="briefcase">
+    Roles or titles held within an organization (for example, "Chief Financial Officer").
+  </Card>
+
+  <Card title="Office" icon="landmark">
+    Institutional posts with formal authority, such as elected or appointed seats.
+  </Card>
+
+  <Card title="Event" icon="calendar">
+    Occurrences with a specific time and place, including meetings, hearings, and elections.
+  </Card>
+
+  <Card title="Document" icon="file-text">
+    Written materials, reports, filings, and published records.
+  </Card>
+
+  <Card title="Source" icon="book-open">
+    Origins of information, including publications, databases, and archives.
+  </Card>
+
+  <Card title="Claim" icon="message-square">
+    Assertions or allegations made about entities or relationships.
+  </Card>
+</CardGroup>
+
+Each entity receives a persistent unique ID at creation and is stored in the canonical entity registry. That ID never changes, even when the entity is merged or renamed.
+
+## Relationship types
+
+Relationships are typed edges that connect two entities. APIG supports a rich set of direct relationship types, including but not limited to:
+
+| Relationship | Description |
+| --- | --- |
+| Supervision | One entity directly oversees the work of another. |
+| Oversight | An entity monitors or regulates another entity's actions. |
+| Appointment | One entity formally selects another for a role or office. |
+| Instruction | One entity directs or commands another to act. |
+| Membership | An entity belongs to an organization or group. |
+| Authorship | An entity created or contributed to a document or source. |
+| Attendance | An entity was present at an event. |
+| Citation | One document or source references another. |
+
+<Note>
+  Relationship types are extensible. Investigators may propose new edge types, but each must be reviewed and approved before entering the canonical registry.
+</Note>
+
+## Temporal relationships
+
+Every relationship in APIG carries a start date and, when applicable, an end date. Historical relationships are preserved rather than overwritten. This means the graph can answer questions such as "Who supervised this office in 2019?" as easily as "Who supervises it now?"
+
+<Steps>
+  <Step title="Record the start date">
+    When a relationship is created, set the earliest known date it became active.
+  </Step>
+  <Step title="Record the end date when known">
+    If a relationship terminates, add the end date. The edge remains in the graph but is marked as historical.
+  </Step>
+  <Step title="Preserve the full timeline">
+    Do not delete or overwrite past relationships. Create a new edge for the current state.
+  </Step>
+</Steps>
+
+## Derived relationships
+
+Some connections are not recorded directly but are inferred from a chain of direct relationships. For example, if Person A appointed Person B, and Person B supervised Person C, the system can derive that Person A has an indirect appointment-supervision chain to Person C.
+
+<Warning>
+  Derived relationships are always labeled as inferred and carry a lower evidentiary weight than direct, sourced edges. They must not be presented as primary facts without supporting direct evidence.
+</Warning>
+
+## Graph traversal
+
+APIG stores all entities and relationships as a graph. Navigation moves along relationship edges, whether direct or derived. Queries can traverse multiple hops to reveal networks of influence, oversight, and accountability.
+
+<Tip>
+  When building queries, start from a known entity and follow edge types outward. Use temporal filters to restrict results to a specific date range.
+</Tip>
+
+## Entity merging
+
+Two entity records can be merged only when evidence supports that they represent the same real-world entity. Merging is irreversible and requires human authorization.
+
+<Steps>
+  <Step title="Collect evidence">
+    Gather documents, sources, or biometric data that demonstrate the two records refer to the same entity.
+  </Step>
+  <Step title="Submit a merge request">
+    Create a merge proposal in the entity registry, attaching all evidence.
+  </Step>
+  <Step title="Await human authorization">
+    An authorized reviewer must approve the merge before the records are combined.
+  </Step>
+</Steps>
+
+<Warning>
+  Automated merging is prohibited. AI agents may flag potential duplicates, but they cannot execute a merge without human approval.
+</Warning>
+
+## Canonical entity registry
+
+The registry is the single source of truth for every entity in APIG. Each entry contains:
+
+- Persistent unique ID
+- Canonical name and aliases
+- Entity type
+- Creation and last-modified timestamps
+- Links to all relationships (direct and derived)
+- Audit log of merges and corrections
+
+<Note>
+  The registry is designed to outlive any individual AI model or conversation. Persistent knowledge lives in the registry, not in transient chat sessions.
+</Note>

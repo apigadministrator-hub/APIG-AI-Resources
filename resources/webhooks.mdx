@@ -1,0 +1,30 @@
+---
+title: "APIG Webhook Registry"
+sidebarTitle: "Webhooks"
+description: "Registry of webhooks used by APIG to connect forms, services, and automated workflows, with source, trigger, destination, and connected script references."
+---
+
+The webhook registry documents every webhook endpoint used by APIG. Webhooks are typically the bridge between a user-facing form or external event and an internal processing script or workflow.
+
+## Webhook record fields
+
+| Field | Description |
+| --- | --- |
+| Asset ID | Unique identifier for this webhook asset |
+| Name | Human-readable name for the webhook |
+| Source Asset | The asset that triggers this webhook |
+| Trigger Event | The event that fires the webhook (for example, form submission) |
+| Destination Endpoint | Public endpoint reference only |
+| Connected Script or Workflow Asset | The asset that processes the webhook payload |
+| Status | Active, Inactive, Pending, or Archived |
+| Last Tested | Date the webhook was last verified to work |
+
+## Registered webhooks
+
+| Asset ID | Name | Source Asset | Trigger Event | Destination Endpoint | Connected Script or Workflow Asset | Status | Last Tested |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| APIG-ASSET-WHK-000 | Placeholder Webhook | APIG-ASSET-FRM-000 | Form submission | [https://hooks.example.com/endpoint](https://hooks.example.com/endpoint) | APIG-ASSET-SCR-000 | Pending | YYYY-MM-DD |
+
+<Warning>
+  Webhook endpoint URLs may contain sensitive path segments. Record at the appropriate level of detail. Store any associated secret in the credential management system, not here.
+</Warning>

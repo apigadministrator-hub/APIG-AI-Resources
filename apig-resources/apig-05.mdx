@@ -1,0 +1,58 @@
+---
+title: "APIG-05: Position and Office Model"
+sidebarTitle: "APIG-05: Positions"
+description: "How APIG tracks positions and offices as persistent entities separate from the people who hold them, with full historical occupant records."
+---
+
+APIG tracks a Position as a persistent entity, distinct from the person who currently holds it. This page describes the position and office model, including how APIG distinguishes between offices and positions, tracks occupancy over time, and maintains historical records as people enter and leave roles.
+
+## Position as a Persistent Entity
+
+A Position in APIG is not the same as the person currently holding it. The position persists even when vacant or between occupants. This design allows APIG to maintain a continuous history of who held a role, when they held it, and what transitions occurred.
+
+## Office vs. Position
+
+APIG distinguishes between an Office and a Position:
+
+- **Office**: The formal, often statutory role within an organization, such as "Mayor" or "County Clerk"
+- **Position**: The specific instance of that office within a jurisdiction or agency, tied to a timeline and occupant history
+
+This distinction supports tracking multiple positions of the same office type across different agencies or jurisdictions.
+
+## Position Types
+
+APIG categorizes positions by how they are filled:
+
+<CardGroup cols={3}>
+  <Card title="Election" icon="check-to-slot">
+    Filled by public election, with term limits and electoral cycles tracked
+  </Card>
+
+  <Card title="Appointment" icon="handshake">
+    Filled by appointment from another body or official, with appointing authority recorded
+  </Card>
+
+  <Card title="Employment" icon="briefcase">
+    Filled through hiring, with employment terms and reporting structure tracked
+  </Card>
+</CardGroup>
+
+## Vacancy vs. Unknown
+
+When no one is confirmed in a position, the state is unknown, not assumed vacant. APIG marks a position vacant only when a verified source confirms the position is empty, such as through a resignation, removal, or official vacancy declaration.
+
+<Warning>
+  If no one is confirmed in a position, the state is unknown. Do not assume vacancy from the absence of information.
+</Warning>
+
+## Historical Occupants
+
+Every position maintains a timeline of historical occupants. When a person takes or leaves a position, the event is recorded with a date and source. This creates a complete chronological record of who held the position and when.
+
+<Note>
+  When a person leaves a position, the position persists with its history. The departure is recorded as an event on the position timeline.
+</Note>
+
+## Evidence Requirement
+
+AI must not invent positions without evidence. Every position in APIG must be traceable to a verified source, such as a statute, organizational chart, official directory, or public record. Suggested positions are flagged for human review before they are added to the system.

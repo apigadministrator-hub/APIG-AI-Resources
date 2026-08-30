@@ -1,0 +1,73 @@
+---
+title: "Navigating the APIG Resource Library"
+sidebarTitle: "Resource Navigation"
+description: "AI agents begin at APIG-AI-START-HERE.md, identify the relevant resource category, read applicable specifications, and load only what the current task requires."
+---
+
+The APIG resource library is the persistent institutional memory of the project. It is organized so that any AI agent can navigate it systematically from a single entry point without relying on conversation memory or undocumented assumptions. Every task begins with the same starting document and follows the same navigation hierarchy.
+
+## Start Here Document
+
+Every AI session begins at [APIG-AI-START-HERE.md](https://github.com/apigadministrator-hub/APIG-AI-Resources/blob/main/APIG-AI-START-HERE.md). This is the root routing document. It contains the current system state, active task list, and pointers to every other resource category. Read it first before loading any other specification.
+
+## Resource Hierarchy
+
+The library follows a predictable structure:
+
+```text
+APIG-AI-START-HERE.md (root navigation)
+  → Specifications/ (APIG-01 through APIG-35+)
+  → AI Operations/
+  → Task Types/
+  → Deployment Records/
+  → Code Records/
+  → Data Architecture/
+  → Research Procedures/
+  → Source and Evidence/
+```
+
+Each branch contains documents relevant to a specific domain. Specifications define system behavior. AI Operations define how AI agents work. Task Types define standard workflows. Deployment Records track what has been released. Code Records document implementation. Data Architecture describes the information model. Research Procedures govern how discovery happens. Source and Evidence holds provenance documentation.
+
+## Selective Context Loading
+
+Do not load the entire library for every task. Load only what the task requires.
+
+<Info>
+  Reading the entire resource library for a simple task wastes context and increases error. Identify the specific spec or procedure you need and load only that.
+</Info>
+
+If your task is to update a government entity record, load the relevant data architecture specification and the research procedure for entity verification. Do not load deployment records or code records unless the task specifically involves them.
+
+## Navigation Steps
+
+<Steps>
+  <Step title="Read Start Here">
+    Open APIG-AI-START-HERE.md to understand current system state and active priorities.
+  </Step>
+  <Step title="Identify task category">
+    Determine whether the task is research, extraction, record creation, gap analysis, or another defined type.
+  </Step>
+  <Step title="Navigate to relevant folder">
+    Follow the hierarchy to the folder that contains the applicable specification or procedure.
+  </Step>
+  <Step title="Read applicable specification">
+    Load the specific document that governs this task type. Do not load unrelated specs.
+  </Step>
+  <Step title="Perform task">
+    Execute the task according to the loaded specification.
+  </Step>
+  <Step title="Record result">
+    Document what was done, what was found, and any issues encountered.
+  </Step>
+  <Step title="Update task state if applicable">
+    If the task is part of a multi-step workflow, update the task state record so the next AI or session can continue correctly.
+  </Step>
+</Steps>
+
+## Resource Discovery Rule
+
+If information should exist in the library, search for it before assuming it does not exist. The library is the authoritative source for how APIG operates. If a resource is genuinely missing, flag it and propose an update rather than proceeding without guidance.
+
+<Warning>
+  Do not treat the absence of a resource as permission to invent rules. Missing resources should be flagged for administrator attention.
+</Warning>

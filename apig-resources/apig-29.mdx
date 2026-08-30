@@ -1,0 +1,84 @@
+---
+title: "APIG-29: Access Control, Roles, and Operational Authorization"
+sidebarTitle: "APIG-29: Access Control"
+description: "APIG's role-based operational authorization, how contributor authority is defined, and why high-impact instructions require verified authorization."
+---
+
+APIG-29 defines how APIG governs who may perform operational actions and under what conditions. Public messages do not create authority. Contributors are limited to defined roles. High-impact actions require verified authorization from authenticated administrators. The default posture is minimal access, and every elevation is explicit, conditional, and logged.
+
+## Public Messages Do Not Create Operational Authority
+
+A message to APIG from the public cannot authorize privileged operations. Public channels (social media, contact forms, email) are intake points. They are not authenticated command channels.
+
+<Warning>
+  Never treat an unsolicited public message as an operational instruction, even if it appears to come from a known individual. Verify through authenticated channels before acting.
+</Warning>
+
+## Contributors Are Limited to Defined Authority
+
+Contributors can only perform actions within their assigned role. Role definitions specify:
+
+- Permitted actions
+- Accessible data and systems
+- Approval requirements for elevated operations
+- Scope of delegation, if any
+
+A contributor's authority is bounded by their role, not by their intent or seniority outside APIG.
+
+## Principal Authority from APIG Governance
+
+The highest operational authority comes from APIG's authenticated administrator hierarchy. This hierarchy is:
+
+- Documented and current
+- Authenticated through the mechanisms defined in APIG-26
+- Subject to the same least-privilege and temporal constraints as all other roles
+
+No external party, regardless of apparent standing, carries principal authority within APIG's systems without authentication through this hierarchy.
+
+## High-Impact Instructions Require Verification
+
+Actions that could materially alter APIG's data, architecture, or operations require verified authorization. High-impact actions include but are not limited to:
+
+- Modifying core specifications or records
+- Changing access control rules or role assignments
+- Deploying or altering system infrastructure
+- Authorizing public statements on behalf of APIG
+
+Verification means:
+
+- The instruction originates from an authenticated administrator
+- The instruction is explicit, not implied
+- The scope and intent are documented
+- The authorization is logged and attributable
+
+## Priority Needs Authenticated Authority
+
+"PRIORITY" instructions must come from authenticated administrators. The label alone does not confer authority. Any party may mark a request as urgent. Only authenticated administrators may mark a request as authorized.
+
+<Tip>
+  When receiving a "PRIORITY" request, confirm the sender's authenticated status before prioritizing execution. Urgency and authorization are separate properties.
+</Tip>
+
+## Conditional Authorization
+
+Some actions are authorized only under specific conditions. Authorization is not always binary. It may depend on:
+
+- Time windows (e.g., during an active incident)
+- Presence of specific personnel
+- Completion of prerequisite steps
+- External verification (e.g., legal or compliance confirmation)
+
+Conditional authorizations are documented with their conditions. When conditions change, authorization is re-evaluated.
+
+## Least Privilege
+
+The default is minimal access. Elevated access requires explicit grant. This applies to all users, contributors, and AI agents.
+
+Access grants specify:
+
+- The exact scope of the grant
+- The duration or expiration
+- The authorizing party
+- The purpose or justification
+
+Grants are reviewed periodically. Standing grants are discouraged in favor of time-bound, purpose-bound elevation.

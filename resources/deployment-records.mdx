@@ -1,0 +1,57 @@
+---
+title: "Deployment Records"
+sidebarTitle: "Deployment Records"
+description: "APIG deployment records preserve the exact instructions, code, and configuration provided to a human operator when setting up or modifying an external service."
+---
+
+A deployment record captures what was actually done when a service, script, form, or integration was set up. It preserves the exact material provided to the human operator: the instructions, the code, the configuration, and the result. This allows a future AI or administrator to understand what was deployed without relying on memory.
+
+## Why deployment records exist
+
+Without deployment records, a new AI or administrator has no way to know what code is running, what configuration was applied, or how to replicate or modify the setup. A deployment record closes that gap by preserving the exact material that was given to the human operator who performed the setup.
+
+## Deployment record fields
+
+| Field | Description |
+| --- | --- |
+| Record ID | Unique identifier for this deployment record |
+| Date | When the deployment occurred |
+| Platform/Service | The external platform or service involved |
+| Destination | Where it was deployed (account, project, spreadsheet, etc.) |
+| Purpose | Why this deployment was performed |
+| Instructions Provided | The exact text given to the human operator |
+| Code or Configuration Supplied | The exact code or configuration provided |
+| Result | Whether the deployment succeeded, failed, or partially succeeded |
+| Errors Encountered | Any errors that occurred during deployment |
+| Corrections Made | Changes applied to fix errors |
+| Version | Version of the deployment |
+| Current Status | Whether the deployed item is still active, replaced, or removed |
+| What Was Replaced | If this replaced something else, what was replaced |
+| What Replaced It | If this was later replaced, what replaced it |
+
+## Important rule
+
+The exact material that a human was instructed to copy and paste must be preserved in the deployment record. Do not summarize. Do not paraphrase. Preserve the instructions, the code, and the configuration exactly as provided.
+
+## Three distinct records compared
+
+It is important to distinguish between three types of records in APIG:
+
+| Record type | What it captures | Example |
+| --- | --- | --- |
+| Specification | What something is supposed to do | "The FOIA form shall collect requester name, agency, and date" |
+| Deployment Record | What was done to put it in place | "The human operator created a Tally form with fields X, Y, Z and connected webhook URL W" |
+| Asset Registry | What exists and where it is | "APIG-ASSET-FRM-001 is a Tally form at URL U, status Active" |
+
+## Example deployment scenarios
+
+The following are typical scenarios that require a deployment record:
+
+- **Google Apps Script deployment**: The script code, the destination spreadsheet, the trigger configuration, and any authorization steps
+- **Tally webhook setup**: The form configuration, the webhook URL, the payload format, and the connected destination
+- **Mintlify configuration**: The docs.json content, theme settings, navigation structure, and any custom components
+- **Domain DNS configuration**: The DNS records added, the registrar settings, and the TTL values
+
+<Note>
+  Deployment records are not instructions for future deployments. They are records of what was done. If a deployment needs to be repeated, derive new instructions from the current spec. Do not assume the old deployment record still applies.
+</Note>

@@ -1,0 +1,68 @@
+---
+title: "APIG Asset Registry"
+sidebarTitle: "Asset Registry"
+description: "The APIG Asset Registry is the master index of all operational assets including accounts, domains, hosting, repositories, integrations, forms, webhooks, scripts, workflows, and brand assets."
+---
+
+The APIG Asset Registry is the central record of every operational asset APIG uses. Before creating any new account, service, integration, or external resource, AI and administrators must check this registry first.
+
+## Registry Rules
+
+1. **Check before creating.** Search the registry for existing assets before registering or creating anything new.
+2. **Record everything.** Every account, host, repository, brand asset, domain, integration, form, webhook, script, and workflow must be recorded here.
+3. **No secrets stored here.** Passwords, API keys, tokens, and other credentials are never stored in this registry.
+4. **Human authorization required.** New accounts, spending, and contracts require explicit human administrator approval.
+
+## Asset Status Values
+
+| Status | Meaning |
+| --- | --- |
+| Active | Asset is in current use and fully operational. |
+| Inactive | Asset is temporarily unused but retained for future needs. |
+| Pending | Asset is registered but not yet provisioned or activated. |
+| Unknown | Current status cannot be determined and requires review. |
+| Deprecated | Asset is scheduled for retirement or replacement. |
+| Archived | Asset is retired and kept for historical reference only. |
+
+## Asset ID Format
+
+Every asset is assigned a unique identifier in this format:
+
+```text
+APIG-ASSET-[TYPE]-[NUMBER]
+```
+
+- `APIG-ASSET` is the fixed prefix.
+- `[TYPE]` is a three-letter code for the asset category.
+- `[NUMBER]` is a zero-padded sequential number.
+
+### Asset Type Codes
+
+| Code | Category |
+| --- | --- |
+| ACCT | Account |
+| HOST | Hosting |
+| REPO | Repository |
+| BRAND | Brand asset |
+| DOM | Domain |
+| INTG | Integration |
+| FORM | Form |
+| HOOK | Webhook |
+| SCRP | Script |
+| WKFL | Workflow |
+
+## Quick Index
+
+| Asset ID | Name | Type | Status | Page |
+| --- | --- | --- | --- | --- |
+| APIG-ASSET-ACCT-001 | GitHub / apigadministrator-hub | Account | Active | [Accounts](/assets/accounts) |
+| APIG-ASSET-ACCT-002 | Google Workspace | Account | Unknown | [Accounts](/assets/accounts) |
+| APIG-ASSET-ACCT-003 | Mintlify / a-pig-monster | Account | Active | [Accounts](/assets/accounts) |
+| APIG-ASSET-HOST-001 | Mintlify docs at [https://a-pig-monster.mintlify.app](https://a-pig-monster.mintlify.app) | Hosting | Active | Asset Registry |
+| APIG-ASSET-REPO-001 | APIG-AI-Resources on GitHub | Repository | Active | Asset Registry |
+| APIG-ASSET-BRAND-001 | APIG Logo | Brand | Active | Asset Registry |
+| APIG-ASSET-BRAND-002 | Pig Monster News Media Logo | Brand | Active | Asset Registry |
+
+<Note>
+  This registry is internal to APIG. AI agents and administrators must consult it before creating new resources to avoid duplicates and unauthorized spending.
+</Note>

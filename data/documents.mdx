@@ -1,0 +1,93 @@
+---
+title: "Document Records in APIG"
+sidebarTitle: "Documents"
+description: "Documents are APIG entities that establish, describe, modify, or contradict entities and relationships through explicit documentary connections with provenance."
+---
+
+APIG treats documents as distinct entities, not just file attachments. A resolution, a set of meeting minutes, or a court order is a persistent record with its own ID, type, date, and explicit relationships to the people, organizations, positions, and events it concerns. This allows the system to answer questions like: What documents mention this person? What resolutions does this agency have on record? What is the source for this appointment?
+
+## Document Types
+
+| Type | Description |
+| --- | --- |
+| Meeting Minutes | Official written record of a meeting's proceedings |
+| Meeting Agenda | Planned items and order of business for a meeting |
+| Ordinance | A local law or regulation enacted by a legislative body |
+| Resolution | A formal expression of opinion, intent, or decision by a governing body |
+| Report | An official document presenting findings, data, or analysis |
+| Court Record | Documents filed with or issued by a court |
+| Financial Record | Budgets, audits, expenditure reports, and other fiscal documents |
+| Election Record | Ballot results, voter registration data, and election-related filings |
+| Correspondence | Letters, emails, memos, and other communications between officials or organizations |
+| FOIA Request/Response | Freedom of Information Act request and the responsive documents provided |
+| Appointment Record | Documentation of a person being appointed to a position |
+| Organizational Bylaws | Rules governing the internal operation of an organization |
+| Legal Notice | Publicly posted notices required by law |
+| Other Official Document | Any official document not covered by the types above |
+
+## Document Record Fields
+
+| Field | Description |
+| --- | --- |
+| Document ID | A persistent unique identifier for the document |
+| Type | Classification from the document types table above |
+| Title | The title or description of the document |
+| Issuing Organization | The organization that produced or issued the document |
+| Date | The date the document was issued, adopted, or published |
+| Author/Signatory | The person or persons who authored or signed the document |
+| Subject Entities | The people, organizations, positions, or other entities the document concerns |
+| Related Meeting | The meeting entity, if any, that produced or is associated with this document |
+| Source Record | The source entity that provided or references this document |
+| Archive Location | Where the document is stored, such as a URL or internal archive path |
+| Verification Status | The current state of verification for this document |
+
+## Document as Source vs Document as Entity
+
+A document in APIG is both an entity and a source. These roles are compatible and complementary.
+
+As an **entity**, a document has its own record, ID, and relationships. You can navigate to it, see what it concerns, and track its history. As a **source**, a document provides evidence for claims about other entities. A meeting minutes document is both an entity you can browse to and a source for the claims it contains about attendance, votes, and actions.
+
+```text
+Document: Wayne County Board Meeting Minutes, March 12, 2024
+  └── Entity relationships:
+        └── records Meeting: Wayne County Board Regular Meeting, March 12, 2024
+        └── mentions Person: John Smith
+        └── concerns Organization: Wayne County Board of Commissioners
+  └── Source relationships:
+        └── supports Claim: "John Smith attended the meeting"
+        └── supports Claim: "Resolution 2024-15 was adopted 5-2"
+```
+
+## Document-to-Entity Relationships
+
+APIG records explicit relationships between documents and the entities they touch.
+
+| Relationship | Meaning |
+| --- | --- |
+| mentions Person | The document names or refers to a person |
+| concerns Organization | The document relates to an organization's business, structure, or actions |
+| records Meeting | The document is the official record of a meeting |
+| establishes Position | The document creates, defines, or modifies a position |
+| authorizes Action | The document approves or authorizes a specific action |
+| amends Document | The document modifies a prior document; both versions are preserved |
+| supersedes Document | The document replaces a prior document; the prior is marked Historical |
+
+## Preservation
+
+Documents are never deleted from APIG. When a document is superseded by a newer version or amended by a subsequent action, the original remains in the system with its status updated to Historical. A relationship links the original to its replacement.
+
+```text
+Document: Wayne County Budget FY2023
+  └── Status: Historical
+  └── superseded by Document: Wayne County Budget FY2024
+
+Document: Wayne County Budget FY2024
+  └── Status: Current
+  └── supersedes Document: Wayne County Budget FY2023
+```
+
+This design preserves the complete documentary history. A claim supported by the FY2023 budget retains its link to that document even after the FY2024 budget is adopted.
+
+<Note>
+  Document records preserve the original version. If a document is later amended or corrected, both versions are preserved with a relationship between them.
+</Note>

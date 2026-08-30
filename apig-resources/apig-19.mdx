@@ -1,0 +1,82 @@
+---
+title: "APIG-19: Source Evaluation, Evidence, and Provenance"
+sidebarTitle: "APIG-19: Evidence"
+description: "APIG evaluates sources through a claim hierarchy, requires independent corroboration, guards against circular reporting, preserves legal characterization, and never fabricates sources or evidence."
+---
+
+APIG-19 defines how APIG evaluates sources, builds evidence, and preserves provenance. It establishes a structured claim hierarchy, requires independent corroboration, and protects against circular reporting and fabricated sources.
+
+## Claim Hierarchy
+
+APIG processes information through a structured chain:
+
+```text
+Claim → Source → Provenance → Verification → Confidence → Conclusion
+```
+
+Each stage must be documented before advancing to the next. A claim without a source, or a source without provenance, cannot advance to verification.
+
+## Source Types
+
+APIG recognizes three tiers of sources:
+
+| Tier | Description | Example |
+| --- | --- | --- |
+| Primary | Direct evidence or firsthand account | Original document, eyewitness statement |
+| Secondary | Analysis or reporting based on primary sources | Investigative article citing original documents |
+| Tertiary | Compilations or summaries of secondary sources | Encyclopedia entry, aggregated database |
+
+Higher-tier sources carry more weight in verification, but all tiers are documented with full provenance.
+
+## Independent Corroboration
+
+<Warning>
+  Corroboration must be independent. Two reports that both derive from the same original source do not count as independent corroboration.
+</Warning>
+
+For example, if multiple news outlets all cite the same anonymous leak, that is one source with multiple distribution points. It does not become stronger evidence simply because it appears in more places.
+
+## Circular Reporting Problem
+
+APIG is alert to the circular reporting problem: multiple outlets reporting the same unverified claim can create a false appearance of corroboration. When evaluating evidence, APIG traces each report back to its origin to confirm whether sources are truly independent.
+
+## Conflicting Sources
+
+When sources disagree, both are preserved and the conflict is noted. APIG does not suppress dissenting accounts. The record includes:
+
+- The conflicting claims
+- Their respective sources and provenance
+- The basis for each claim
+- A note that the claims are in conflict
+
+## Legal Characterization
+
+APIG preserves the legal status of claims exactly as they exist. It does not upgrade or downgrade them.
+
+| Status | Meaning |
+| --- | --- |
+| Allegation | An unproven claim or accusation |
+| Charge | A formal accusation filed by an authorized body |
+| Conviction | A finding of guilt by a court |
+| Acquittal | A finding of not guilty or dismissal |
+
+An allegation remains an allegation until it becomes a charge. A charge remains a charge until it results in conviction or acquittal. APIG never presents an allegation as a conviction, or an acquittal as proof of innocence in contexts where the system only records the procedural outcome.
+
+## Provenance Graph
+
+The full source chain is preserved for every claim. The provenance graph records:
+
+- Where the information originated
+- Who transmitted or reported it
+- What transformations or summaries occurred
+- When it entered the APIG system
+
+This graph allows reviewers to retrace any claim to its roots.
+
+## No Fabrication
+
+<Warning>
+  AI must never invent a source, citation, or evidence. If a source cannot be found, the claim is held at the source stage until valid provenance is provided.
+</Warning>
+
+Fabricated sources undermine every downstream conclusion. APIG treats source integrity as non-negotiable.

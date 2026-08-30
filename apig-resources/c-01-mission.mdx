@@ -1,0 +1,88 @@
+---
+title: "APIG-01: Mission and Core Purpose of A Pig Monster"
+sidebarTitle: "Mission"
+description: "The foundational mission of APIG: investigate, organize, preserve, and present publicly relevant information about governments, people, and organizations."
+---
+
+APIG-01 establishes the foundational mission and governing principles of A Pig Monster. All other specifications must be consistent with the principles in this document. It defines what APIG is for, what it tracks, how it treats evidence, and what its core values are.
+
+## Core Mission Statement
+
+APIG exists to make publicly relevant information easier to discover, understand, verify, connect, and preserve. The system connects people, organizations, positions, jurisdictions, documents, events, and sources while preserving the distinction between evidence and inference.
+
+## What APIG Tracks
+
+- Who holds public positions and what positions exist
+- What organizations and agencies exist and how they are structured
+- Who is elected, appointed, hired, contracted, or associated with an organization
+- How people and organizations are connected
+- What actions government and organizations have taken
+- What documents, meetings, votes, and resolutions establish those actions
+- What public information is available and where it came from
+- What has been verified and what remains unverified or unknown
+- How historical relationships and events developed over time
+
+## Core Principles
+
+<Accordion title="Public Information First">
+  APIG prioritizes information supportable by publicly available sources: government websites, official agency sites, meeting minutes, agendas, resolutions, ordinances, court records, election records, public financial records, news reports, and archived material. The existence of a claim does not make the claim a fact. APIG preserves the distinction between what a source says and what APIG concludes from that source.
+</Accordion>
+
+<Accordion title="Evidence and Provenance">
+  Important factual information should be traceable to its source. A record should be capable of answering: What is being claimed? Where did the information come from? When was the source published? When was it obtained? Is the source official? Has it been independently verified? What is the verification status? Is there conflicting information?
+</Accordion>
+
+<Accordion title="Unknown Is Acceptable">
+  APIG never requires the system to invent an answer merely because a field exists. Valid uncertainty values include: Unknown, Unverified, Source indicates, Pending verification, Historical, Disputed. An honest incomplete record is preferable to a complete record containing fabricated or unsupported information.
+</Accordion>
+
+<Accordion title="Historical Preservation">
+  APIG preserves historical information. When a person leaves office, the historical relationship is not deleted. When an agency changes leadership, previous leadership remains part of the historical record. When an organization changes structure, APIG preserves the previous structure when documentation permits. APIG represents both current conditions and institutional history.
+</Accordion>
+
+<Accordion title="Entity Separation">
+  People, positions, agencies, governments, organizations, and jurisdictions are distinct entities. A person is not the same entity as the position they hold. A position is not the same entity as the organization that controls it. An organization is not the same entity as the jurisdiction in which it operates. The system represents the relationships between these entities explicitly.
+</Accordion>
+
+<Accordion title="Transparency">
+  APIG distinguishes between: Fact, Source statement, AI interpretation, Analysis, Allegation, Unverified information, Verified information, Historical information, Unknown information. The system does not intentionally present speculation as established fact.
+</Accordion>
+
+## Entity Relationships
+
+```text
+Person → holds → Position
+Position → belongs to → Organization
+Organization → operates within → Jurisdiction
+Person → served on → Board
+Person → appeared in → Document
+Document → concerns → Organization
+Organization → operates within → County
+County → belongs to → State
+```
+
+## Government Hierarchy
+
+APIG represents governmental information through a hierarchical structure:
+
+```text
+State → County → City/Town/Village → Agency/Department/Office → Position → Person
+```
+
+APIG does not force every governmental structure into an inaccurate hierarchy. The documented structure of the relevant jurisdiction controls.
+
+## Navigation Principle
+
+APIG allows users to begin from different starting points: state, county, city, agency, organization, person, document, news article, or topic. Users move through relationships rather than needing the exact name of a record. Breadcrumb navigation shows where users are in the hierarchy and allows backward movement.
+
+## AI and Institutional Memory
+
+<Note>
+  APIG uses AI as a tool for research, extraction, classification, and analysis. AI output must remain distinguishable from documented source evidence. APIG does not depend on any particular AI provider — the persistent resource library contains everything needed for a new AI to understand and operate the system.
+</Note>
+
+## Change Control
+
+<Note>
+  This specification may be modified by the APIG administrator. When substantive changes are made, the version number is updated, the change is recorded, and previous versions are preserved where practical.
+</Note>

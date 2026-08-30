@@ -1,0 +1,89 @@
+---
+title: "APIG-31: Records, Data Lineage, and Version Control"
+sidebarTitle: "APIG-31: Data Lineage"
+description: "APIG separates record creation, authorship, ownership, and authority. Track temporal validity, data lineage chains, and keep derived data distinguishable from source data."
+---
+
+APIG-31 defines how APIG creates, tracks, and maintains records across their full lifecycle. This specification ensures that every piece of information in the system carries clear provenance, that time is modeled precisely, and that derived data never obscures its origins.
+
+## Record Creation, Authorship, Ownership, and Authority
+
+APIG treats four roles as strictly separate. Conflating them undermines accountability and traceability.
+
+| Role | Definition |
+| --- | --- |
+| **Creator** | The entity (human or system) that physically created the record in APIG |
+| **Author** | The entity that produced the underlying information or content |
+| **Owner** | The entity responsible for the record's maintenance, accuracy, and access control |
+| **Authority** | The entity that authorized the record's creation or publication |
+
+<Note>
+  A system may create a record on behalf of a human author. The human remains the author; the system is the creator. The authority may be a supervisor, a policy, or a legal requirement.
+</Note>
+
+## Temporal Validity Model
+
+APIG tracks four distinct dates for every record. These are never conflated.
+
+| Date | Meaning |
+| --- | --- |
+| **Event date** | When the described event actually occurred in the real world |
+| **Creation date** | When the record was first entered into APIG |
+| **Publication date** | When the record was made available to authorized audiences |
+| **Effective date** | When the record's content becomes legally or operationally active |
+
+<Warning>
+  Never substitute one date for another. A record created today may describe an event from last year, become effective next month, and be published immediately. Each date serves a different accountability and search purpose.
+</Warning>
+
+## Data Lineage Chain
+
+Every record in APIG traces back through a documented chain:
+
+<Steps>
+  <Step title="Raw source">
+    Original documents, interviews, observations, or system outputs
+  </Step>
+  <Step title="Extraction">
+    Information pulled from the raw source into a structured or semi-structured form
+  </Step>
+  <Step title="Interpretation">
+    Analysis, classification, or synthesis applied to the extracted information
+  </Step>
+  <Step title="Record">
+    The formal APIG record created from the interpreted information
+  </Step>
+  <Step title="Publication">
+    The record made available to authorized consumers
+  </Step>
+</Steps>
+
+Each step links to the previous one. You can navigate backward from any published record to the raw source that produced it.
+
+## Derived Data Distinguishability
+
+Data derived from sources is always marked as derived. It never becomes indistinguishable from the source.
+
+- Derived records carry a `derived_from` relationship pointing to their origin
+- Transformations, inferences, and summaries are labeled with their method
+- Confidence levels are attached to derived conclusions
+- Source records remain intact and unchanged by derivative work
+
+<Tip>
+  When you derive a new record, always document the derivation method and link back to the source. Future investigators must be able to reconstruct your reasoning.
+</Tip>
+
+## Accountability Navigation
+
+When navigating accountability relationships, always follow typed relationships. Never skip steps.
+
+If Person A authorized Person B, and Person B instructed Person C, accountability flows A → B → C through the documented relationship types. Jumping from A directly to C breaks the chain and produces incorrect accountability maps.
+
+## Instruction Is Not Supervision
+
+The fact that someone gave an instruction to someone else does not mean they supervise them in the organizational sense. APIG models these as separate relationship types:
+
+- **Instruction relationship**: one entity directed another to perform a task
+- **Supervision relationship**: one entity has ongoing managerial authority over another
+
+An external consultant may instruct an APIG staff member on a specific task without being their supervisor. The relationship type must reflect reality.

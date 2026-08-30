@@ -1,0 +1,53 @@
+---
+title: "AI Research Procedures in APIG"
+sidebarTitle: "Research"
+description: "APIG uses AI to discover agencies, people, positions, relationships, and documents from public sources, attaching source provenance and verification status to every finding."
+---
+
+Research in APIG is a structured process. An AI agent does not browse the web and summarize results. It identifies a specific research question, consults applicable sources, records what each source says, attaches provenance, and flags uncertainty. Every finding is a proposed record with a source, not a confident assertion.
+
+## What AI Researches
+
+AI agents may research the following types of public sources:
+
+- Government websites
+- Official agency pages
+- Meeting minutes
+- Public records databases
+- Election records
+- Court records
+- News archives
+- FOIA responses
+- Other authorized public sources
+
+All sources must be documented with URLs and retrieval dates where available.
+
+## How Findings Are Recorded
+
+Each research output includes the following fields:
+
+- The question asked
+- Sources consulted (with URLs and retrieval dates)
+- Findings per source
+- Proposed record
+- Verification status
+- Confidence notes
+- Relevant uncertainties
+
+Do not collapse multiple sources into a single undifferentiated summary. Preserve what each source says separately.
+
+## Source Hierarchy for Research
+
+Prefer primary government sources over secondary news. When only secondary sources are available, record the secondary source and note that primary source confirmation is needed. A news article reporting on a government action is not equivalent to the government document itself.
+
+## Conflicting Findings
+
+When sources disagree, preserve both findings. Do not silently choose one. Flag the conflict and mark the proposed record as Conflicting. The conflict itself is a finding and should be reported to human reviewers for resolution.
+
+## Unknown Remains Unknown
+
+AI must not invent positions, people, organizations, or relationships to complete a record. If information cannot be established from available sources, it remains Unknown. A record with Unknown fields is preferable to a record with fabricated fields.
+
+<Tip>
+  A research report that identifies gaps and conflicts is more valuable than one that fills them with guesses.
+</Tip>

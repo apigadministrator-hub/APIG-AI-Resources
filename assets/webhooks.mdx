@@ -1,0 +1,29 @@
+---
+title: "APIG Webhook Registry"
+sidebarTitle: "Webhooks"
+description: "Registry of all webhooks used by APIG, including source service, destination, trigger event, and current status."
+---
+
+Webhooks carry event-driven messages between services in the APIG ecosystem. This registry lists every webhook so you can quickly identify its source, destination, trigger event, authentication method, and current status. Use it to trace data flow, debug delivery failures, and plan changes without impacting live integrations.
+
+## Record fields
+
+| Field | Description |
+| --- | --- |
+| Asset ID | Unique identifier for this webhook record. |
+| Webhook Name | Human-readable name of the webhook. |
+| Source Service | The system that sends the webhook. |
+| Destination | The URL or endpoint that receives the webhook payload. |
+| Trigger Event | The event that causes the source service to fire the webhook. |
+| Auth Type | How the webhook is secured (HMAC, Bearer token, API key, none, etc.). |
+| Status | Current state: Active, Paused, Deprecated, or Pending. |
+| Notes | Additional context, retry behavior, or ownership info. |
+
+## Registered webhooks
+
+| Asset ID | Webhook Name | Source Service | Destination | Trigger Event | Auth Type | Status | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+
+<Warning>
+  Authentication secrets and tokens are never stored in this registry. Record only the auth type here. Keep actual credentials in your secure vault or secrets manager and reference that location in the Notes field if needed.
+</Warning>

@@ -1,0 +1,83 @@
+---
+title: "APIG-37: Identity and Separation Specification"
+sidebarTitle: "Identity Separation"
+description: "APIG-37 defines the separation between the APIG investigative identity and the APIG Monster News Media identity in purpose, branding, navigation, and presentation."
+---
+
+APIG-37 governs the relationship between two distinct identities that operate within the APIG website and infrastructure: the primary APIG investigative and public-information system, and APIG Monster News Media. The two identities share a technical platform but must remain clearly distinguishable to users through branding, navigation, page presentation, and content organization.
+
+## The Two Identities
+
+<CardGroup cols={2}>
+  <Card title="APIG" icon="layers">
+    The professional investigative and public-information system. Covers government, jurisdictions, people, positions, agencies, organizations, meetings, documents, sources, evidence, and structured public information.
+  </Card>
+
+  <Card title="APIG Monster News Media" icon="newspaper">
+    The distinct news-media identity. Provides news-media presentation and editorial coverage including original APIG Monster reporting and curated references to relevant external journalism.
+  </Card>
+</CardGroup>
+
+## Logo Separation
+
+Two logos, two contexts. Never substitute one for the other:
+
+| Context | Logo | Usage |
+| --- | --- | --- |
+| Primary APIG website | APIG-ASSET-BRAND-001 | Investigative, informational, search, and navigation functions |
+| News Media section | APIG-ASSET-BRAND-002 | Editorial and news-media presentation |
+
+<Warning>
+  Neither logo shall be substituted for the other merely for visual convenience. Logo usage follows APIG-35 (Site Layout, Branding and Navigation).
+</Warning>
+
+## Website Separation
+
+The APIG website operates as a unified technical system while presenting distinct functional areas. Users must always be able to determine whether they are viewing:
+
+1. The primary APIG investigative and information system
+2. The APIG Monster News Media section
+
+Separation is achieved through branding, navigation, page presentation, and content organization.
+
+## APIG Monster News Media Structure
+
+The News Media section is organized into three areas:
+
+| Area | Purpose |
+| --- | --- |
+| **Featured News** | A prominent top-level area highlighting the most important current APIG Monster story or stories |
+| **APIG Monster News** | Original reporting organized by date, subject, jurisdiction, topic, person, organization, and event |
+| **External Sources** | Curated references to relevant journalism from external publishers, each with a summary explaining relevance and a link to the original |
+
+## External News Organizations
+
+External organizations referenced by APIG Monster News Media are independent publishers. They are not APIG subsidiaries, departments, partners, employees, or representatives unless a documented relationship exists.
+
+Current external sources include:
+
+- Village Voice
+- Edgar County Watchdogs
+
+The architecture supports adding additional sources without redesign.
+
+## External Article References
+
+When referencing external articles, APIG follows these practices:
+
+- Provides a concise summary explaining the subject and why it is relevant
+- Directs users to the original publisher for the complete article
+- Does not reproduce or rewrite the complete external article
+- Keeps the original publisher clearly identified
+
+## Relationship to APIG Information Architecture
+
+News content connects to the broader APIG information system. An article may be associated with people, agencies, organizations, positions, locations, meetings, documents, events, sources, and investigations. These relationships allow News Media content to participate in APIG entity navigation without eliminating the distinction between the two identities.
+
+## Governance
+
+The distinction between APIG and APIG Monster News Media is a governed architectural and branding requirement. Changes to either identity's logo, purpose, navigation, editorial structure, or relationship to the other identity must be documented and reconciled with this specification and all affected APIG specifications before implementation.
+
+<Note>
+  This page documents APIG-37. The authoritative specification is maintained in the APIG-AI-Resources repository. This specification does not define the underlying data model, AI operations, or asset management. Those are governed by their respective specifications.
+</Note>

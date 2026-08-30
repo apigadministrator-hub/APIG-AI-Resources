@@ -1,0 +1,119 @@
+---
+title: "APIG-35: Site Layout, Branding, and Navigation Design"
+sidebarTitle: "APIG-35: Site Layout"
+description: "APIG's site layout uses consistent global structure, entity presentation templates, responsive design, reusable components, and navigation that scales with system growth."
+---
+
+APIG-35 defines the structural and visual design principles for all APIG properties. This specification ensures that every page, from the investigative database to public-facing sections, shares a coherent structure while remaining adaptable as the system grows.
+
+## Consistent Global Layout
+
+All APIG pages share a consistent structure:
+
+<CardGroup cols={2}>
+  <Card title="Header" icon="layout-top">
+    Brand identifier, global navigation, and system status indicators
+  </Card>
+
+  <Card title="Navigation" icon="menu">
+    Context-aware menu reflecting the user's current section and available actions
+  </Card>
+
+  <Card title="Content area" icon="file-text">
+    Primary information display, adapted to the entity or task at hand
+  </Card>
+
+  <Card title="Footer" icon="layout-bottom">
+    Legal, contact, accessibility, and system information
+  </Card>
+</CardGroup>
+
+Search is globally available from every page. The search scope adjusts based on the user's authorization and current context.
+
+## Entity Presentation Templates
+
+Each entity type has a defined presentation template. This ensures that users encountering a person record, an organization record, or a jurisdiction record find information in predictable locations.
+
+Entity types with defined templates include:
+
+- Person
+- Organization
+- Jurisdiction
+- Position
+- Document
+- Event
+- Relationship
+
+Each template specifies:
+
+- Required and optional fields
+- Field display order and grouping
+- Relationship visualization rules
+- Action buttons and links appropriate to the entity type
+
+<Tip>
+  When designing a new entity type or modifying an existing template, start from the closest existing template. Consistency reduces user cognitive load.
+</Tip>
+
+## Responsive Design
+
+APIG is designed to work on desktop and mobile. The layout adapts to viewport size while preserving information hierarchy and accessibility.
+
+Responsive behavior includes:
+
+- Navigation collapses to a hamburger menu on narrow viewports
+- Content areas reflow from multi-column to single-column
+- Tables transform to card views or horizontal scroll on small screens
+- Touch targets meet minimum size requirements
+
+## Accessibility
+
+APIG follows accessibility best practices. This includes:
+
+- Semantic HTML structure
+- Keyboard navigability for all interactive elements
+- Screen reader compatibility for dynamic content
+- Sufficient color contrast for text and interactive elements
+- Focus indicators for all focusable elements
+- Alternative text for images and non-text content
+
+## Reusable Components
+
+UI components are defined once and reused across the system. The component library includes:
+
+- Form inputs and validation patterns
+- Data tables with sorting, filtering, and pagination
+- Entity cards and relationship graphs
+- Modal dialogs and confirmation patterns
+- Notification and alert banners
+
+<Note>
+  Custom one-off components are discouraged. If a new pattern is needed, it should be added to the component library for reuse rather than built as a single-page exception.
+</Note>
+
+## Separation of Presentation and Data
+
+The presentation layer sits on top of the structured database. Changing the presentation does not alter the underlying data.
+
+This separation means:
+
+- A template redesign affects how data looks, not what data exists
+- Multiple views of the same data can coexist
+- Presentation changes can be deployed without database migrations
+- Data integrity is preserved regardless of UI updates
+
+## Navigation Accommodates System Growth
+
+Adding new jurisdictions, entities, or sections does not require redesigning the navigation system.
+
+The navigation design supports growth through:
+
+- Hierarchical organization that scales with depth
+- Search as a primary navigation method for large datasets
+- Breadcrumb trails that adapt to any path depth
+- Filter and facet controls that work with growing entity counts
+- URL structures that remain stable as content expands
+
+<Warning>
+  Navigation is not an afterthought. Every new section or entity type must fit within the existing navigation model, or the model itself must be extended according to APIG-35 principles, not replaced.
+</Warning>

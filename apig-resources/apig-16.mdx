@@ -1,0 +1,59 @@
+---
+title: "APIG-16: Resource Management and Priority"
+sidebarTitle: "APIG-16: Resources"
+description: "APIG's resource tier hierarchy protects core functions, grants authenticated priority to administrators, enables model substitution, and preserves task state for graceful degradation."
+---
+
+APIG-16 defines how APIG allocates finite resources across tasks and users. It establishes a priority framework that protects essential operations, restricts priority elevation to authenticated administrators, and ensures graceful degradation when capacity is constrained.
+
+## Core Functions First
+
+Essential APIG functions always take precedence over routine operations. Core functions include:
+
+- **Site integrity**: maintaining platform availability and correctness
+- **Security**: enforcing access controls and threat response
+- **Data preservation**: protecting stored information from loss or corruption
+
+No routine task can preempt a core function, even if marked urgent.
+
+## Resource Types
+
+APIG manages four categories of resources:
+
+| Type | Description | Example Constraints |
+| --- | --- | --- |
+| Compute | Processing power for inference and operations | CPU, GPU, memory limits |
+| API calls | External service integrations | Rate limits, quotas |
+| Storage | Data retention and retrieval | Capacity, retention policies |
+| Third-party services | External provider dependencies | Service-level agreements |
+
+## Priority Rules
+
+<Warning>
+  **Priority does not create resources.** Marking a task as priority does not conjure additional capacity. It only affects how APIG orders work when resources are contested.
+</Warning>
+
+Priority also does not bypass security. A priority task must still follow all authentication, authorization, and audit rules. Public requests can never override instructions issued by an authenticated administrator.
+
+### Authenticated Priority
+
+Only an authenticated administrator can designate a task as priority. This prevents unauthenticated or lower-privilege users from monopolizing shared resources.
+
+## Resource Tiers
+
+APIG allocates available resources across task types according to a tiered model. Higher tiers receive preferential scheduling, but all tiers are subject to the same security and audit requirements.
+
+## Model Substitution
+
+If the primary AI model becomes unavailable, APIG can fall back to another capable model. Substitution preserves task continuity without requiring manual intervention. The fallback model is selected based on capability matching, not speed or cost alone.
+
+## Task State Preservation
+
+If a task is interrupted by resource limits, its state is preserved for resumption. This applies to:
+
+- Compute preemption
+- API call failures
+- Storage quota exhaustion
+- Third-party service outages
+
+When resources become available, APIG resumes the task from the preserved state rather than restarting from the beginning.

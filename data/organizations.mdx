@@ -1,0 +1,95 @@
+---
+title: "Organization and Agency Records in APIG"
+sidebarTitle: "Organizations"
+description: "APIG represents both governmental and nongovernmental organizations as distinct persistent entities with type, jurisdiction, hierarchy, and source evidence."
+---
+
+APIG represents every organization as a distinct persistent entity with its own unique identifier, type, and relationships. An organization is not the same thing as a jurisdiction, a person, a position, or a physical building. The system supports both governmental and nongovernmental organizations, preserves historical changes, and tracks parent and child relationships through an explicit hierarchy.
+
+## Organization types
+
+Organizations are classified according to their actual status. Possible types include:
+
+- State government, County government, Municipal government, Township government
+- Government agency, Government office, Department, Division
+- Board, Commission, Authority, Court, Law enforcement agency, Special district
+- Nonprofit, Civic organization, Religious organization, Social organization
+- Professional organization, Political organization, Educational organization, Business, Media organization
+- Other, Unknown
+
+The classification must reflect the organization's actual status, not be assumed from a similar organization elsewhere.
+
+## Parent and child organization relationships
+
+An organization may belong to another organization. Examples include:
+
+- State Government → Department of Transportation
+- County Government → Sheriff's Department
+- City Government → Police Department
+- Rotary International → Local Rotary Club
+
+An organization may also contain departments, offices, divisions, units, committees, branches, or chapters. Each child organization is represented separately when appropriate, with its own identifier and relationships.
+
+## Jurisdiction versus location distinction
+
+Physical location does not necessarily establish governmental jurisdiction. A regional agency may have an office in one city while serving multiple counties. APIG preserves both facts as separate relationships:
+
+- **Located in**: where the organization's office is physically situated
+- **Serves**: the geographic or governmental area the organization operates within or has authority over
+
+## Organization hierarchy example
+
+The hierarchy allows navigation from broad to specific:
+
+```text
+County Government
+  → Sheriff's Department
+      → Corrections Division
+          → Position: Sheriff
+              → Person: Jane Doe
+```
+
+Not every level is required. The hierarchy reflects the documented structure rather than a template.
+
+## Historical organization preservation
+
+Organizations change over time. They may be created, renamed, reorganized, merged, split, abolished, replaced, converted, expanded, or reduced. APIG preserves these changes historically rather than silently rewriting records:
+
+- **Renamed**: current name, former name, effective date, and source are preserved
+- **Merged**: historical organizations remain; the new entity is created with merger documentation
+- **Split**: the original organization is preserved and the resulting organizations are recorded
+- **Abolished**: the organization is marked inactive or abolished, never deleted
+
+## Organization status values
+
+Possible statuses include:
+
+- Active, Inactive, Proposed, Historical, Abolished, Merged, Unknown, Under Review
+
+The status must be supported by evidence.
+
+## Organization sources and verification
+
+Important organization facts should be traceable to sources such as official websites, government records, charters, ordinances, statutes, articles of incorporation, public filings, meeting minutes, annual reports, official directories, or reliable news. Organization records support verification states including Verified, Partially Verified, Unverified, Conflicting, Proposed, Historical, and Unknown.
+
+<CardGroup cols={2}>
+  <Card title="Government organizations" icon="landmark">
+    State agencies, county offices, city departments, courts, sheriff's departments, police departments, boards, commissions, authorities, and special districts. These connect to their appropriate jurisdiction.
+  </Card>
+
+  <Card title="Nongovernmental organizations" icon="users">
+    Nonprofits, churches, Rotary clubs, civic groups, neighborhood associations, charities, community organizations, professional associations, and social organizations. These are represented separately from government agencies.
+  </Card>
+</CardGroup>
+
+## Core organization principles
+
+1. An organization is a distinct entity.
+2. An organization is not a person, position, building, or jurisdiction.
+3. Government and nongovernment organizations coexist in the system.
+4. Organizations may belong to larger organizations and contain child organizations.
+5. Physical location and jurisdiction must remain distinct.
+6. Historical organizations should be preserved, never deleted.
+7. AI may discover organizations but must not invent them.
+8. Significant organizational facts should be traceable to sources.
+9. Unknown information should remain unknown.

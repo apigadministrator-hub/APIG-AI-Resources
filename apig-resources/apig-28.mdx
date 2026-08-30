@@ -1,0 +1,77 @@
+---
+title: "APIG-28: Data Architecture and Relationship Typing"
+sidebarTitle: "APIG-28: Relationships"
+description: "APIG's typed relationship edges, the full accountability graph, and how supervision, oversight, appointment, and instruction edges differ in the data model."
+---
+
+APIG-28 defines how APIG structures facts as a graph of entities, attributes, and typed relationships. Every relationship carries an explicit type so that accountability navigation remains precise. Generic "related to" edges are not permitted. This specification also covers temporal accountability: who held what position at the time of an event matters, and the data model preserves that history.
+
+## Entity, Attribute, and Relationship Model
+
+Every fact in APIG is represented as an entity, an attribute, or a relationship.
+
+| Element | Role | Example |
+| --- | --- | --- |
+| **Entity** | A distinct object or person | A board member, an organization, a meeting |
+| **Attribute** | A property of an entity | A person's start date, an organization's jurisdiction |
+| **Relationship** | A connection between entities with a defined type | A supervises B, X appoints Y |
+
+This model prevents ambiguous connections. If two entities are linked, the link has a specific meaning that APIG's systems and analysts can interpret consistently.
+
+## Typed Relationship Edges
+
+Every relationship has an explicit type. No generic "related to" edges are permitted. Permitted types include:
+
+- **Supervision**: direct managerial control over day-to-day work
+- **Oversight**: governance responsibility, typically board or legislative
+- **Appointment**: the act of placing someone in a position
+- **Instruction**: a specific directive, which may or may not come with supervisory authority
+- **Membership**: belonging to a group or organization
+- **Authorship**: creation of a document, report, or work product
+- **Attendance**: presence at an event or meeting
+- **Citation**: reference from one document to another source
+
+<Note>
+  The type list is extensible. New types are added through the specification process, not ad hoc. Each type carries a documented definition to ensure consistent application.
+</Note>
+
+## Supervision vs. Oversight vs. Appointment vs. Instruction
+
+These four types are frequently confused. APIG distinguishes them precisely.
+
+| Type | Definition | Typical Context |
+| --- | --- | --- |
+| **Supervision** | Direct managerial control over day-to-day work | A supervisor reviews and directs an employee's daily tasks |
+| **Oversight** | Governance responsibility, typically at a distance | A board monitors organizational performance without daily involvement |
+| **Appointment** | The act of placing someone in a position | A chair names a board member; a board names an executive director |
+| **Instruction** | A specific directive, which may or may not come with supervisory authority | A senior official requests a report; the recipient may not report to them otherwise |
+
+An instruction does not imply supervision. An appointment does not imply ongoing oversight. The relationship type records the actual nature of the connection, not an assumed hierarchy.
+
+## Downstream Accountability Navigation
+
+From any event, APIG can navigate the accountability graph without implying that all nodes in the graph share culpability. The graph shows pathways of authority and influence. It does not assign blame automatically.
+
+<Warning>
+  Navigating the accountability graph reveals structural connections. Determining responsibility requires additional evidence and evaluation. The graph is a map, not a verdict.
+</Warning>
+
+## Appointing Authority Example
+
+Consider a typical chain of appointment and supervision:
+
+1. County chair appoints board
+2. Board appoints executive director
+3. Executive director supervises staff
+
+Each link has a distinct type. The county chair does not supervise the staff directly. The board does not supervise day-to-day operations. The executive director does not appoint themselves. The typed edges preserve these boundaries.
+
+## Temporal Accountability
+
+The relationship graph is temporal. Relationships have start and end dates. Who was in a position at the time of an event matters.
+
+<Accordion title="Why temporal data matters">
+  A board that approved a policy in 2022 may have different membership than the board that reviewed it in 2024. An executive director who supervised a project in 2021 may have left before irregularities were discovered in 2023. Without start and end dates, the accountability graph produces false connections.
+</Accordion>
+
+APIG records relationship intervals precisely. Queries against the graph must specify a point in time or a date range to return accurate results.

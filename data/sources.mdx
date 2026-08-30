@@ -1,0 +1,89 @@
+---
+title: "Source Records and Provenance in APIG"
+sidebarTitle: "Sources"
+description: "Sources are first-class APIG entities with persistent IDs, type classifications, and explicit relationships to the claims they support, update, or contradict."
+---
+
+In APIG, a source is not just a URL or footnote. It is a persistent entity with its own record, type classification, verification status, and explicit relationships to every claim it supports or contradicts. This design allows the system to trace any claim back to its origin and to preserve disagreements between sources rather than silently resolving them.
+
+## Source Record Fields
+
+| Field | Description |
+| --- | --- |
+| Source ID | A persistent unique identifier for the source record |
+| Type | Classification from the source types table below |
+| Title | The title or headline of the source material |
+| Publisher | The organization or entity that published or issued the source |
+| Author/Creator | The individual or entity responsible for creating the content |
+| Publication Date | The date the source was originally published or issued |
+| Retrieval Date | The date the source was accessed or retrieved by APIG |
+| URL | The web address where the source was located, if applicable |
+| Archive Location | The location of an archived copy, such as an archive.org URL or internal archive path |
+| Version/Edition | The specific version, edition, or revision of the source |
+| Verification Status | The current verification state of the source (see below) |
+| Notes | Additional context, caveats, or observations about the source |
+
+## Source Types
+
+| Type | Description | Examples |
+| --- | --- | --- |
+| Primary Government | Official government documents and records | Statutes, ordinances, meeting minutes, government directories |
+| Primary Legal | Legal documents and official legal records | Court filings, legal codes, municipal charters |
+| Court | Court records and case documents | Dockets, judgments, orders, case filings |
+| Official Organizational | Documents produced by organizations about themselves | Agency reports, bylaws, appointment records, internal policies |
+| Public Record | Official records available to the public | Election records, public filings, official databases, voter rolls |
+| Secondary News | Journalism and investigative reporting | Newspaper articles, investigative reports, broadcast transcripts |
+| Community/User-submitted | Information submitted by the public | Tips, corrections, public submissions, eyewitness accounts |
+| Social Media | Public statements on social platforms | Posts, statements, comments (archived when used as a source) |
+| Archived | Preserved copies of sources no longer available at their original location | Archived copies of removed or changed web pages |
+
+## Source-to-Claim Relationships
+
+APIG records the exact relationship between a source and each claim it touches. A single source may support one claim while contradicting another.
+
+| Relationship | Meaning |
+| --- | --- |
+| supports | The source provides evidence that the claim is accurate |
+| contradicts | The source provides evidence that the claim is inaccurate or in conflict |
+| updates | The source provides newer information that revises the claim |
+| supersedes | The source replaces the claim entirely; the prior claim is marked historical |
+| provides context | The source adds background or explanatory information without directly verifying or refuting the claim |
+
+## Conflicting Sources
+
+When sources disagree, APIG preserves the conflict. Both sources remain in the system with their conflicting positions, and the claim is marked with a Conflicting status. Neither source is removed or suppressed.
+
+```text
+Claim: "Wayne County Board voted 5-2 to approve the resolution."
+
+Source A: Wayne County Board Meeting Minutes, March 12, 2024
+  └── Relationship: supports
+  └── Notes: "Recorded vote: 5 aye, 2 nay"
+
+Source B: Local Gazette Article, March 13, 2024
+  └── Relationship: contradicts
+  └── Notes: "Article states vote was 4-3"
+
+Claim Status: Conflicting
+```
+
+In this example, both sources remain linked to the claim. The minutes are classified as Primary Government. The newspaper article is Secondary News. The discrepancy is visible to anyone reviewing the claim, and additional sources can be added to resolve or clarify the conflict.
+
+## Broken or Unavailable Sources
+
+When a source becomes unavailable, such as a web page that is removed or a document that is no longer accessible, the source record is not deleted. Instead, its status is updated to Unavailable. Any claims supported by that source remain in the system. If an archived copy exists, the archive location is noted.
+
+| Status | Meaning |
+| --- | --- |
+| Available | The source is accessible at its recorded location |
+| Unavailable | The original source is no longer accessible |
+| Archived | An archived copy is preserved and accessible |
+| Pending Review | The source has been added but not yet verified |
+
+## Source Independence
+
+Republication of another source's material does not count as independent corroboration. If a newspaper article repeats claims from a government press release without additional reporting, APIG traces both sources to the original claim and records that the newspaper article is derivative, not independent. Independent corroboration requires a separate source with separate provenance.
+
+<Warning>
+  A source record is not a claim. Recording that a source exists does not establish that the source's claims are accurate.
+</Warning>

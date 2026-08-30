@@ -1,0 +1,42 @@
+---
+title: "APIG Workflow Registry"
+sidebarTitle: "Workflows"
+description: "Registry of APIG operational workflows connecting forms, webhooks, scripts, and data systems into repeatable automated or semi-automated processes."
+---
+
+A workflow in APIG is an end-to-end operational process composed of multiple assets. Unlike individual scripts or forms, a workflow represents the complete chain from trigger to outcome. The workflow registry documents what each workflow does, what assets it uses, and who owns it.
+
+## Workflow record fields
+
+| Field | Description |
+| --- | --- |
+| Asset ID | Unique identifier for this workflow asset |
+| Name | Human-readable workflow name |
+| Trigger | What starts the workflow (manual, form submission, scheduled, or event-triggered) |
+| Steps Summary | Brief description of each step in the workflow |
+| Component Assets | List of asset IDs in order of execution |
+| Owner | The person or team responsible for this workflow |
+| Status | Active, Inactive, Draft, or Archived |
+| Last Verified | Date this record was last confirmed |
+
+## Example workflow chain
+
+A typical workflow connects multiple assets into a single process:
+
+```text
+FOIA Intake Workflow
+  → Tally FOIA Form (APIG-ASSET-FRM-001)
+  → Webhook (APIG-ASSET-WHK-001)
+  → Google Apps Script (APIG-ASSET-SCR-001)
+  → FOIA Tracking Spreadsheet
+```
+
+## Registered workflows
+
+| Asset ID | Name | Trigger | Steps Summary | Component Assets | Owner | Status | Last Verified |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| APIG-ASSET-WFL-000 | Placeholder Workflow | Manual | Placeholder format | APIG-ASSET-FRM-000 → APIG-ASSET-WHK-000 → APIG-ASSET-SCR-000 | Administrator | Draft | YYYY-MM-DD |
+
+<Note>
+  A workflow record documents the chain. Each component in the chain has its own registry entry in the appropriate section.
+</Note>

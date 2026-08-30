@@ -1,0 +1,114 @@
+---
+title: "APIG-08: Authority, Accountability, and Chain of Command"
+sidebarTitle: "APIG-08: Authority"
+description: "APIG's authority graph model, accountability navigation, and the rule that accountability relationships do not transfer misconduct or guilt."
+---
+
+APIG-08 defines how the AP Investigative Group models authority, accountability, and chain-of-command relationships within its knowledge graph. This specification establishes the authority graph structure and imposes a critical rule: accountability navigation does not propagate guilt or liability upward through the hierarchy.
+
+## Authority Types
+
+APIG tracks multiple types of authority relationships between entities. Each type is explicitly classified and stored as a labeled edge in the authority graph.
+
+<CardGroup cols={2}>
+  <Card title="Supervisory" icon="sitemap">
+    Direct managerial oversight of a subordinate position or person.
+  </Card>
+
+  <Card title="Appointment" icon="handshake">
+    The power to appoint a person to a position or role.
+  </Card>
+
+  <Card title="Removal" icon="user-xmark">
+    The power to remove a person from a position or role.
+  </Card>
+
+  <Card title="Governing" icon="gavel">
+    Authority to set policy or make binding decisions for an organization.
+  </Card>
+
+  <Card title="Oversight" icon="eye">
+    Authority to monitor, review, or audit the actions of another entity.
+  </Card>
+
+  <Card title="Reporting" icon="file-lines">
+    The obligation to report to a higher authority or body.
+  </Card>
+
+  <Card title="Delegated" icon="share-nodes">
+    Authority transferred from one entity to another for a specific purpose or period.
+  </Card>
+
+  <Card title="Approval" icon="check-circle">
+    Authority to approve or veto decisions, expenditures, or actions.
+  </Card>
+
+  <Card title="Financial" icon="money-bill">
+    Authority over budgets, spending, or financial decisions.
+  </Card>
+
+  <Card title="Legal" icon="scale-balanced">
+    Authority related to legal representation, enforcement, or compliance.
+  </Card>
+
+  <Card title="Regulatory" icon="shield-halved">
+    Authority to issue or enforce regulations and rules.
+  </Card>
+</CardGroup>
+
+## Authority Graph
+
+The authority graph is a directed graph that maps relationships between entities in a chain of command. Nodes represent persons, positions, or organizations. Edges represent authority relationships with a specific type and time bound.
+
+<Steps>
+  <Step title="Identify entities">
+    Determine the persons, positions, and organizations involved in the chain.
+  </Step>
+  <Step title="Classify relationships">
+    Label each edge with an authority type from the taxonomy above.
+  </Step>
+  <Step title="Set time bounds">
+    Every authority edge must have a start date. End dates are required when the relationship terminates.
+  </Step>
+</Steps>
+
+## Critical Rule: No Guilt Propagation
+
+<Warning>
+  Accountability navigation does not propagate guilt or liability upward. A supervisor being accountable for oversight does not mean the supervisor committed misconduct.
+</Warning>
+
+This rule is fundamental to APIG's authority model. Navigating from a person to their supervisors provides organizational context. It does not imply that those supervisors share blame for any misconduct by the subordinate.
+
+## Downstream Accountability Context
+
+When navigating from a person to their supervisors, APIG provides context about the chain of command without making accusations. The purpose is to show who held what oversight responsibility at a given time, not to assign culpability.
+
+<Tip>
+  Use phrases like "held supervisory authority over" rather than "was responsible for misconduct by" when describing upstream relationships.
+</Tip>
+
+## Distinguishing Relationship Types
+
+APIG explicitly distinguishes between four categories of relationship that are often conflated.
+
+| Relationship | What It Means |
+| --- | --- |
+| Direct conduct | The person personally performed an action. |
+| Supervisory relationship | The person had managerial authority over someone who performed an action. |
+| Oversight relationship | The person or body had monitoring or review authority over an area or function. |
+| Appointment relationship | The person had the authority to appoint someone to a position. |
+
+<Note>
+  Each of these relationship types is stored as a separate edge in the authority graph with its own classification and time bounds.
+</Note>
+
+## No Automatic Guilt or Liability Propagation
+
+APIG does not infer guilt, liability, or misconduct from the existence of an authority relationship. The presence of a supervisory edge between Person A and Person B does not imply that Person A is responsible for any wrongdoing by Person B.
+
+<Accordion title="Examples of Non-Propagation">
+  - A mayor appoints a police chief. The mayor holds appointment authority. This does not mean the mayor is liable for the chief's misconduct.
+  - A department director supervises a staff member. The director holds supervisory authority. This does not mean the director committed any action taken by the staff member.
+  - A board provides oversight of an agency. The board holds oversight authority. This does not mean the board is liable for agency decisions.
+</Accordion>

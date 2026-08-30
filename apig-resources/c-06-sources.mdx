@@ -1,0 +1,108 @@
+---
+title: "APIG-06: Sources, Evidence, and Provenance"
+sidebarTitle: "Sources"
+description: "How APIG tracks the origin of every piece of information: source records, provenance chains, verification states, conflicting sources, and the difference between a claim and a verified fact."
+---
+
+APIG-06 defines how sources, evidence, and provenance are handled in the APIG system. The central principle is that important factual information must be traceable to its origin. APIG preserves the distinction between what a source says and what APIG concludes — a claim is not a fact merely because a source makes it.
+
+## Source vs Claim vs Fact
+
+```text
+SOURCE: The original document, record, or information origin
+  ↓ contains
+CLAIM: A statement attributed to that source
+  ↓ may become (after verification)
+VERIFIED FACT: Information confirmed by appropriate independent evidence
+
+A claim is not a fact because AI generated it.
+A claim is not a fact because it appears in multiple sources.
+A claim becomes more credible through independent corroboration.
+```
+
+## Source Record Fields
+
+| Field | Description |
+| --- | --- |
+| Source ID | Persistent unique identifier |
+| Source Type | Official government, news media, court record, public filing, public database, agency website, social media, statement, anonymous, other |
+| Title/Name | Identifying name of the source |
+| URL | Location if online |
+| Date Published/Created | When the source was produced |
+| Date Obtained | When APIG obtained the source |
+| Author/Publisher | Who produced it |
+| Official Status | Whether this is an official government record |
+| Archived Copy | Whether APIG has preserved a copy |
+| Verification Status | Status of the source itself |
+| Related Entities | People, organizations, positions, events this source pertains to |
+| Notes | Additional context |
+
+## Source Types
+
+<Accordion title="Official Government Records">
+  Statutes, ordinances, resolutions, official websites, court filings, public databases, meeting minutes, and election records. These are the highest reliability tier. They are official records produced by the relevant governmental authority.
+</Accordion>
+
+<Accordion title="Public Records Documents">
+  FOIA responses, public financial records, and agency reports. These are official records but may be incomplete, delayed, or redacted. They require the same provenance tracking as other sources.
+</Accordion>
+
+<Accordion title="News Media">
+  Published reporting from news organizations. May be accurate but carries editorial perspective and is independent from APIG. APIG records news as a source category, not as independent verification of facts the news reports on.
+</Accordion>
+
+<Accordion title="Social Media and Statements">
+  Posts, public statements, and press releases. Useful for attribution (a person made a statement on a specific date) but not self-verifying. The statement being made is a documented fact; the content of the statement requires independent verification.
+</Accordion>
+
+<Accordion title="AI-Generated">
+  Research or extraction performed by AI. Must be labeled as AI-generated and treated as unverified pending administrator review. AI output is never automatically treated as a sourced fact.
+</Accordion>
+
+<Accordion title="Anonymous or Unverified">
+  Tips, unattributed claims, and information from unknown sources. Logged for tracking purposes but not treated as verified information. These may prompt further research but cannot stand alone as sourced facts.
+</Accordion>
+
+## Source-to-Claim Relationships
+
+A source does not directly assert facts in the APIG database — it makes claims that APIG records. Each claim identifies: the source it came from, what the claim states, the date it was made, and its current verification status. Multiple sources may support, contradict, or be independent of each other.
+
+## Conflicting Sources
+
+When sources conflict, APIG preserves the conflict. The system does not silently choose a preferred answer. A conflict is flagged for administrator review. Both claims remain visible with their respective sources.
+
+## Provenance Chain
+
+Every important fact should be traceable backward through:
+
+```text
+Verified fact
+  ← claim
+    ← source
+      ← source origin and date
+        ← who obtained it and when
+```
+
+This chain allows APIG and its users to evaluate the quality of any piece of information.
+
+## Source Independence
+
+Two sources that both derived from the same original source are not independent corroboration. APIG tracks source provenance to avoid treating repeated reporting of the same original claim as independent verification.
+
+## Verification States
+
+| State | Meaning |
+| --- | --- |
+| Verified | Confirmed by authoritative independent sources |
+| Partially Verified | Some elements confirmed, others not |
+| Unverified | Not yet confirmed but not contradicted |
+| Source Indicates | A source makes this claim — APIG has not independently verified |
+| Conflicting | Multiple sources with incompatible claims |
+| Historical | Previously verified but status may have changed |
+| Pending Review | Awaiting administrator review |
+| AI Generated | Produced by AI — must be verified before publication |
+| Unknown | No information available |
+
+<Note>
+  AI may research and identify sources. AI may extract claims from sources. AI may suggest relationships between sources and entities. AI output about sources is always labeled as AI-generated and treated as unverified pending review. AI must not invent sources, claim that something was verified when it was not, or present inference as a sourced fact.
+</Note>

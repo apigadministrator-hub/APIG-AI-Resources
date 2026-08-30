@@ -1,0 +1,115 @@
+---
+title: "APIG-22: Resource Management, AI Providers, and Graceful Degradation"
+sidebarTitle: "APIG-22: Degradation"
+description: "APIG maintains service continuity through a tiered AI provider hierarchy, capability matching, quota tracking, and defined fallback sequences when resources fail."
+---
+
+APIG manages AI providers and computational resources through a structured hierarchy that ensures essential functions remain operational even when primary services become unavailable. This specification defines how APIG selects providers, handles quotas, degrades gracefully, and responds to resource failures.
+
+## Core Functions First Hierarchy
+
+Essential APIG functions are never starved of resources. The resource priority hierarchy is:
+
+<Steps>
+  <Step title="Core Functions">
+    Mission-critical operations that must remain available at all times
+  </Step>
+  <Step title="Authenticated Priority Tasks">
+    Verified high-priority work with administrative authorization
+  </Step>
+  <Step title="Normal Tasks">
+    Standard operational work with standard resource allocation
+  </Step>
+  <Step title="Background Tasks">
+    Non-urgent processing that can be deferred or throttled
+  </Step>
+</Steps>
+
+## AI Provider Hierarchy and Free Model Fallbacks
+
+APIG maintains a tiered provider structure:
+
+<CardGroup cols={2}>
+  <Card title="Primary Providers" icon="server">
+    Full-capability, paid-tier models used for normal operations. These offer the best performance and feature coverage.
+  </Card>
+
+  <Card title="Free-Tier Fallbacks" icon="arrow-down">
+    Free AI models that APIG can use when primary models are unavailable. Capability may be reduced, but core functions remain possible.
+  </Card>
+</CardGroup>
+
+<Note>
+  Free model fallback is automatic when primary providers report unavailability or quota exhaustion. APIG does not wait for human intervention to switch tiers.
+</Note>
+
+## Capability Matching
+
+Tasks are assigned to models that can actually perform them. APIG evaluates:
+
+- Required output format (code, structured data, prose)
+- Context window needs
+- Reasoning complexity
+- Tool use requirements
+
+A task is never assigned to a model known to lack a required capability. If no available model meets the requirements, the task is queued rather than assigned to an inadequate model.
+
+## Quota Management
+
+APIG tracks usage against provider quotas to prevent unexpected service interruption:
+
+- Usage is monitored against each provider's stated limits
+- Threshold alerts trigger before quotas are exhausted
+- When a quota approaches exhaustion, new tasks are routed to the next tier
+- Historical usage patterns inform proactive tier switching
+
+## Graceful Degradation
+
+If a preferred model or service is unavailable, APIG degrades gracefully rather than failing completely:
+
+1. Attempt the primary provider
+2. If unavailable, switch to the next tier in the hierarchy
+3. If capability is reduced, adjust task scope or split into smaller subtasks
+4. If all tiers are exhausted, preserve state and await resources
+
+<Warning>
+  Graceful degradation means reducing capability or speed, not reducing security, verification, or authorization requirements.
+</Warning>
+
+## Emergency Resource Use
+
+In emergencies, APIG may use backup resources outside the normal tier sequence. Emergency use is:
+
+- Triggered by a defined emergency condition (e.g., all standard providers down during an active incident)
+- Logged with full provenance for later audit
+- Reverted to normal tiers as soon as they become available
+
+## Resource Failure Sequence
+
+When any resource becomes unavailable, APIG follows this sequence:
+
+<Steps>
+  <Step title="Preserve State">
+    Current task state is checkpointed and sealed before any other action
+  </Step>
+  <Step title="Fall Back">
+    The next available resource in the hierarchy is activated
+  </Step>
+  <Step title="Escalate if Needed">
+    If no fallback is available and the task is critical, an escalation is triggered to administrators
+  </Step>
+  <Step title="Await Instruction">
+    If the task cannot proceed, it enters a checkpointed state with a failure report
+  </Step>
+</Steps>
+
+## AI Provider Failure Sequence
+
+When an AI provider fails during an active task, the specific steps are:
+
+1. **Immediate checkpoint**: The current task state is saved regardless of where execution was
+2. **Failure classification**: The provider failure is classified as transient, quota-based, or permanent
+3. **Provider switch**: The next provider in the hierarchy is selected based on the task's capability requirements
+4. **State transfer**: The checkpoint package is transferred to the new provider
+5. **Resume or requeue**: Execution resumes if the new provider can accept the task; otherwise it is requeued
+6. **Post-incident review**: Provider failures are logged for pattern analysis and hierarchy adjustment

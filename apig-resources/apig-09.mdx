@@ -1,0 +1,102 @@
+---
+title: "APIG-09: Position, Office, and Authority Inheritance"
+sidebarTitle: "APIG-09: Office Authority"
+description: "How APIG handles authority inheritance through position occupancy, acting and interim positions, and shared or collective authority."
+---
+
+APIG-09 extends the position and office model established in APIG-05 to cover how authority flows through positions. This specification defines authority inheritance, the treatment of acting and interim appointments, shared or collective authority, and the rules for event attribution across position occupancy changes.
+
+<Note>
+  This specification covers related ground to APIG-05 (Position and Office Model). APIG-05 focuses on position identity and history; APIG-09 extends that model to cover authority inheritance, acting/interim appointments, shared authority, and chain of command navigation.
+</Note>
+
+## Authority Inheritance Through Positions
+
+In APIG, authority is attached to the position, not the person. When a person occupies a position, they inherit the authority defined for that role. When they leave, the authority remains with the position and passes to the next occupant.
+
+<CardGroup cols={2}>
+  <Card title="Position Carries Authority" icon="id-badge">
+    The position entity stores the authority types and scope associated with the role.
+  </Card>
+
+  <Card title="Person Inherits on Occupancy" icon="user">
+    The occupant exercises the position's authority only during their occupancy period.
+  </Card>
+</CardGroup>
+
+## Acting and Interim Positions
+
+APIG treats acting and interim appointments as full occupancies for authority purposes. The person holding an acting or interim title has the same authority as a permanent occupant, bounded only by the time limits of their appointment.
+
+<Steps>
+  <Step title="Record the appointment type">
+    Classify the occupancy as "acting," "interim," or "permanent" in the position record.
+  </Step>
+  <Step title="Apply authority inheritance">
+    The occupant inherits the full authority of the position during their tenure.
+  </Step>
+  <Step title="Set strict time bounds">
+    Acting and interim appointments must have explicit start and expected end dates.
+  </Step>
+</Steps>
+
+<Warning>
+  Do not treat acting or interim occupants as lacking authority. Their decisions are attributed to the position and are valid for the period of their occupancy.
+</Warning>
+
+## Shared and Collective Authority
+
+Some positions or bodies do not vest authority in a single person. APIG models these as shared or collective authority structures.
+
+<Accordion title="Examples of Collective Authority">
+  - **Board votes**: A decision requires a majority vote of the board members.
+  - **Consensus requirements**: All members must agree before action is taken.
+  - **Committee approval**: A subcommittee must sign off before the full body acts.
+  - **Dual signatures**: Two or more officers must jointly authorize an expenditure.
+</Accordion>
+
+<Tip>
+  When modeling collective authority, specify the decision rule (e.g., simple majority, two-thirds, unanimous) and the members who participated in the decision.
+</Tip>
+
+## Chain of Command
+
+Positions in APIG have defined reporting and supervisory relationships that form the chain of command. These relationships are stored as edges in the authority graph with explicit authority types.
+
+| Relationship | Direction | Example |
+| --- | --- | --- |
+| Reports to | Upward | A staff analyst reports to a division director. |
+| Supervises | Downward | A division director supervises a staff analyst. |
+| Advises | Lateral | A legal counsel advises the department head. |
+
+<Note>
+  Chain-of-command edges are time-bound. A reorganization that changes reporting lines is recorded as a new edge with updated dates, not an overwrite of the prior relationship.
+</Note>
+
+## Authority Remains With the Position
+
+When a person leaves a position, all authority associated with that role remains with the position entity. The departing person no longer exercises that authority, and the incoming occupant inherits it upon taking office.
+
+<Warning>
+  Do not attribute post-departure actions to a former occupant based on their prior position. Authority is strictly bounded by occupancy dates.
+</Warning>
+
+## Event Attribution
+
+Actions taken during a position occupancy are attributed to the person who held the position at that time. Subsequent occupants are not retroactively associated with events that occurred before or after their tenure.
+
+<Steps>
+  <Step title="Timestamp the event">
+    Record the exact date and time of the action or decision.
+  </Step>
+  <Step title="Identify the occupant">
+    Determine who held the position at the time of the event.
+  </Step>
+  <Step title="Attribute correctly">
+    Link the event to the occupant's person record for that period only.
+  </Step>
+</Steps>
+
+<Tip>
+  When querying events for a position, APIG returns all events that occurred during any occupancy. When querying events for a person, APIG returns only those events that occurred during their specific occupancy periods.
+</Tip>

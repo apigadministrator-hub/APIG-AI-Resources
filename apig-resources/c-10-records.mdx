@@ -1,0 +1,82 @@
+---
+title: "APIG-10: Records, Documentation, and Version Control"
+sidebarTitle: "Records"
+description: "How APIG maintains records of changes, decisions, deployments, specifications, and data lineage — ensuring the system is auditable, historically preserved, and understandable to future administrators and AI agents."
+---
+
+APIG-10 defines how APIG maintains records of its own operations. This includes specification version control, deployment records, change documentation, data lineage, and the distinction between different types of operational records. Good records are what allow APIG to survive changes in personnel, AI models, and technology providers.
+
+## Why Records Matter
+
+APIG is a persistent system designed to outlast any individual AI conversation, any single AI model, and any particular administrator. The records system is what makes continuity possible. A new AI or a new administrator must be able to understand the current state of the system by reading its records — not by reconstructing context from old conversations.
+
+## Three Types of Records
+
+| Type | Purpose | Location |
+| --- | --- | --- |
+| Specifications | How APIG is designed to work. Permanent architectural and operating rules. | /Specifications/ in GitHub |
+| Deployment Records | What was actually configured, what code was deployed, exact instructions given to humans for external services. | /Deployment Records/ in GitHub |
+| Asset Registry | What accounts, services, domains, repositories, and brand assets APIG uses. | APIG Resource Library (this documentation site) |
+
+These three are distinct. A specification says what something is supposed to do. A deployment record says what was actually done to implement it. The asset registry says what resources exist.
+
+## Specification Version Control
+
+- Every specification has a version number
+- Substantive changes update the version and are recorded with the reason
+- Previous versions are preserved where practical
+- The root resource document (Start Here) is updated when the resource structure changes
+- Conflicting specifications must be resolved and the resolution documented before implementation
+
+## Deployment Records
+
+When APIG requires a human to configure or modify an external service, a deployment record is created. It preserves:
+
+- Date
+- Platform
+- Purpose
+- Exact instructions given to the human
+- Exact code or configuration supplied (the actual content that was copied and pasted)
+- Result
+- Errors and corrections
+- Current status
+- What was replaced and what replaced it
+
+<Note>
+  The exact material that a human was instructed to copy and paste must be preserved in the deployment record. Code belongs in code files; deployment instructions belong in deployment records; specifications explain what the system is supposed to do. These are separate resources.
+</Note>
+
+## Data Lineage
+
+For every important data record in APIG:
+
+- Who entered it
+- When it was entered
+- What source it came from
+- When it was last verified
+- Who verified it
+- What changed and when
+- Current status
+
+Data lineage allows APIG and its administrators to audit any record and understand its full history.
+
+## Change Management
+
+When AI makes substantial changes to APIG architecture: the change must be documented, the previous state preserved, the reason recorded, and the administrator notified if the change is consequential. AI must not make irreversible architectural changes without explicit administrator authorization.
+
+## Do Not Destroy History
+
+When changing a specification, configuration, deployment record, or important system resource: prefer versioning over destructive replacement. The goal is to preserve:
+
+- What existed
+- What changed
+- When it changed
+- Why it changed
+- Who authorized the change
+- What replaced it
+
+## Records Are Not Casual Notes
+
+<Tip>
+  APIG records are institutional memory. They should be specific enough that a future administrator or AI agent can understand what was done, why it was done, and what the current state is — without access to any prior conversation.
+</Tip>

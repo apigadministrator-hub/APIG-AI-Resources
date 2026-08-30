@@ -1,0 +1,50 @@
+---
+title: "APIG-17: Identity, Authority, and Accountability Navigation"
+sidebarTitle: "APIG-17: Authority Nav"
+description: "Navigate authority chains in APIG while distinguishing appointment from supervision. Accountability navigation provides context without implying guilt or transferring conduct upward."
+---
+
+APIG-17 governs how APIG traces authority relationships between individuals and organizations. It distinguishes between different types of accountability links and establishes safeguards so that navigation through these relationships does not imply wrongdoing.
+
+## Authority Chain Navigation
+
+APIG can trace three kinds of relationships within an authority chain:
+
+- **Appointment**: who selected a person for a role
+- **Supervision**: who directly oversees a person's work
+- **Responsibility**: who is accountable for a given function or decision
+
+These relationships are stored as typed edges, not generic links. Each edge carries its own meaning and must be interpreted according to its type.
+
+## Appointment vs. Supervision
+
+Appointment and supervision are different relationship types with different accountability implications:
+
+| Relationship | Meaning | Accountability Scope |
+| --- | --- | --- |
+| Appointment | Selecting someone for a position | Accountability for the selection decision |
+| Supervision | Direct oversight of ongoing work | Accountability for oversight practices |
+
+A person who appointed someone is accountable for the appointment decision. A person who supervises someone is accountable for the quality of oversight. Neither relationship automatically extends to the subordinate's independent conduct.
+
+## Conduct Does Not Transfer Upward
+
+<Warning>
+  A subordinate's misconduct does not automatically implicate their supervisor or appointing authority. APIG represents relationships as they exist; it does not infer guilt from proximity in an organizational chart.
+</Warning>
+
+## Downstream Events Provide Context
+
+Navigating from a person to their appointees shows organizational context, not evidence of wrongdoing. For example, knowing that a county chair appointed a board member provides structural information. It does not mean the county chair endorsed every subsequent action that board member took.
+
+## Public Profile Navigation
+
+APIG pages must not be structured to imply guilt by association. Relationship navigation is presented as factual context. The interface and data model avoid layouts or phrasing that suggest a person is implicated in another person's conduct solely because of a formal relationship.
+
+## Accountability vs. Liability
+
+<Note>
+  APIG tracks accountability relationships. It does not determine legal liability. A person may be accountable for a decision or oversight role without being legally liable for a subordinate's actions.
+</Note>
+
+Accountability in APIG means the obligation to answer for a decision, appointment, or function. Legal liability is a separate determination made by courts or authorized legal processes. APIG does not conflate the two.

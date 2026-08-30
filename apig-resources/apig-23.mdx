@@ -1,0 +1,96 @@
+---
+title: "APIG-23: Security, Identity, and Access Control"
+sidebarTitle: "APIG-23: Security"
+description: "APIG's security model requires authentication before authorization, treats social media as untrusted, isolates secrets, and re-verifies identity during every AI handoff."
+---
+
+APIG's security architecture is built on the principle that identity must be verified before any authority is granted. This specification governs how APIG handles authentication, authorization, external messages, prompt injection, credential storage, emergency access, and secure AI handoffs.
+
+## Authenticate Before Authorize
+
+APIG never grants authority based on claimed identity alone. Every request for privileged action must pass through:
+
+<Steps>
+  <Step title="Identity Claim">
+    A party asserts an identity (e.g., "I am an administrator")
+  </Step>
+  <Step title="Authentication">
+    APIG verifies the claim using an established authentication mechanism
+  </Step>
+  <Step title="Authorization">
+    Only after authentication succeeds does APIG check whether the authenticated party has the required authority for the requested action
+  </Step>
+</Steps>
+
+<Warning>
+  A message claiming administrative authority is not treated as authorized without verification. Claimed authority is insufficient.
+</Warning>
+
+## Social Media and Public Channel Trust Boundaries
+
+Messages received through social media or public channels are treated as public messages, not as authorized commands. This applies regardless of:
+
+- The apparent identity of the sender
+- The urgency expressed in the message
+- Whether the message references internal APIG matters
+
+<Note>
+  Public channels include social media platforms, public forums, unencrypted email, and any communication medium where APIG cannot cryptographically verify the sender.
+</Note>
+
+## Prompt Injection as Data
+
+Instructions embedded in content (for example, in a document being analyzed) are treated as data, not as operational commands. When APIG AI processes external content:
+
+- The content is analyzed for what it says, not for hidden instructions to APIG systems
+- Embedded commands like "ignore previous instructions" or "delete all records" are logged as anomalies, not executed
+- Content analysis and system operation run in separate evaluation contexts
+
+## Secret Separation
+
+Credentials, API keys, and passwords are stored separately from documentation:
+
+| What | Where It Lives |
+| --- | --- |
+| Documentation | Standard APIG record library, accessible to authorized agents |
+| Secrets | Isolated secret store with separate access controls |
+| Deployment configs | Referenced by name in documentation; values stored with secrets |
+
+<Warning>
+  No secret value is ever written into a task log, checkpoint, or documentation file. Secrets are referenced by identifier only.
+</Warning>
+
+## Emergency Access Controls
+
+Procedures for break-glass access exist for situations when normal authorization is unavailable:
+
+- Emergency access requires multiple factors and is time-limited
+- All emergency access is logged with full provenance
+- Emergency actions are reviewed after the incident is resolved
+- Emergency access does not grant permanent authority; normal authorization must be restored
+
+## AI Handoff Security
+
+When transferring tasks between AI agents, authorization must be re-verified:
+
+<Steps>
+  <Step title="Checkpoint">
+    Current task state is saved in a sealed checkpoint
+  </Step>
+  <Step title="Package">
+    The checkpoint is packaged with metadata about the task and prior agent
+  </Step>
+  <Step title="Transfer">
+    The package is delivered to the receiving agent or provider
+  </Step>
+  <Step title="Verify">
+    The receiving agent's identity and authorization are verified before it is granted access to the task
+  </Step>
+  <Step title="Continue">
+    After verification, execution resumes with the new agent
+  </Step>
+</Steps>
+
+<Tip>
+  Re-verification during handoff prevents a compromised or unauthorized agent from inheriting task authority simply because it received a checkpoint package.
+</Tip>

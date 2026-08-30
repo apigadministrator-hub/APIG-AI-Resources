@@ -1,0 +1,74 @@
+---
+title: "Jurisdictions and Geographic Hierarchy in APIG"
+sidebarTitle: "Jurisdictions"
+description: "A jurisdiction is a geographic or governmental sphere of authority. APIG tracks jurisdictions as distinct entities separate from the organizations that operate within them."
+---
+
+APIG separates jurisdictions from the organizations operating within them. Wayne County is a jurisdiction; the Wayne County Sheriff's Office is an organization that operates within that jurisdiction. Keeping these distinct allows APIG to represent multi-jurisdictional agencies, track organizational history within a jurisdiction, and navigate the government hierarchy accurately.
+
+## Jurisdiction Types
+
+| Type | Description |
+| --- | --- |
+| State | One of the 50 United States plus the District of Columbia and U.S. territories |
+| County | Administrative subdivision of a state; the primary local government unit in most states |
+| Municipality | A city, town, village, or other incorporated area with local self-government |
+| Township | A civil township within a county, common in certain states such as Illinois |
+| Special District | A single-purpose governmental district that may cross county or municipal boundaries, such as a water district or transit authority |
+| Unknown | A jurisdiction whose type has not yet been classified or verified |
+
+## Jurisdiction vs Organization
+
+The distinction between a jurisdiction and an organization is critical to APIG's data model. A jurisdiction is a geographic or governmental sphere of authority. An organization is a specific agency, office, or body that operates within one or more jurisdictions.
+
+```text
+Wayne County [JURISDICTION]
+  └── Wayne County Sheriff's Office [ORGANIZATION]
+        └── Sheriff [POSITION]
+              └── John Smith [PERSON]
+```
+
+Wayne County is the jurisdiction. The Wayne County Sheriff's Office is an organization that exists within that jurisdiction. The sheriff is a position within that organization, and John Smith is the person who currently holds that position. These are four distinct entity types, each with its own record and ID.
+
+## Location vs Service Area
+
+An agency may be physically located in one jurisdiction but serve another. For example, a regional transit authority might have its headquarters in a municipality within Wayne County but provide service across multiple counties. APIG records both the physical location and the service area when documented.
+
+| Field | Example |
+| --- | --- |
+| Physical Location | Wayne County, Illinois |
+| Service Area | Wayne County, White County, Edwards County |
+
+## The Core Hierarchy
+
+APIG models government structure as a hierarchy from broad geographic authority to specific individuals. This hierarchy is the backbone of the system's navigation and relationship tracking.
+
+```text
+State
+  └── County
+        └── Municipality
+              └── Agency (Organization)
+                    └── Position
+                          └── Person
+```
+
+Each level is a distinct entity type with its own record, relationships, and history. A person moves through positions. Positions belong to organizations. Organizations operate within jurisdictions. This structure allows APIG to answer questions such as: What positions has this person held? What organizations operate in this county? What is the chain of authority from the state to this local office?
+
+## Multi-Jurisdiction Organizations
+
+Some organizations operate across multiple jurisdictions. A regional planning commission may serve several counties. A state police agency operates in every county within the state. A federal task force may span state lines.
+
+APIG records the relationship between the organization and each jurisdiction separately. The organization is not merged into a single record that claims to belong to one jurisdiction. Instead, APIG stores an explicit relationship for each jurisdiction served.
+
+```text
+Southern Illinois Regional Planning Commission [ORGANIZATION]
+  └── serves: Wayne County [JURISDICTION]
+  └── serves: White County [JURISDICTION]
+  └── serves: Edwards County [JURISDICTION]
+```
+
+This design preserves accuracy when an organization's scope changes. If the commission stops serving one county, the relationship is updated or marked historical without affecting the other relationships or the organization's core record.
+
+<Note>
+  A jurisdiction is not deleted when government changes. It is a persistent geographic entity.
+</Note>

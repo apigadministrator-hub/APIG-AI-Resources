@@ -1,0 +1,62 @@
+---
+title: "AI Assistance in APIG: Capabilities and Limits"
+sidebarTitle: "Overview"
+description: "APIG uses AI to research, extract, and audit public records, but all consequential actions require human review. Learn what AI can and cannot do."
+---
+
+APIG integrates artificial intelligence across its investigative workflow to accelerate research, reduce manual data entry, and surface connections human editors might miss. AI agents operate within strict boundaries: they can draft, suggest, and flag, but they cannot publish, delete, or take any action that affects the public record without explicit human authorization. This page describes the four AI roles and the hard limits that protect data integrity.
+
+## Four AI Roles
+
+<CardGroup cols={2}>
+  <Card title="Research" icon="search" href="/ai/research">
+    Query public databases, news archives, government websites, court records, and campaign finance data to find relevant information about entities under investigation.
+  </Card>
+
+  <Card title="Extraction" icon="file-text" href="/ai/extraction">
+    Parse PDFs, scanned documents, and web pages to pull structured data such as names, dates, titles, relationships, and financial figures into draft records.
+  </Card>
+
+  <Card title="Gap Analysis" icon="alert-triangle" href="/ai/gap-analysis">
+    Scan the entity graph to identify missing relationships, unverified claims, coverage holes, and officials without complete profiles.
+  </Card>
+
+  <Card title="Auditing" icon="shield-check" href="/ai/review-process">
+    Detect duplicate records, inconsistent data, conflicting sources, and anomalies that require editor attention before publication.
+  </Card>
+</CardGroup>
+
+## What AI Can and Cannot Do
+
+The following table defines the boundary between AI-assisted work and human-required decisions.
+
+| Action | AI Role | Human Required |
+| --- | --- | --- |
+| Search public databases and compile findings | Yes | No |
+| Create draft records from extracted data | Yes | No |
+| Flag potential duplicates or inconsistencies | Yes | No |
+| Identify missing relationships or coverage gaps | Yes | No |
+| Tag records with provenance and confidence scores | Yes | No |
+| Publish any new entity or relationship | No | **Yes** |
+| Change verification status to VERIFIED or AUTHORITATIVE | No | **Yes** |
+| Delete or archive authoritative records | No | **Yes** |
+| Send FOIA requests or contact sources | No | **Yes** |
+| Create records involving living private individuals | No | **Yes** |
+| Take any action with legal or reputational consequences | No | **Yes** |
+
+<Warning>
+  AI-generated content never appears on the public site until an editor approves it through the review queue. All AI outputs carry an UNVERIFIED status and include provenance metadata showing which AI process produced them.
+</Warning>
+
+## Confidence and Provenance
+
+Every AI action attaches two pieces of metadata:
+
+- **Confidence score**: A 0.0 to 1.0 rating indicating how certain the AI is about the extracted or inferred data. Scores below the system threshold automatically route to human review.
+- **Provenance chain**: A traceable log of which sources, queries, and processing steps produced the output. This allows editors to reconstruct how the AI reached its conclusions.
+
+## Next Steps
+
+- [AI-Assisted Research: Finding and Gathering Data](/ai/research)
+- [Document Extraction: Turning PDFs into Structured Data](/ai/extraction)
+- [Human Review: The APIG Authorization Workflow](/ai/review-process)

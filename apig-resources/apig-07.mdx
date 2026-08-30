@@ -1,0 +1,96 @@
+---
+title: "APIG-07: Person Relationships and Navigation"
+sidebarTitle: "APIG-07: Person Relationships"
+description: "How APIG navigates from persons to their positions, organizations, documents, meetings, and news appearances, with identity resolution rules."
+---
+
+APIG-07 defines the rules for navigating from a person entity to related entities across the APIG knowledge graph. This specification establishes the separation between persons, positions, organizations, and jurisdictions, and sets the requirements for identity resolution and record authority.
+
+## Entity Separation
+
+In APIG, four core entity types are always modeled as separate and distinct. They are never collapsed into one another.
+
+<CardGroup cols={2}>
+  <Card title="Person" icon="user">
+    An individual human being. A person exists independently of any role they hold.
+  </Card>
+
+  <Card title="Position" icon="id-badge">
+    A defined role within an organization (e.g., "Mayor," "Board Member"). Positions persist even when unoccupied.
+  </Card>
+
+  <Card title="Organization" icon="building">
+    An institutional body such as a department, agency, or nonprofit.
+  </Card>
+
+  <Card title="Jurisdiction" icon="map-pin">
+    A geographic or legal domain over which an organization or position has authority.
+  </Card>
+</CardGroup>
+
+## Multiple Simultaneous Positions
+
+A single person may hold multiple positions at the same time. APIG models each position independently and tracks the time period of each occupancy.
+
+<Note>
+  Example: A person may simultaneously serve as a county board member and a school board member. APIG stores these as two separate position occupancy records with independent start and end dates.
+</Note>
+
+## Tracked Relationship Types
+
+APIG distinguishes between how a person came to hold a position. Each relationship type is stored separately.
+
+| Relationship Type | Description |
+| --- | --- |
+| Election | The person was elected to the position by voters. |
+| Appointment | The person was appointed by another authority or body. |
+| Employment | The person was hired into the position through an employment process. |
+
+<Warning>
+  Do not conflate election and appointment records. The pathway by which a person holds a position affects downstream accountability and chain-of-command navigation.
+</Warning>
+
+## Navigation Paths from a Person
+
+From any person entity in APIG, the following navigation paths are supported.
+
+<Steps>
+  <Step title="Positions">
+    Navigate to all positions the person holds or has held, with occupancy dates.
+  </Step>
+  <Step title="Organizations">
+    From positions, navigate to the organizations those positions belong to.
+  </Step>
+  <Step title="Documents">
+    Navigate to documents in which the person appears, such as meeting minutes, filings, or reports.
+  </Step>
+  <Step title="Meetings">
+    Navigate to meetings the person attended, with attendance records where available.
+  </Step>
+  <Step title="News Coverage">
+    Navigate to news articles or media appearances that mention or feature the person.
+  </Step>
+</Steps>
+
+## Identity Resolution
+
+When two or more records may refer to the same person, APIG requires evidence before merging or linking them.
+
+<Accordion title="Identity Resolution Requirements">
+  - Name similarity alone is insufficient for resolution.
+  - Supporting evidence may include shared date of birth, address history, position history, or document co-occurrence.
+  - Each potential match is evaluated on the strength of available evidence.
+  - Unresolved duplicates remain as separate records until sufficient evidence is gathered.
+</Accordion>
+
+<Tip>
+  Always document the evidence used to resolve identities. APIG maintains an audit trail for all identity merge decisions.
+</Tip>
+
+## Instruction Authority
+
+Only authenticated users with the appropriate permissions can issue instructions that modify person records. Public messages or external mentions about a person do not automatically update that person's record in APIG.
+
+<Warning>
+  Unauthenticated or unauthorized inputs about a person are not treated as authoritative. They may be logged for review but will not alter the canonical person record without verified instruction.
+</Warning>

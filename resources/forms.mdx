@@ -1,0 +1,40 @@
+---
+title: "APIG Form Registry"
+sidebarTitle: "Forms"
+description: "Registry of Tally forms and other data collection forms used by APIG, with purpose, connected webhooks, destination systems, and field summary for each."
+---
+
+The form registry documents every data collection form used by APIG. Forms are typically the entry point for a larger workflow: a submission triggers a webhook, which runs a script, which routes data to its destination. Each form is a distinct asset with its own record.
+
+## Form record fields
+
+| Field | Description |
+| --- | --- |
+| Asset ID | Unique identifier for this form asset |
+| Name | The form name or title |
+| Platform | Where the form is hosted (Tally, Google Forms, etc.) |
+| Purpose | What data this form collects and why |
+| Form URL | The public or internal URL to access the form |
+| Status | Active, Draft, or Archived |
+| Connected Webhook Asset | The webhook triggered on submission |
+| Destination System | Where submitted data ultimately goes |
+| Field Summary | Field names only (no user data) |
+| Last Verified | Date this record was last confirmed |
+
+## Asset relationship chain
+
+Forms are one link in a larger workflow chain. A typical connection looks like this:
+
+```text
+Tally Form → Webhook → Google Apps Script → Destination Workflow
+```
+
+## Registered forms
+
+| Asset ID | Name | Platform | Purpose | Form URL | Status | Connected Webhook Asset | Destination System | Field Summary | Last Verified |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| APIG-ASSET-FRM-000 | Placeholder Form | Tally | Placeholder format | [https://tally.so](https://tally.so) | Draft | APIG-ASSET-WHK-000 | Example System | Field 1, Field 2 | YYYY-MM-DD |
+
+<Note>
+  Add a record to this table whenever a new form is created for APIG.
+</Note>

@@ -1,0 +1,75 @@
+---
+title: "Verification: States, Workflow, and Administrator Review"
+sidebarTitle: "Verification"
+description: "APIG applies verification at the claim and relationship level with eight distinct states. Learn how AI proposes facts and administrators review before publication."
+---
+
+APIG treats verification as a first-class property of every claim and relationship, not just a label on entities. When the system records that a person holds a position, that a meeting occurred on a specific date, or that an organization reports to a particular agency, each assertion carries its own verification state and source trail. This design ensures that you can trace any significant fact back to its origin and understand how much confidence the system places in it.
+
+## Verification States
+
+Every claim and relationship in APIG carries one of eight verification states. These states apply independently to each assertion, so a single entity may have some fields marked Verified and others marked Unknown.
+
+| State | Meaning |
+| --- | --- |
+| **Verified** | Confirmed by direct evidence from an authoritative source. |
+| **Partially Verified** | Supported by some evidence, but gaps or qualifiers remain. |
+| **Unverified** | Recorded in the system without sufficient supporting evidence. |
+| **Conflicting** | Multiple sources disagree; the conflict is documented but unresolved. |
+| **Pending Review** | Proposed by AI or a contributor and awaiting administrator review. |
+| **Disputed** | A challenge has been raised with documented counter-evidence. |
+| **Historical** | Accurate for a past period, but no longer current. |
+| **Unknown** | No information is available. This is always a valid value. |
+
+<Note>
+  Unknown is an explicit, acceptable state. APIG never invents facts to fill gaps. If a birth date, appointment date, or reporting relationship cannot be sourced, the system records Unknown rather than generating a placeholder.
+</Note>
+
+## AI Workflow for Verification
+
+AI assists research and extraction, but substantive publication requires human review. The workflow follows a strict propose-and-approve pattern.
+
+<Steps>
+  <Step title="AI discovers and proposes">
+    AI models research public records, extract structured facts, and create proposed records. Each proposal includes the extracted value, the source document or URL, and a suggested verification state.
+  </Step>
+  <Step title="Administrator reviews">
+    A human administrator examines the proposed fact, the source, and the suggested state. The administrator may accept the proposal, change the verification state, request additional sourcing, or reject the claim.
+  </Step>
+  <Step title="Approved information becomes public">
+    Only after administrator approval does the claim appear in public-facing views. Pending Review items remain visible to authorized researchers but are excluded from published reports.
+  </Step>
+</Steps>
+
+<Warning>
+  AI confidence is not an authoritative source. A high-confidence extraction from an unverified website remains Unverified or Pending Review until an administrator confirms the source's reliability and the extraction's accuracy.
+</Warning>
+
+## Current Information and Time Sensitivity
+
+Verification states do not expire automatically. A position marked Verified in 2023 remains Verified unless new evidence contradicts it. However, current information is time-sensitive. Every verified claim carries a last-verified date so you can judge whether the information is recent enough for your purpose.
+
+| Scenario | Recommended Action |
+| --- | --- |
+| Last verified over 12 months ago | Flag for re-verification during next review cycle |
+| Source document superseded by newer edition | Update to newer source and re-verify |
+| Position known to be term-limited | Verify expiration date and mark Historical if term ended |
+
+## What Gets Verified
+
+Verification applies at multiple granularities:
+
+- **Entity attributes**: A person's name spelling, an organization's legal name, a jurisdiction's boundaries.
+- **Relationships**: Who reports to whom, which agency oversees which board, which position belongs to which organization.
+- **Claims**: Assertions made in sources, such as a budget figure or an attendance record.
+- **Documents**: The authenticity and provenance of a source document itself.
+
+<Tip>
+  When you browse APIG, click any verification badge to see the full source trail, including the originating document, the extraction date, and the reviewing administrator.
+</Tip>
+
+## Related Documentation
+
+- [Provenance and Verification](/concepts/provenance-and-verification) — Core concepts behind source tracking
+- [Sources](/data/sources) — How APIG registers and manages evidence documents
+- [Documents](/data/documents) — Document types and ingestion workflows

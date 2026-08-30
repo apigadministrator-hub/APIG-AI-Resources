@@ -1,0 +1,31 @@
+---
+title: "APIG Form Registry"
+sidebarTitle: "Forms"
+description: "Registry of all data collection forms used by APIG, including platform, purpose, submission destination, and downstream workflow connections."
+---
+
+Forms are often the first step in an APIG data pipeline. A submission can trigger a webhook, which in turn runs a script and advances a workflow. This registry tracks every form so you know where data enters the system, where submissions go, and what processes they kick off downstream.
+
+## Record fields
+
+| Field | Description |
+| --- | --- |
+| Asset ID | Unique identifier for this form record. |
+| Form Name | Human-readable name of the form. |
+| Platform | The service hosting the form (e.g., Typeform, Google Forms, custom). |
+| Form URL/ID | Direct link or identifier to access the form. |
+| Purpose | What data this form collects and why. |
+| Submission Destination | Where form responses are sent (endpoint, sheet, database, etc.). |
+| Connected Webhook | The webhook triggered on submission, if any. |
+| Connected Workflow | The workflow this form feeds into, if any. |
+| Status | Current state: Active, Draft, Archived, or Deprecated. |
+| Notes | Additional context, configuration details, or ownership info. |
+
+## Registered forms
+
+| Asset ID | Form Name | Platform | Form URL/ID | Purpose | Submission Destination | Connected Webhook | Connected Workflow | Status | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+
+<Note>
+  Add a new entry to this registry before deploying a new form. Recording the connected webhook and workflow up front keeps your pipeline documentation accurate and makes troubleshooting easier when submissions fail to propagate.
+</Note>
