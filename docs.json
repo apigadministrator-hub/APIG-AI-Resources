@@ -18,302 +18,385 @@
     "socials": {}
   },
   "navigation": {
-    "tabs": [
+    "products": [
       {
-        "tab": "Home",
-        "groups": [
+        "product": "APIG",
+        "icon": "landmark",
+        "description": "Accountability Project: Illinois government transparency",
+        "tabs": [
           {
-            "group": "Welcome",
-            "pages": [
-              "index",
-              "about-us/mission",
-              "about-us/methodology"
+            "tab": "Home",
+            "groups": [
+              {
+                "group": "Welcome",
+                "pages": [
+                  "index",
+                  "about-us/mission",
+                  "about-us/methodology"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Jurisdictions",
+            "groups": [
+              {
+                "group": "Illinois",
+                "pages": [
+                  "jurisdictions/illinois"
+                ]
+              },
+              {
+                "group": "Illinois Counties",
+                "pages": [
+                  {
+                    "group": "Wayne County",
+                    "icon": "star",
+                    "pages": [
+                      "jurisdictions/wayne-county",
+                      {
+                        "group": "County Board",
+                        "pages": [
+                          "jurisdictions/wayne-county-board"
+                        ]
+                      },
+                      {
+                        "group": "Elected Officials",
+                        "pages": [
+                          "jurisdictions/wayne-county-elected-officials",
+                          "jurisdictions/wayne-county/clerk-and-recorder",
+                          "jurisdictions/wayne-county/treasurer-and-collector",
+                          "jurisdictions/wayne-county/coroner",
+                          "jurisdictions/wayne-county/supervisor-of-assessments"
+                        ]
+                      },
+                      {
+                        "group": "Courts",
+                        "pages": [
+                          "jurisdictions/wayne-county/courts",
+                          "jurisdictions/wayne-county/circuit-clerk",
+                          "jurisdictions/wayne-county/states-attorney"
+                        ]
+                      },
+                      {
+                        "group": "Agencies & Authorities",
+                        "pages": [
+                          "jurisdictions/wayne-county/sheriffs-office",
+                          "jurisdictions/wayne-county/health-department",
+                          "jurisdictions/wayne-county/emergency-management",
+                          "jurisdictions/wayne-county/animal-control",
+                          "jurisdictions/wayne-county/road-and-bridge",
+                          "jurisdictions/wayne-county/regional-office-of-education",
+                          "jurisdictions/wayne-county-housing-authority"
+                        ]
+                      },
+                      {
+                        "group": "Municipalities",
+                        "pages": [
+                          "jurisdictions/city-of-fairfield",
+                          "jurisdictions/wayne-county/municipalities/cisne",
+                          "jurisdictions/wayne-county/municipalities/golden-gate",
+                          "jurisdictions/wayne-county/municipalities/johnsonville",
+                          "jurisdictions/wayne-county/municipalities/keenes",
+                          "jurisdictions/wayne-county/municipalities/mill-shoals",
+                          "jurisdictions/wayne-county/municipalities/mount-erie",
+                          "jurisdictions/wayne-county/municipalities/orchardville",
+                          "jurisdictions/wayne-county/municipalities/sims"
+                        ]
+                      },
+                      {
+                        "group": "Districts & Other Entities",
+                        "pages": [
+                          "jurisdictions/wayne-county/school-districts",
+                          "jurisdictions/wayne-county/fire-protection-districts",
+                          "jurisdictions/wayne-county/other-entities"
+                        ]
+                      },
+                      {
+                        "group": "People, Records & News",
+                        "pages": [
+                          "jurisdictions/wayne-county/people",
+                          "jurisdictions/wayne-county/organizations",
+                          "jurisdictions/wayne-county/documents",
+                          "jurisdictions/wayne-county/news"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "group": "All Counties (A–E)",
+                    "pages": [
+                      "jurisdictions/illinois/counties/adams",
+                      "jurisdictions/illinois/counties/alexander",
+                      "jurisdictions/illinois/counties/bond",
+                      "jurisdictions/illinois/counties/boone",
+                      "jurisdictions/illinois/counties/brown",
+                      "jurisdictions/illinois/counties/bureau",
+                      "jurisdictions/illinois/counties/calhoun",
+                      "jurisdictions/illinois/counties/carroll",
+                      "jurisdictions/illinois/counties/cass",
+                      "jurisdictions/illinois/counties/champaign",
+                      "jurisdictions/illinois/counties/christian",
+                      "jurisdictions/illinois/counties/clark",
+                      "jurisdictions/illinois/counties/clay",
+                      "jurisdictions/illinois/counties/clinton",
+                      "jurisdictions/illinois/counties/coles",
+                      "jurisdictions/illinois/counties/cook",
+                      "jurisdictions/illinois/counties/crawford",
+                      "jurisdictions/illinois/counties/cumberland",
+                      "jurisdictions/illinois/counties/dekalb",
+                      "jurisdictions/illinois/counties/dewitt",
+                      "jurisdictions/illinois/counties/douglas",
+                      "jurisdictions/illinois/counties/dupage",
+                      "jurisdictions/illinois/counties/edgar",
+                      "jurisdictions/illinois/counties/edwards",
+                      "jurisdictions/illinois/counties/effingham"
+                    ]
+                  },
+                  {
+                    "group": "All Counties (F–K)",
+                    "pages": [
+                      "jurisdictions/illinois/counties/fayette",
+                      "jurisdictions/illinois/counties/ford",
+                      "jurisdictions/illinois/counties/franklin",
+                      "jurisdictions/illinois/counties/fulton",
+                      "jurisdictions/illinois/counties/gallatin",
+                      "jurisdictions/illinois/counties/greene",
+                      "jurisdictions/illinois/counties/grundy",
+                      "jurisdictions/illinois/counties/hamilton",
+                      "jurisdictions/illinois/counties/hancock",
+                      "jurisdictions/illinois/counties/hardin",
+                      "jurisdictions/illinois/counties/henderson",
+                      "jurisdictions/illinois/counties/henry",
+                      "jurisdictions/illinois/counties/iroquois",
+                      "jurisdictions/illinois/counties/jackson",
+                      "jurisdictions/illinois/counties/jasper",
+                      "jurisdictions/illinois/counties/jefferson",
+                      "jurisdictions/illinois/counties/jersey",
+                      "jurisdictions/illinois/counties/jo-daviess",
+                      "jurisdictions/illinois/counties/johnson",
+                      "jurisdictions/illinois/counties/kane",
+                      "jurisdictions/illinois/counties/kankakee",
+                      "jurisdictions/illinois/counties/kendall",
+                      "jurisdictions/illinois/counties/knox"
+                    ]
+                  },
+                  {
+                    "group": "All Counties (L–P)",
+                    "pages": [
+                      "jurisdictions/illinois/counties/lake",
+                      "jurisdictions/illinois/counties/lasalle",
+                      "jurisdictions/illinois/counties/lawrence",
+                      "jurisdictions/illinois/counties/lee",
+                      "jurisdictions/illinois/counties/livingston",
+                      "jurisdictions/illinois/counties/logan",
+                      "jurisdictions/illinois/counties/macon",
+                      "jurisdictions/illinois/counties/macoupin",
+                      "jurisdictions/illinois/counties/madison",
+                      "jurisdictions/illinois/counties/marion",
+                      "jurisdictions/illinois/counties/marshall",
+                      "jurisdictions/illinois/counties/mason",
+                      "jurisdictions/illinois/counties/massac",
+                      "jurisdictions/illinois/counties/mcdonough",
+                      "jurisdictions/illinois/counties/mchenry",
+                      "jurisdictions/illinois/counties/mclean",
+                      "jurisdictions/illinois/counties/menard",
+                      "jurisdictions/illinois/counties/mercer",
+                      "jurisdictions/illinois/counties/monroe",
+                      "jurisdictions/illinois/counties/montgomery",
+                      "jurisdictions/illinois/counties/morgan",
+                      "jurisdictions/illinois/counties/moultrie",
+                      "jurisdictions/illinois/counties/ogle",
+                      "jurisdictions/illinois/counties/peoria",
+                      "jurisdictions/illinois/counties/perry",
+                      "jurisdictions/illinois/counties/piatt",
+                      "jurisdictions/illinois/counties/pike",
+                      "jurisdictions/illinois/counties/pope"
+                    ]
+                  },
+                  {
+                    "group": "All Counties (P–W)",
+                    "pages": [
+                      "jurisdictions/illinois/counties/pulaski",
+                      "jurisdictions/illinois/counties/putnam",
+                      "jurisdictions/illinois/counties/randolph",
+                      "jurisdictions/illinois/counties/richland",
+                      "jurisdictions/illinois/counties/rock-island",
+                      "jurisdictions/illinois/counties/saline",
+                      "jurisdictions/illinois/counties/sangamon",
+                      "jurisdictions/illinois/counties/schuyler",
+                      "jurisdictions/illinois/counties/scott",
+                      "jurisdictions/illinois/counties/shelby",
+                      "jurisdictions/illinois/counties/st-clair",
+                      "jurisdictions/illinois/counties/stark",
+                      "jurisdictions/illinois/counties/stephenson",
+                      "jurisdictions/illinois/counties/tazewell",
+                      "jurisdictions/illinois/counties/union",
+                      "jurisdictions/illinois/counties/vermilion",
+                      "jurisdictions/illinois/counties/wabash",
+                      "jurisdictions/illinois/counties/warren",
+                      "jurisdictions/illinois/counties/washington",
+                      "jurisdictions/illinois/counties/white",
+                      "jurisdictions/illinois/counties/whiteside",
+                      "jurisdictions/illinois/counties/will",
+                      "jurisdictions/illinois/counties/williamson",
+                      "jurisdictions/illinois/counties/winnebago",
+                      "jurisdictions/illinois/counties/woodford"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Reference",
+                "pages": [
+                  "hierarchy/agencies-and-offices",
+                  "hierarchy/boards-and-authorities"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Personnel",
+            "groups": [
+              {
+                "group": "People and Positions",
+                "pages": [
+                  "data/persons",
+                  "data/positions",
+                  "data/organizations"
+                ]
+              },
+              {
+                "group": "Authority and Accountability",
+                "pages": [
+                  "hierarchy/overview",
+                  "hierarchy/states-and-counties"
+                ]
+              },
+              {
+                "group": "Sample Profiles",
+                "pages": [
+                  "templates/board-member",
+                  "templates/executive-director",
+                  "templates/maintenance"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "About",
+            "groups": [
+              {
+                "group": "About the Accountability Project",
+                "pages": [
+                  "about-us/mission",
+                  "about-us/methodology",
+                  "about-us/sources-and-verification",
+                  "about-us/accountability-chain",
+                  "about-us/contact"
+                ]
+              },
+              {
+                "group": "Platform Requirements",
+                "pages": [
+                  "specifications/platform-limitations"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "APIG Resources",
+            "groups": [
+              {
+                "group": "About This Library",
+                "pages": [
+                  "apig-resources/index",
+                  "apig-resources/start-here"
+                ]
+              },
+              {
+                "group": "Mission and Architecture",
+                "pages": [
+                  "apig-resources/apig-01",
+                  "apig-resources/apig-02",
+                  "apig-resources/apig-03"
+                ]
+              },
+              {
+                "group": "People, Positions, and Organizations",
+                "pages": [
+                  "apig-resources/apig-04",
+                  "apig-resources/apig-05",
+                  "apig-resources/apig-06",
+                  "apig-resources/apig-07",
+                  "apig-resources/apig-09"
+                ]
+              },
+              {
+                "group": "Authority and Accountability",
+                "pages": [
+                  "apig-resources/apig-08",
+                  "apig-resources/apig-12"
+                ]
+              },
+              {
+                "group": "Sources, Evidence, and Data",
+                "pages": [
+                  "apig-resources/apig-10",
+                  "apig-resources/apig-11",
+                  "apig-resources/apig-19",
+                  "apig-resources/apig-20",
+                  "apig-resources/apig-24",
+                  "apig-resources/apig-28",
+                  "apig-resources/apig-30",
+                  "apig-resources/apig-31"
+                ]
+              },
+              {
+                "group": "AI Operations and Tasks",
+                "pages": [
+                  "apig-resources/apig-14",
+                  "apig-resources/apig-15",
+                  "apig-resources/apig-21",
+                  "apig-resources/apig-22",
+                  "apig-resources/apig-25"
+                ]
+              },
+              {
+                "group": "Identity, Access, and Security",
+                "pages": [
+                  "apig-resources/apig-13",
+                  "apig-resources/apig-16",
+                  "apig-resources/apig-17",
+                  "apig-resources/apig-18",
+                  "apig-resources/apig-23",
+                  "apig-resources/apig-26",
+                  "apig-resources/apig-29",
+                  "apig-resources/apig-32",
+                  "apig-resources/apig-33"
+                ]
+              },
+              {
+                "group": "Records and Governance",
+                "pages": [
+                  "apig-resources/apig-27",
+                  "apig-resources/apig-34",
+                  "apig-resources/apig-35",
+                  "apig-resources/apig-36",
+                  "apig-resources/apig-37"
+                ]
+              }
             ]
           }
         ]
       },
       {
-        "tab": "Jurisdictions",
-        "groups": [
+        "product": "APIG Monster News Media",
+        "icon": "newspaper",
+        "description": "Investigative news and media from A Pig Monster",
+        "tabs": [
           {
-            "group": "Illinois",
-            "pages": [
-              "jurisdictions/illinois",
-              "templates/state"
-            ]
-          },
-          {
-            "group": "Wayne County",
-            "pages": [
-              "jurisdictions/wayne-county",
-              "jurisdictions/wayne-county-board",
-              "jurisdictions/wayne-county-elected-officials",
-              "jurisdictions/wayne-county-housing-authority",
-              "jurisdictions/city-of-fairfield",
-              "templates/county",
-              "templates/city",
-              "templates/agency",
-              "templates/authority"
-            ]
-          },
-          {
-            "group": "Reference",
-            "pages": [
-              "hierarchy/agencies-and-offices",
-              "hierarchy/boards-and-authorities"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Personnel",
-        "groups": [
-          {
-            "group": "People and Positions",
-            "pages": [
-              "data/persons",
-              "data/positions",
-              "data/organizations"
-            ]
-          },
-          {
-            "group": "Authority and Accountability",
-            "pages": [
-              "hierarchy/overview",
-              "hierarchy/states-and-counties"
-            ]
-          },
-          {
-            "group": "Sample Profiles",
-            "pages": [
-              "templates/board-member",
-              "templates/executive-director",
-              "templates/maintenance"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "News & Media",
-        "groups": [
-          {
-            "group": "A Pig Monster",
-            "pages": [
-              "news/overview",
-              "news/apig-monster-news",
-              "news/featured-news"
-            ]
-          },
-          {
-            "group": "External Sources",
-            "pages": [
-              "news/external-sources",
-              "news/village-voice",
-              "news/edgar-county-watchdogs"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "About Us",
-        "groups": [
-          {
-            "group": "About the Accountability Project",
-            "pages": [
-              "about-us/mission",
-              "about-us/methodology",
-              "about-us/sources-and-verification",
-              "about-us/accountability-chain",
-              "about-us/contact"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "APIG Resources",
-        "groups": [
-          {
-            "group": "About This Library",
-            "pages": [
-              "apig-resources/index",
-              "apig-resources/start-here"
-            ]
-          },
-          {
-            "group": "Mission and Architecture",
-            "pages": [
-              "apig-resources/apig-01",
-              "apig-resources/apig-02",
-              "apig-resources/apig-03"
-            ]
-          },
-          {
-            "group": "People, Positions, and Organizations",
-            "pages": [
-              "apig-resources/apig-04",
-              "apig-resources/apig-05",
-              "apig-resources/apig-06",
-              "apig-resources/apig-07",
-              "apig-resources/apig-09"
-            ]
-          },
-          {
-            "group": "Authority and Accountability",
-            "pages": [
-              "apig-resources/apig-08",
-              "apig-resources/apig-12"
-            ]
-          },
-          {
-            "group": "Sources, Evidence, and Data",
-            "pages": [
-              "apig-resources/apig-10",
-              "apig-resources/apig-11",
-              "apig-resources/apig-19",
-              "apig-resources/apig-20",
-              "apig-resources/apig-24",
-              "apig-resources/apig-28",
-              "apig-resources/apig-30",
-              "apig-resources/apig-31"
-            ]
-          },
-          {
-            "group": "AI Operations and Tasks",
-            "pages": [
-              "apig-resources/apig-14",
-              "apig-resources/apig-15",
-              "apig-resources/apig-21",
-              "apig-resources/apig-22",
-              "apig-resources/apig-25"
-            ]
-          },
-          {
-            "group": "Identity, Access, and Security",
-            "pages": [
-              "apig-resources/apig-13",
-              "apig-resources/apig-16",
-              "apig-resources/apig-17",
-              "apig-resources/apig-18",
-              "apig-resources/apig-23",
-              "apig-resources/apig-26",
-              "apig-resources/apig-29",
-              "apig-resources/apig-32",
-              "apig-resources/apig-33"
-            ]
-          },
-          {
-            "group": "Records and Governance",
-            "pages": [
-              "apig-resources/apig-27",
-              "apig-resources/apig-34",
-              "apig-resources/apig-35",
-              "apig-resources/apig-36",
-              "apig-resources/apig-37"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "AI Operations",
-        "groups": [
-          {
-            "group": "How AI Works in APIG",
-            "pages": [
-              "ai/overview",
-              "concepts/ai-portability",
-              "ai/resource-navigation",
-              "ai/task-execution",
-              "ai/human-review"
-            ]
-          },
-          {
-            "group": "AI Procedures",
-            "pages": [
-              "ai/research",
-              "ai/extraction",
-              "ai/gap-analysis",
-              "ai/handoff"
-            ]
-          }
-        ],
-        "hidden": true
-      },
-      {
-        "tab": "System Resources",
-        "hidden": true,
-        "groups": [
-          {
-            "group": "Asset Registry",
-            "pages": [
-              "resources/overview",
-              "resources/asset-index",
-              "resources/accounts",
-              "resources/domains",
-              "resources/hosting",
-              "resources/repositories"
-            ]
-          },
-          {
-            "group": "Integrations",
-            "pages": [
-              "resources/integrations",
-              "resources/forms",
-              "resources/webhooks",
-              "resources/scripts"
-            ]
-          },
-          {
-            "group": "Operations",
-            "pages": [
-              "resources/workflows",
-              "resources/deployment-records",
-              "resources/changelog",
-              "resources/wayne-county-resources",
-              "resources/deployment-records/wayne-county-harvest-001",
-              "resources/deployment-records/wayne-county-harvest-001-raw"
-            ]
-          },
-          {
-            "group": "Specifications",
-            "pages": [
-              "resources/spec-index",
-              "resources/site-layout",
-              "resources/identity-separation"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Assets",
-        "hidden": true,
-        "groups": [
-          {
-            "group": "Asset Index",
-            "pages": [
-              "assets/index",
-              "assets/accounts",
-              "assets/domains",
-              "assets/hosting",
-              "assets/repositories",
-              "assets/brand"
-            ]
-          },
-          {
-            "group": "Integrations and Services",
-            "pages": [
-              "assets/integrations",
-              "assets/forms",
-              "assets/webhooks",
-              "assets/scripts"
-            ]
-          },
-          {
-            "group": "Operations",
-            "pages": [
-              "assets/workflows",
-              "assets/deployment-records",
-              "assets/changelog"
-            ]
+            "tab": "News"
           }
         ]
       }

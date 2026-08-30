@@ -1,0 +1,149 @@
+---
+title: "APIG Platform Limitations and Custom Application Requirements"
+sidebarTitle: "Platform Limitations"
+description: "Requirements for the eventual APIG custom web application that the current Mintlify documentation layer cannot fulfill."
+---
+
+The Accountability Project (APIG) is currently published through Mintlify as a documentation and resource presentation layer. Mintlify is not the final implementation platform for the APIG website. The requirements below define architectural obligations that must be carried forward into the eventual custom APIG web application. They are not resolved by anything in this documentation deployment.
+
+<Warning>
+  These are APIG architectural requirements, not Mintlify feature requests. Do not weaken, redesign, or discard them because the current documentation platform cannot support them. They apply to the target APIG custom web application.
+</Warning>
+
+## 1. Logo presentation
+
+APIG requires a substantially larger primary logo presentation than any documentation-template header permits.
+
+**Requirements carried forward:**
+
+- A dedicated logo holder in the upper-left area of the site, occupying approximately the full usable width of the left navigation region.
+- The APIG logo must be approximately 4 to 5 times the visual size permitted by the current Mintlify header.
+- Aspect ratio preserved. No distortion, cropping, or forced miniaturization.
+- The logo holder is an intentional layout component, not an ordinary navigation item.
+- The same treatment applies to the APIG Monster News Media logo in its section.
+
+**Current state in Mintlify:** The logo sits in a fixed header slot at a template-controlled size. This is a platform limitation, not the intended APIG design.
+
+## 2. Two distinct brand identities
+
+APIG and APIG Monster News Media are two separate identities and must remain visually and structurally distinct.
+
+**Requirements carried forward:**
+
+- APIG identity uses `APIG LOGO.png`. It is the primary investigative information-system identity.
+- APIG Monster News Media identity uses `Pig Monster News Media LOGO.png`. It is the distinct news-media identity.
+- When a user enters News & Media, the site must transition to the APIG Monster News Media identity. At minimum the logo must swap. Preferably the section receives a differentiated visual treatment while retaining the common underlying architecture.
+- The APIG logo must never appear in the News & Media section. The two assets remain separate.
+
+**Current state in Mintlify:** Mintlify supports one site logo (light \+ dark). It cannot swap the logo based on the active section or product. The News & Media section is currently organized as a distinct product/navigation area, but the logo does not change.
+
+## 3. Three-column information architecture
+
+APIG requires three functional regions on every page.
+
+**Left sidebar (primary navigation and contextual navigation):**
+
+- Primary navigation, section navigation, hierarchical navigation.
+- Jurisdiction navigation, entity navigation.
+- Persistent subsection links appropriate to the current section.
+
+**Center content area:**
+
+- Page content, landing pages, entity information, articles, research information, tables, documents.
+
+**Right sidebar (context-sensitive current information):**
+
+- Recent information, alerts, breaking developments.
+- Recently updated records, newly discovered information.
+- Recent articles, relevant investigations, important notices.
+- Recently changed personnel and other temporally or contextually relevant information.
+- Context-sensitive: changes with the current section, jurisdiction, entity, or topic.
+
+**Current state in Mintlify:** Mintlify renders a left sidebar (navigation), a center content area, and a right column reserved for an auto-generated table of contents from page headings. The right column is not configurable as a dynamic information stream. This is a platform limitation.
+
+## 4. Right sidebar dynamic feeds
+
+The right sidebar must function as a living information stream, not a static list of links.
+
+**Requirements carried forward:**
+
+- Prioritize current information relevant to what the user is viewing.
+- For a jurisdiction view (for example, Illinois), surface recent developments involving officials in that jurisdiction, newly added or updated personnel, significant public-record developments, relevant APIG articles, recent events, and alerts.
+- For an entity view (for example, Wayne County Sheriff's Office), surface information about that entity, its personnel, and related events.
+- The stream must be prioritized by relevance and recency.
+
+**Current state in Mintlify:** Documentation sites are static. There is no data layer, no CMS, and no dynamic feed capability. Any dynamic behavior requires the custom APIG application.
+
+## 5. Breadcrumbs
+
+APIG requires persistent hierarchical location navigation.
+
+**Requirements carried forward:**
+
+- Breadcrumb navigation fixed in the appropriate navigation/header region.
+- Breadcrumbs must not scroll with the body content.
+- Breadcrumb position must remain consistent throughout the site.
+- Example: `Home → Jurisdictions → Illinois → Wayne County`.
+
+**Current state in Mintlify:** Mintlify does not provide first-class fixed breadcrumbs. Current location is indicated by the left sidebar highlight. Any inline breadcrumb rendered in page body will scroll with the page. This is a platform limitation.
+
+## 6. Contextual navigation depth
+
+Left sidebar navigation must become increasingly contextual as the user moves deeper into the APIG hierarchy.
+
+**Requirements carried forward:**
+
+- At the Illinois level, the left sidebar exposes counties of Illinois.
+- At the Wayne County level, the left sidebar exposes Wayne County entities (County Government, Board, Elected Officials, Courts, State's Attorney, Sheriff's Office, Municipalities, Housing Authority, School Districts, Fire Protection Districts, People, Organizations, Documents, News & Media).
+- At the Sheriff's Office level, the left sidebar exposes Sheriff's Office personnel and related entities.
+
+**Current state in Mintlify:** Mintlify sidebars are static navigation groups defined in `docs.json`. They do not swap based on the currently active page beyond expanding the containing group. The APIG hierarchy is approximated using nested groups. True context-swap requires the custom APIG application.
+
+## 7. Responsive design
+
+The three-region architecture must remain usable on all screen sizes.
+
+**Requirements carried forward:**
+
+- On smaller screens, the three regions may collapse or become accessible through appropriate controls.
+- The desktop version preserves `Left Navigation | Center Content | Right Current Information`.
+- The logo remains prominent regardless of responsive behavior.
+
+## 8. Component reusability
+
+The following must exist as reusable components in the custom APIG application, not as page-specific patches:
+
+- APIG logo holder
+- APIG Monster News Media logo holder
+- Left navigation
+- Breadcrumb navigation
+- Center content area
+- Right information/alert sidebar
+- Jurisdiction navigation
+- Entity navigation
+- News & Media navigation
+
+## 9. Design principle
+
+The APIG interface must make three things immediately understandable:
+
+1. **Where am I?** Breadcrumbs and hierarchical navigation.
+2. **What am I looking at?** Center content and contextual left navigation.
+3. **What is happening now?** Right sidebar with current and relevant information.
+
+The APIG logo establishes the primary organizational identity. The APIG Monster News Media logo establishes the distinct news-media identity. The interface is designed around these principles, not around the limitations of the current documentation template.
+
+## Summary
+
+| Requirement | Mintlify supports | Deferred to APIG custom application |
+| --- | --- | --- |
+| Large, sidebar-width logo holder | No | Yes |
+| Distinct APIG vs. News Media logos per section | No | Yes |
+| Configurable right sidebar with dynamic feeds | No | Yes |
+| Fixed non-scrolling breadcrumbs | No | Yes |
+| Contextual left sidebar that swaps with depth | Partial (nested groups) | Yes |
+| Hierarchical jurisdiction navigation | Yes | Continued |
+| Separate News & Media navigation area | Yes (via product/tab) | Continued |
+| Reusable layout component system | No | Yes |
+
+Mintlify is being used as the current documentation and resource presentation layer. It is not the target implementation platform for APIG. Every requirement marked "deferred" must be delivered by the custom APIG web application.
