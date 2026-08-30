@@ -1,6 +1,6 @@
 {
   "theme": "luma",
-  "name": "APIG",
+  "name": "Accountability Project",
   "colors": {
     "primary": "#E91E8C",
     "light": "#F06292",
@@ -17,82 +17,175 @@
   "footer": {
     "socials": {}
   },
-  "contextual": {
-    "options": [
-      "copy",
-      "view",
-      "chatgpt",
-      "claude",
-      "cursor",
-      "mcp"
-    ],
-    "display": "header"
-  },
   "navigation": {
     "tabs": [
       {
-        "tab": "Overview",
+        "tab": "Home",
         "groups": [
           {
-            "group": "Get Started",
+            "group": "Welcome",
             "pages": [
               "index",
-              "quickstart",
-              "access-and-roles"
-            ]
-          },
-          {
-            "group": "Core Concepts",
-            "pages": [
-              "concepts/what-is-apig",
-              "concepts/entity-model",
-              "concepts/relationships",
-              "concepts/provenance-and-verification"
+              "about-us/mission",
+              "about-us/methodology"
             ]
           }
         ]
       },
       {
-        "tab": "Data Architecture",
+        "tab": "Jurisdictions",
         "groups": [
-          {
-            "group": "Entities",
-            "pages": [
-              "data/overview",
-              "data/persons",
-              "data/positions",
-              "data/organizations",
-              "data/jurisdictions"
-            ]
-          },
-          {
-            "group": "Evidence",
-            "pages": [
-              "data/sources",
-              "data/documents",
-              "data/meetings",
-              "data/verification"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Government Hierarchy",
-        "groups": [
-          {
-            "group": "Hierarchy Model",
-            "pages": [
-              "hierarchy/overview",
-              "hierarchy/states-and-counties",
-              "hierarchy/agencies-and-offices",
-              "hierarchy/boards-and-authorities"
-            ]
-          },
           {
             "group": "Illinois",
             "pages": [
               "jurisdictions/illinois",
               "jurisdictions/wayne-county"
+            ]
+          },
+          {
+            "group": "Agencies and Authorities",
+            "pages": [
+              "hierarchy/agencies-and-offices",
+              "hierarchy/boards-and-authorities"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Personnel",
+        "groups": [
+          {
+            "group": "People and Positions",
+            "pages": [
+              "data/persons",
+              "data/positions",
+              "data/organizations"
+            ]
+          },
+          {
+            "group": "Authority and Accountability",
+            "pages": [
+              "hierarchy/overview",
+              "hierarchy/states-and-counties"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "News & Media",
+        "groups": [
+          {
+            "group": "A Pig Monster",
+            "pages": [
+              "news/overview",
+              "news/apig-monster-news",
+              "news/featured-news"
+            ]
+          },
+          {
+            "group": "External Sources",
+            "pages": [
+              "news/external-sources",
+              "news/village-voice",
+              "news/edgar-county-watchdogs"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "About Us",
+        "groups": [
+          {
+            "group": "About the Accountability Project",
+            "pages": [
+              "about-us/mission",
+              "about-us/methodology",
+              "about-us/sources-and-verification",
+              "about-us/contact"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "APIG Resources",
+        "groups": [
+          {
+            "group": "About This Library",
+            "pages": [
+              "apig-resources/index",
+              "apig-resources/start-here"
+            ]
+          },
+          {
+            "group": "Mission and Architecture",
+            "pages": [
+              "apig-resources/apig-01",
+              "apig-resources/apig-02",
+              "apig-resources/apig-03"
+            ]
+          },
+          {
+            "group": "People, Positions, and Organizations",
+            "pages": [
+              "apig-resources/apig-04",
+              "apig-resources/apig-05",
+              "apig-resources/apig-06",
+              "apig-resources/apig-07",
+              "apig-resources/apig-09"
+            ]
+          },
+          {
+            "group": "Authority and Accountability",
+            "pages": [
+              "apig-resources/apig-08",
+              "apig-resources/apig-12"
+            ]
+          },
+          {
+            "group": "Sources, Evidence, and Data",
+            "pages": [
+              "apig-resources/apig-10",
+              "apig-resources/apig-11",
+              "apig-resources/apig-19",
+              "apig-resources/apig-20",
+              "apig-resources/apig-24",
+              "apig-resources/apig-28",
+              "apig-resources/apig-30",
+              "apig-resources/apig-31"
+            ]
+          },
+          {
+            "group": "AI Operations and Tasks",
+            "pages": [
+              "apig-resources/apig-14",
+              "apig-resources/apig-15",
+              "apig-resources/apig-21",
+              "apig-resources/apig-22",
+              "apig-resources/apig-25"
+            ]
+          },
+          {
+            "group": "Identity, Access, and Security",
+            "pages": [
+              "apig-resources/apig-13",
+              "apig-resources/apig-16",
+              "apig-resources/apig-17",
+              "apig-resources/apig-18",
+              "apig-resources/apig-23",
+              "apig-resources/apig-26",
+              "apig-resources/apig-29",
+              "apig-resources/apig-32",
+              "apig-resources/apig-33"
+            ]
+          },
+          {
+            "group": "Records and Governance",
+            "pages": [
+              "apig-resources/apig-27",
+              "apig-resources/apig-34",
+              "apig-resources/apig-35",
+              "apig-resources/apig-36",
+              "apig-resources/apig-37"
             ]
           }
         ]
@@ -119,67 +212,8 @@
               "ai/handoff"
             ]
           }
-        ]
-      },
-      {
-        "tab": "News Media",
-        "groups": [
-          {
-            "group": "APIG Monster News Media",
-            "pages": [
-              "news/overview",
-              "news/apig-monster-news",
-              "news/featured-news"
-            ]
-          },
-          {
-            "group": "External Sources",
-            "pages": [
-              "news/external-sources",
-              "news/village-voice",
-              "news/edgar-county-watchdogs"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "APIG Resources",
-        "groups": [
-          {
-            "group": "About This Library",
-            "pages": [
-              "apig-resources/index",
-              "apig-resources/start-here"
-            ]
-          },
-          {
-            "group": "System Foundation",
-            "pages": [
-              "apig-resources/c-01-mission",
-              "apig-resources/c-02-architecture",
-              "apig-resources/c-03-hierarchy"
-            ]
-          },
-          {
-            "group": "Entities and Data",
-            "pages": [
-              "apig-resources/c-04-people-positions-orgs",
-              "apig-resources/c-05-authority",
-              "apig-resources/c-06-sources",
-              "apig-resources/c-07-data-model"
-            ]
-          },
-          {
-            "group": "Operations and Governance",
-            "pages": [
-              "apig-resources/c-08-ai-operations",
-              "apig-resources/c-09-security",
-              "apig-resources/c-10-records",
-              "apig-resources/c-11-assets",
-              "apig-resources/c-12-governance"
-            ]
-          }
-        ]
+        ],
+        "hidden": true
       },
       {
         "tab": "System Resources",
