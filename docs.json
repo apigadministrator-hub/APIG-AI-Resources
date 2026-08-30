@@ -46,6 +46,10 @@
             "group": "Wayne County",
             "pages": [
               "jurisdictions/wayne-county",
+              "jurisdictions/wayne-county-board",
+              "jurisdictions/wayne-county-elected-officials",
+              "jurisdictions/wayne-county-housing-authority",
+              "jurisdictions/city-of-fairfield",
               "templates/county",
               "templates/city",
               "templates/agency",
@@ -263,7 +267,10 @@
             "pages": [
               "resources/workflows",
               "resources/deployment-records",
-              "resources/changelog"
+              "resources/changelog",
+              "resources/wayne-county-resources",
+              "resources/deployment-records/wayne-county-harvest-001",
+              "resources/deployment-records/wayne-county-harvest-001-raw"
             ]
           },
           {
