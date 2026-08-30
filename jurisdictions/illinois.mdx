@@ -1,67 +1,80 @@
 ---
-title: "Illinois: APIG Jurisdiction Overview"
+title: "Illinois"
 sidebarTitle: "Illinois"
-description: "Illinois is the initial development state for APIG. The architecture established here applies to every Illinois county and scales to additional states."
+description: "Illinois government records, agencies, counties, and public officials documented by the Accountability Project."
 ---
 
-<div style={{fontSize: '13px', marginBottom: '1.5rem', color: '#888'}}>
-  <a href="/" style={{color: '#E91E8C', textDecoration: 'none'}}>Home</a>
+<div style={{fontSize:'13px', marginBottom:'1.5rem', color:'#888'}}>
+  <a href="/" style={{color:'#E91E8C', textDecoration:'none'}}>Home</a>
 
   {' › '}
 
-  <span style={{color: '#333'}}>Illinois</span>
+  <span style={{color:'#333'}}>Illinois</span>
 </div>
 
-Illinois is the starting jurisdiction for APIG development. The state provides the first implementation of the full APIG architecture, from state-level government down through counties, municipalities, agencies, and individual positions. This page explains why Illinois was selected as the initial jurisdiction and how the architecture scales from Illinois to additional states.
+<div style={{width:'100%', aspectRatio:'9/16', maxHeight:'400px', background:'#1A1A1A', borderRadius:'12px', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', marginBottom:'2rem', overflow:'hidden', position:'relative'}}>
+  <div style={{color:'#E91E8C', fontSize:'48px', marginBottom:'12px'}}>🏛️</div>
+  <div style={{color:'#fff', fontSize:'14px', fontWeight:'600', letterSpacing:'0.05em', textTransform:'uppercase'}}>STATE OF ILLINOIS</div>
+  <div style={{color:'#888', fontSize:'12px', marginTop:'4px'}}>Springfield, IL — Capital</div>
+</div>
 
-## Why Illinois Is the Starting Jurisdiction
+The Accountability Project documents government entities and public officials across Illinois. This page serves as the state-level entry point for verified records, county subpages, and state agency profiles.
 
-APIG begins with Illinois for practical development reasons. The state has a well-documented government structure, accessible public records laws, and a county system that provides a clear template for the APIG hierarchy model. Starting with one state allows the team to validate the entity model, relationship tracking, and verification workflows before expanding.
+## State Overview
 
-The Illinois implementation establishes:
+<CardGroup cols={2}>
+  <Card title="State" icon="flag">
+    Illinois <span style={{fontSize:'12px', color:'#888'}}>(Verified)</span>
+  </Card>
 
-- State government structure and elected offices
-- The 102-county system and how counties relate to the state
-- County-level government, agency, and board patterns
-- Municipal structures within counties
-- Document and meeting tracking workflows
-- Source hierarchy and verification standards
+  <Card title="Joined Union" icon="calendar">
+    1818 <span style={{fontSize:'12px', color:'#888'}}>(Verified)</span>
+  </Card>
 
-## Illinois County Structure
+  <Card title="Capital" icon="map-pin">
+    Springfield <span style={{fontSize:'12px', color:'#888'}}>(Verified)</span>
+  </Card>
 
-Illinois contains 102 counties, each with its own government structure, elected officials, and agencies. APIG models each county as a distinct jurisdiction with relationships to the state, its municipalities, and its internal organizations.
+  <Card title="Governor" icon="user">
+    Unknown <span style={{fontSize:'12px', color:'#888'}}>(pending verification)</span>
+  </Card>
 
-At the state level, APIG tracks:
+  <Card title="Population" icon="users">
+    ~12.8 million <span style={{fontSize:'12px', color:'#888'}}>(Verified)</span>
+  </Card>
+</CardGroup>
 
-- Illinois state government branches and elected offices
-- State agencies and departments
-- State-level documents, statutes, and administrative rules
-- State board and commission structures
-- Relationships between state and county jurisdictions
+## Counties
 
-## State-to-County Relationships
+The Accountability Project is building county-level records for Illinois. At this time, the system documents one county. Additional counties will be added as records are verified.
 
-In APIG, Illinois and its counties are connected by documented relationships, not implied hierarchy. The state legislature may pass laws affecting counties. State agencies may oversee county operations. Counties may report data to state authorities. Each of these relationships is a distinct record with type, direction, source, and verification status.
+<CardGroup cols={3}>
+  <Card title="Wayne County" icon="map" href="/jurisdictions/illinois/wayne-county">
+    County seat: Fairfield. Home to the Wayne County Housing Authority and local elected officials.
+  </Card>
+</CardGroup>
 
-County governments are not sub-departments of the state. They are independent jurisdictions with their own elected leadership, operating under state law. APIG preserves this distinction in its relationship model.
+## State Agencies
 
-## Expansion from Illinois
+The following table lists state agencies tracked by the Accountability Project. Status indicates whether the entity record has been created and verified.
 
-The architecture developed for Illinois is designed to scale to additional states without redesign. When APIG expands to a new state, the same entity types apply:
+| Agency Name | Type | Jurisdiction | Status |
+| --- | --- | --- | --- |
+| Illinois Department of Human Services | State Agency | Statewide | Pending |
 
-- State record with government structure and agencies
-- County records with their documented internal structures
-- Municipal, agency, board, and authority organizations
-- Positions, people, documents, meetings, and sources
+## Elected State Officials
 
-Each new state requires its own authoritative source establishment. APIG does not assume that Indiana counties have the same structure as Illinois counties, or that Texas special districts operate like Illinois special districts. The architecture is portable. The data is jurisdiction-specific.
+Statewide elected positions will be documented here once records are independently verified. The table below reflects the current tracking status.
 
-<Warning>
-  All APIG information about Illinois must be established from authoritative sources. Do not assume county structures are identical across Illinois.
-</Warning>
+| Office | Name | Party | Status |
+| --- | --- | --- | --- |
+| Governor | Unknown | Unknown | Pending |
+| Lieutenant Governor | Unknown | Unknown | Pending |
+| Attorney General | Unknown | Unknown | Pending |
+| Secretary of State | Unknown | Unknown | Pending |
+| Comptroller | Unknown | Unknown | Pending |
+| Treasurer | Unknown | Unknown | Pending |
 
-## Next Steps
-
-- Explore [Wayne County](/jurisdictions/wayne-county), the first fully developed Illinois county in APIG
-- Learn about the [APIG government hierarchy model](/hierarchy/overview)
-- Review how [states and counties](/hierarchy/states-and-counties) are structured in the system
+<Note>
+  This record reflects currently verified information only. Fields marked Unknown or Pending have not yet been independently verified.
+</Note>

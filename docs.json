@@ -43,10 +43,27 @@
             ]
           },
           {
+            "group": "Wayne County",
+            "pages": [
+              "jurisdictions/wayne-county-housing-authority"
+            ]
+          },
+          {
             "group": "Agencies and Authorities",
             "pages": [
               "hierarchy/agencies-and-offices",
               "hierarchy/boards-and-authorities"
+            ]
+          },
+          {
+            "group": "Page Templates",
+            "pages": [
+              "templates/county",
+              "templates/city",
+              "templates/agency",
+              "templates/authority",
+              "templates/position",
+              "templates/person"
             ]
           }
         ]
@@ -67,6 +84,14 @@
             "pages": [
               "hierarchy/overview",
               "hierarchy/states-and-counties"
+            ]
+          },
+          {
+            "group": "Sample Profiles",
+            "pages": [
+              "personnel/sample-board-member",
+              "personnel/sample-executive-director",
+              "personnel/sample-maintenance"
             ]
           }
         ]
