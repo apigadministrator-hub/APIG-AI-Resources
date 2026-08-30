@@ -344,25 +344,7 @@
         "description": "Investigative news and media from A Pig Monster",
         "tabs": [
           {
-            "tab": "News",
-            "groups": [
-              {
-                "group": "A Pig Monster",
-                "pages": [
-                  "news/overview",
-                  "news/apig-monster-news",
-                  "news/featured-news"
-                ]
-              },
-              {
-                "group": "External Sources",
-                "pages": [
-                  "news/external-sources",
-                  "news/village-voice",
-                  "news/edgar-county-watchdogs"
-                ]
-              }
-            ]
+            "tab": "News"
           }
         ]
       }
