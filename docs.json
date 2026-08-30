@@ -54,21 +54,73 @@
                     "icon": "star",
                     "pages": [
                       "jurisdictions/wayne-county",
-                      "jurisdictions/wayne-county-board",
-                      "jurisdictions/wayne-county-elected-officials",
-                      "jurisdictions/wayne-county-housing-authority",
-                      "jurisdictions/city-of-fairfield",
-                      "jurisdictions/wayne-county/courts",
-                      "jurisdictions/wayne-county/states-attorney",
-                      "jurisdictions/wayne-county/sheriffs-office",
-                      "jurisdictions/wayne-county/municipalities",
-                      "jurisdictions/wayne-county/school-districts",
-                      "jurisdictions/wayne-county/fire-protection-districts",
-                      "jurisdictions/wayne-county/other-entities",
-                      "jurisdictions/wayne-county/people",
-                      "jurisdictions/wayne-county/organizations",
-                      "jurisdictions/wayne-county/documents",
-                      "jurisdictions/wayne-county/news"
+                      {
+                        "group": "County Board",
+                        "pages": [
+                          "jurisdictions/wayne-county-board"
+                        ]
+                      },
+                      {
+                        "group": "Elected Officials",
+                        "pages": [
+                          "jurisdictions/wayne-county-elected-officials",
+                          "jurisdictions/wayne-county/clerk-and-recorder",
+                          "jurisdictions/wayne-county/treasurer-and-collector",
+                          "jurisdictions/wayne-county/coroner",
+                          "jurisdictions/wayne-county/supervisor-of-assessments"
+                        ]
+                      },
+                      {
+                        "group": "Courts",
+                        "pages": [
+                          "jurisdictions/wayne-county/courts",
+                          "jurisdictions/wayne-county/circuit-clerk",
+                          "jurisdictions/wayne-county/states-attorney"
+                        ]
+                      },
+                      {
+                        "group": "Agencies & Authorities",
+                        "pages": [
+                          "jurisdictions/wayne-county/sheriffs-office",
+                          "jurisdictions/wayne-county/health-department",
+                          "jurisdictions/wayne-county/emergency-management",
+                          "jurisdictions/wayne-county/animal-control",
+                          "jurisdictions/wayne-county/road-and-bridge",
+                          "jurisdictions/wayne-county/regional-office-of-education",
+                          "jurisdictions/wayne-county-housing-authority"
+                        ]
+                      },
+                      {
+                        "group": "Municipalities",
+                        "pages": [
+                          "jurisdictions/city-of-fairfield",
+                          "jurisdictions/wayne-county/municipalities/cisne",
+                          "jurisdictions/wayne-county/municipalities/golden-gate",
+                          "jurisdictions/wayne-county/municipalities/johnsonville",
+                          "jurisdictions/wayne-county/municipalities/keenes",
+                          "jurisdictions/wayne-county/municipalities/mill-shoals",
+                          "jurisdictions/wayne-county/municipalities/mount-erie",
+                          "jurisdictions/wayne-county/municipalities/orchardville",
+                          "jurisdictions/wayne-county/municipalities/sims"
+                        ]
+                      },
+                      {
+                        "group": "Districts & Other Entities",
+                        "pages": [
+                          "jurisdictions/wayne-county/school-districts",
+                          "jurisdictions/wayne-county/fire-protection-districts",
+                          "jurisdictions/wayne-county/other-entities"
+                        ]
+                      },
+                      {
+                        "group": "People, Records & News",
+                        "pages": [
+                          "jurisdictions/wayne-county/people",
+                          "jurisdictions/wayne-county/organizations",
+                          "jurisdictions/wayne-county/documents",
+                          "jurisdictions/wayne-county/news"
+                        ]
+                      }
                     ]
                   },
                   {
