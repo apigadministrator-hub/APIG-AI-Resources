@@ -22,7 +22,7 @@
       {
         "product": "APIG",
         "icon": "landmark",
-        "description": "Accountability Project: Illinois government transparency and public-records research.",
+        "description": "Accountability Project: Illinois government transparency",
         "tabs": [
           {
             "tab": "Home",
@@ -41,146 +41,155 @@
             "tab": "Jurisdictions",
             "groups": [
               {
-                "group": "United States",
+                "group": "Illinois",
+                "pages": [
+                  "jurisdictions/illinois"
+                ]
+              },
+              {
+                "group": "Illinois Counties",
                 "pages": [
                   {
-                    "group": "Illinois",
-                    "root": "jurisdictions/illinois",
+                    "group": "Wayne County",
+                    "icon": "star",
                     "pages": [
-                      {
-                        "group": "Counties",
-                        "expanded": false,
-                        "pages": [
-                          "jurisdictions/illinois/counties/adams",
-                          "jurisdictions/illinois/counties/alexander",
-                          "jurisdictions/illinois/counties/bond",
-                          "jurisdictions/illinois/counties/boone",
-                          "jurisdictions/illinois/counties/brown",
-                          "jurisdictions/illinois/counties/bureau",
-                          "jurisdictions/illinois/counties/calhoun",
-                          "jurisdictions/illinois/counties/carroll",
-                          "jurisdictions/illinois/counties/cass",
-                          "jurisdictions/illinois/counties/champaign",
-                          "jurisdictions/illinois/counties/christian",
-                          "jurisdictions/illinois/counties/clark",
-                          "jurisdictions/illinois/counties/clay",
-                          "jurisdictions/illinois/counties/clinton",
-                          "jurisdictions/illinois/counties/coles",
-                          "jurisdictions/illinois/counties/cook",
-                          "jurisdictions/illinois/counties/crawford",
-                          "jurisdictions/illinois/counties/cumberland",
-                          "jurisdictions/illinois/counties/dekalb",
-                          "jurisdictions/illinois/counties/dewitt",
-                          "jurisdictions/illinois/counties/douglas",
-                          "jurisdictions/illinois/counties/dupage",
-                          "jurisdictions/illinois/counties/edgar",
-                          "jurisdictions/illinois/counties/edwards",
-                          "jurisdictions/illinois/counties/effingham",
-                          "jurisdictions/illinois/counties/fayette",
-                          "jurisdictions/illinois/counties/ford",
-                          "jurisdictions/illinois/counties/franklin",
-                          "jurisdictions/illinois/counties/fulton",
-                          "jurisdictions/illinois/counties/gallatin",
-                          "jurisdictions/illinois/counties/greene",
-                          "jurisdictions/illinois/counties/grundy",
-                          "jurisdictions/illinois/counties/hamilton",
-                          "jurisdictions/illinois/counties/hancock",
-                          "jurisdictions/illinois/counties/hardin",
-                          "jurisdictions/illinois/counties/henderson",
-                          "jurisdictions/illinois/counties/henry",
-                          "jurisdictions/illinois/counties/iroquois",
-                          "jurisdictions/illinois/counties/jackson",
-                          "jurisdictions/illinois/counties/jasper",
-                          "jurisdictions/illinois/counties/jefferson",
-                          "jurisdictions/illinois/counties/jersey",
-                          "jurisdictions/illinois/counties/jo-daviess",
-                          "jurisdictions/illinois/counties/johnson",
-                          "jurisdictions/illinois/counties/kane",
-                          "jurisdictions/illinois/counties/kankakee",
-                          "jurisdictions/illinois/counties/kendall",
-                          "jurisdictions/illinois/counties/knox",
-                          "jurisdictions/illinois/counties/lake",
-                          "jurisdictions/illinois/counties/lasalle",
-                          "jurisdictions/illinois/counties/lawrence",
-                          "jurisdictions/illinois/counties/lee",
-                          "jurisdictions/illinois/counties/livingston",
-                          "jurisdictions/illinois/counties/logan",
-                          "jurisdictions/illinois/counties/macon",
-                          "jurisdictions/illinois/counties/macoupin",
-                          "jurisdictions/illinois/counties/madison",
-                          "jurisdictions/illinois/counties/marion",
-                          "jurisdictions/illinois/counties/marshall",
-                          "jurisdictions/illinois/counties/mason",
-                          "jurisdictions/illinois/counties/massac",
-                          "jurisdictions/illinois/counties/mcdonough",
-                          "jurisdictions/illinois/counties/mchenry",
-                          "jurisdictions/illinois/counties/mclean",
-                          "jurisdictions/illinois/counties/menard",
-                          "jurisdictions/illinois/counties/mercer",
-                          "jurisdictions/illinois/counties/monroe",
-                          "jurisdictions/illinois/counties/montgomery",
-                          "jurisdictions/illinois/counties/morgan",
-                          "jurisdictions/illinois/counties/moultrie",
-                          "jurisdictions/illinois/counties/ogle",
-                          "jurisdictions/illinois/counties/peoria",
-                          "jurisdictions/illinois/counties/perry",
-                          "jurisdictions/illinois/counties/piatt",
-                          "jurisdictions/illinois/counties/pike",
-                          "jurisdictions/illinois/counties/pope",
-                          "jurisdictions/illinois/counties/pulaski",
-                          "jurisdictions/illinois/counties/putnam",
-                          "jurisdictions/illinois/counties/randolph",
-                          "jurisdictions/illinois/counties/richland",
-                          "jurisdictions/illinois/counties/rock-island",
-                          "jurisdictions/illinois/counties/saline",
-                          "jurisdictions/illinois/counties/sangamon",
-                          "jurisdictions/illinois/counties/schuyler",
-                          "jurisdictions/illinois/counties/scott",
-                          "jurisdictions/illinois/counties/shelby",
-                          "jurisdictions/illinois/counties/st-clair",
-                          "jurisdictions/illinois/counties/stark",
-                          "jurisdictions/illinois/counties/stephenson",
-                          "jurisdictions/illinois/counties/tazewell",
-                          "jurisdictions/illinois/counties/union",
-                          "jurisdictions/illinois/counties/vermilion",
-                          "jurisdictions/illinois/counties/wabash",
-                          "jurisdictions/illinois/counties/warren",
-                          "jurisdictions/illinois/counties/washington",
-                          {
-                            "group": "Wayne County",
-                            "root": "jurisdictions/wayne-county",
-                            "pages": [
-                              "jurisdictions/wayne-county/overview",
-                              "jurisdictions/wayne-county-board",
-                              "jurisdictions/wayne-county-elected-officials",
-                              "jurisdictions/wayne-county/courts",
-                              "jurisdictions/wayne-county/states-attorney",
-                              "jurisdictions/wayne-county/sheriffs-office",
-                              {
-                                "group": "Municipalities",
-                                "root": "jurisdictions/wayne-county/municipalities",
-                                "pages": [
-                                  "jurisdictions/city-of-fairfield"
-                                ]
-                              },
-                              "jurisdictions/wayne-county-housing-authority",
-                              "jurisdictions/wayne-county/school-districts",
-                              "jurisdictions/wayne-county/fire-protection-districts",
-                              "jurisdictions/wayne-county/other-entities",
-                              "jurisdictions/wayne-county/people",
-                              "jurisdictions/wayne-county/organizations",
-                              "jurisdictions/wayne-county/documents",
-                              "jurisdictions/wayne-county/news"
-                            ]
-                          },
-                          "jurisdictions/illinois/counties/white",
-                          "jurisdictions/illinois/counties/whiteside",
-                          "jurisdictions/illinois/counties/will",
-                          "jurisdictions/illinois/counties/williamson",
-                          "jurisdictions/illinois/counties/winnebago",
-                          "jurisdictions/illinois/counties/woodford"
-                        ]
-                      }
+                      "jurisdictions/wayne-county",
+                      "jurisdictions/wayne-county-board",
+                      "jurisdictions/wayne-county-elected-officials",
+                      "jurisdictions/wayne-county-housing-authority",
+                      "jurisdictions/city-of-fairfield",
+                      "jurisdictions/wayne-county/courts",
+                      "jurisdictions/wayne-county/states-attorney",
+                      "jurisdictions/wayne-county/sheriffs-office",
+                      "jurisdictions/wayne-county/municipalities",
+                      "jurisdictions/wayne-county/school-districts",
+                      "jurisdictions/wayne-county/fire-protection-districts",
+                      "jurisdictions/wayne-county/other-entities",
+                      "jurisdictions/wayne-county/people",
+                      "jurisdictions/wayne-county/organizations",
+                      "jurisdictions/wayne-county/documents",
+                      "jurisdictions/wayne-county/news"
+                    ]
+                  },
+                  {
+                    "group": "All Counties (A–E)",
+                    "pages": [
+                      "jurisdictions/illinois/counties/adams",
+                      "jurisdictions/illinois/counties/alexander",
+                      "jurisdictions/illinois/counties/bond",
+                      "jurisdictions/illinois/counties/boone",
+                      "jurisdictions/illinois/counties/brown",
+                      "jurisdictions/illinois/counties/bureau",
+                      "jurisdictions/illinois/counties/calhoun",
+                      "jurisdictions/illinois/counties/carroll",
+                      "jurisdictions/illinois/counties/cass",
+                      "jurisdictions/illinois/counties/champaign",
+                      "jurisdictions/illinois/counties/christian",
+                      "jurisdictions/illinois/counties/clark",
+                      "jurisdictions/illinois/counties/clay",
+                      "jurisdictions/illinois/counties/clinton",
+                      "jurisdictions/illinois/counties/coles",
+                      "jurisdictions/illinois/counties/cook",
+                      "jurisdictions/illinois/counties/crawford",
+                      "jurisdictions/illinois/counties/cumberland",
+                      "jurisdictions/illinois/counties/dekalb",
+                      "jurisdictions/illinois/counties/dewitt",
+                      "jurisdictions/illinois/counties/douglas",
+                      "jurisdictions/illinois/counties/dupage",
+                      "jurisdictions/illinois/counties/edgar",
+                      "jurisdictions/illinois/counties/edwards",
+                      "jurisdictions/illinois/counties/effingham"
+                    ]
+                  },
+                  {
+                    "group": "All Counties (F–K)",
+                    "pages": [
+                      "jurisdictions/illinois/counties/fayette",
+                      "jurisdictions/illinois/counties/ford",
+                      "jurisdictions/illinois/counties/franklin",
+                      "jurisdictions/illinois/counties/fulton",
+                      "jurisdictions/illinois/counties/gallatin",
+                      "jurisdictions/illinois/counties/greene",
+                      "jurisdictions/illinois/counties/grundy",
+                      "jurisdictions/illinois/counties/hamilton",
+                      "jurisdictions/illinois/counties/hancock",
+                      "jurisdictions/illinois/counties/hardin",
+                      "jurisdictions/illinois/counties/henderson",
+                      "jurisdictions/illinois/counties/henry",
+                      "jurisdictions/illinois/counties/iroquois",
+                      "jurisdictions/illinois/counties/jackson",
+                      "jurisdictions/illinois/counties/jasper",
+                      "jurisdictions/illinois/counties/jefferson",
+                      "jurisdictions/illinois/counties/jersey",
+                      "jurisdictions/illinois/counties/jo-daviess",
+                      "jurisdictions/illinois/counties/johnson",
+                      "jurisdictions/illinois/counties/kane",
+                      "jurisdictions/illinois/counties/kankakee",
+                      "jurisdictions/illinois/counties/kendall",
+                      "jurisdictions/illinois/counties/knox"
+                    ]
+                  },
+                  {
+                    "group": "All Counties (L–P)",
+                    "pages": [
+                      "jurisdictions/illinois/counties/lake",
+                      "jurisdictions/illinois/counties/lasalle",
+                      "jurisdictions/illinois/counties/lawrence",
+                      "jurisdictions/illinois/counties/lee",
+                      "jurisdictions/illinois/counties/livingston",
+                      "jurisdictions/illinois/counties/logan",
+                      "jurisdictions/illinois/counties/macon",
+                      "jurisdictions/illinois/counties/macoupin",
+                      "jurisdictions/illinois/counties/madison",
+                      "jurisdictions/illinois/counties/marion",
+                      "jurisdictions/illinois/counties/marshall",
+                      "jurisdictions/illinois/counties/mason",
+                      "jurisdictions/illinois/counties/massac",
+                      "jurisdictions/illinois/counties/mcdonough",
+                      "jurisdictions/illinois/counties/mchenry",
+                      "jurisdictions/illinois/counties/mclean",
+                      "jurisdictions/illinois/counties/menard",
+                      "jurisdictions/illinois/counties/mercer",
+                      "jurisdictions/illinois/counties/monroe",
+                      "jurisdictions/illinois/counties/montgomery",
+                      "jurisdictions/illinois/counties/morgan",
+                      "jurisdictions/illinois/counties/moultrie",
+                      "jurisdictions/illinois/counties/ogle",
+                      "jurisdictions/illinois/counties/peoria",
+                      "jurisdictions/illinois/counties/perry",
+                      "jurisdictions/illinois/counties/piatt",
+                      "jurisdictions/illinois/counties/pike",
+                      "jurisdictions/illinois/counties/pope"
+                    ]
+                  },
+                  {
+                    "group": "All Counties (P–W)",
+                    "pages": [
+                      "jurisdictions/illinois/counties/pulaski",
+                      "jurisdictions/illinois/counties/putnam",
+                      "jurisdictions/illinois/counties/randolph",
+                      "jurisdictions/illinois/counties/richland",
+                      "jurisdictions/illinois/counties/rock-island",
+                      "jurisdictions/illinois/counties/saline",
+                      "jurisdictions/illinois/counties/sangamon",
+                      "jurisdictions/illinois/counties/schuyler",
+                      "jurisdictions/illinois/counties/scott",
+                      "jurisdictions/illinois/counties/shelby",
+                      "jurisdictions/illinois/counties/st-clair",
+                      "jurisdictions/illinois/counties/stark",
+                      "jurisdictions/illinois/counties/stephenson",
+                      "jurisdictions/illinois/counties/tazewell",
+                      "jurisdictions/illinois/counties/union",
+                      "jurisdictions/illinois/counties/vermilion",
+                      "jurisdictions/illinois/counties/wabash",
+                      "jurisdictions/illinois/counties/warren",
+                      "jurisdictions/illinois/counties/washington",
+                      "jurisdictions/illinois/counties/white",
+                      "jurisdictions/illinois/counties/whiteside",
+                      "jurisdictions/illinois/counties/will",
+                      "jurisdictions/illinois/counties/williamson",
+                      "jurisdictions/illinois/counties/winnebago",
+                      "jurisdictions/illinois/counties/woodford"
                     ]
                   }
                 ]
@@ -188,8 +197,6 @@
               {
                 "group": "Reference",
                 "pages": [
-                  "jurisdictions/overview",
-                  "jurisdictions/adding-a-jurisdiction",
                   "hierarchy/agencies-and-offices",
                   "hierarchy/boards-and-authorities"
                 ]
@@ -225,7 +232,7 @@
             ]
           },
           {
-            "tab": "About Us",
+            "tab": "About",
             "groups": [
               {
                 "group": "About the Accountability Project",
@@ -238,7 +245,7 @@
                 ]
               },
               {
-                "group": "Platform",
+                "group": "Platform Requirements",
                 "pages": [
                   "specifications/platform-limitations"
                 ]
@@ -328,132 +335,33 @@
                 ]
               }
             ]
-          },
-          {
-            "tab": "AI Operations",
-            "hidden": true,
-            "groups": [
-              {
-                "group": "How AI Works in APIG",
-                "pages": [
-                  "ai/overview",
-                  "concepts/ai-portability",
-                  "ai/resource-navigation",
-                  "ai/task-execution",
-                  "ai/human-review"
-                ]
-              },
-              {
-                "group": "AI Procedures",
-                "pages": [
-                  "ai/research",
-                  "ai/extraction",
-                  "ai/gap-analysis",
-                  "ai/handoff"
-                ]
-              }
-            ]
-          },
-          {
-            "tab": "System Resources",
-            "hidden": true,
-            "groups": [
-              {
-                "group": "Asset Registry",
-                "pages": [
-                  "resources/overview",
-                  "resources/asset-index",
-                  "resources/accounts",
-                  "resources/domains",
-                  "resources/hosting",
-                  "resources/repositories"
-                ]
-              },
-              {
-                "group": "Integrations",
-                "pages": [
-                  "resources/integrations",
-                  "resources/forms",
-                  "resources/webhooks",
-                  "resources/scripts"
-                ]
-              },
-              {
-                "group": "Operations",
-                "pages": [
-                  "resources/workflows",
-                  "resources/deployment-records",
-                  "resources/changelog",
-                  "resources/wayne-county-resources",
-                  "resources/deployment-records/wayne-county-harvest-001",
-                  "resources/deployment-records/wayne-county-harvest-001-raw"
-                ]
-              },
-              {
-                "group": "Specifications",
-                "pages": [
-                  "resources/spec-index",
-                  "resources/site-layout",
-                  "resources/identity-separation"
-                ]
-              }
-            ]
-          },
-          {
-            "tab": "Assets",
-            "hidden": true,
-            "groups": [
-              {
-                "group": "Asset Index",
-                "pages": [
-                  "assets/index",
-                  "assets/accounts",
-                  "assets/domains",
-                  "assets/hosting",
-                  "assets/repositories",
-                  "assets/brand"
-                ]
-              },
-              {
-                "group": "Integrations and Services",
-                "pages": [
-                  "assets/integrations",
-                  "assets/forms",
-                  "assets/webhooks",
-                  "assets/scripts"
-                ]
-              },
-              {
-                "group": "Operations",
-                "pages": [
-                  "assets/workflows",
-                  "assets/deployment-records",
-                  "assets/changelog"
-                ]
-              }
-            ]
           }
         ]
       },
       {
         "product": "APIG Monster News Media",
         "icon": "newspaper",
-        "description": "Investigative journalism and news coverage from A Pig Monster News Media.",
-        "groups": [
+        "description": "Investigative news and media from A Pig Monster",
+        "tabs": [
           {
-            "group": "A Pig Monster",
-            "pages": [
-              "news/overview",
-              "news/apig-monster-news",
-              "news/featured-news"
-            ]
-          },
-          {
-            "group": "External Sources",
-            "pages": [
-              "news/external-sources",
-              "news/village-voice",
-              "news/edgar-county-watchdogs"
+            "tab": "News",
+            "groups": [
+              {
+                "group": "A Pig Monster",
+                "pages": [
+                  "news/overview",
+                  "news/apig-monster-news",
+                  "news/featured-news"
+                ]
+              },
+              {
+                "group": "External Sources",
+                "pages": [
+                  "news/external-sources",
+                  "news/village-voice",
+                  "news/edgar-county-watchdogs"
+                ]
+              }
             ]
           }
         ]

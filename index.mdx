@@ -4,32 +4,51 @@ description: "The Accountability Project researches and documents Illinois gover
 sidebarTitle: "Home"
 ---
 
-The Accountability Project is a public-interest investigative information system that tracks Illinois government, public officials, agencies, records, and meetings. We build persistent, sourced records so citizens, journalists, and researchers can follow the money, the votes, and the decisions that shape their communities. Coverage currently centers on Wayne County, Illinois, with a framework designed to expand across the state.
+The Accountability Project (APIG) is a public-interest investigative information system that tracks Illinois government, public officials, agencies, records, and meetings. We build persistent, sourced records so citizens, journalists, and researchers can follow the money, the votes, and the decisions that shape their communities. Coverage begins with Wayne County, Illinois and expands across the state's 102 counties.
+
+## Current Information
+
+Recent additions and developments across the Accountability Project. Updated by hand as research proceeds.
+
+- Wayne County Board, elected officials, Housing Authority, and City of Fairfield have active coverage.
+- Placeholder landing pages exist for all 102 Illinois counties.
+- Wayne County sub-navigation now includes Courts, State's Attorney, Sheriff's Office, Municipalities, School Districts, Fire Protection Districts, People, Organizations, Documents, and News.
+
+<Note>
+  This section approximates the dynamic recent-information feed described in the [APIG platform requirements](/specifications/platform-limitations). The eventual APIG custom application will replace this hand-maintained list with a database-driven, context-sensitive feed.
+</Note>
+
+## Explore
 
 <CardGroup cols={2}>
-  <Card title="Jurisdictions" icon="globe" href="/jurisdictions/illinois">
-    Explore Illinois government from state level down to county agencies and local authorities
+  <Card title="Jurisdictions" icon="landmark" href="/jurisdictions/illinois">
+    Illinois state, counties, and the full jurisdictional hierarchy.
+  </Card>
+
+  <Card title="Wayne County" icon="location-dot" href="/jurisdictions/wayne-county">
+    Primary APIG research jurisdiction: board, officials, entities.
   </Card>
 
   <Card title="Personnel" icon="users" href="/data/persons">
-    Research public officials, their positions, histories, and organizational relationships
+    Public officials, positions, and organizational relationships.
   </Card>
 
-  <Card title="News & Media" icon="book-open" href="/news/overview">
-    Coverage from A Pig Monster and independent investigative outlets
-  </Card>
-
-  <Card title="About Us" icon="lightbulb" href="/about-us/mission">
-    Learn how we collect, verify, and present public information
+  <Card title="News & Media" icon="newspaper" href="/news/overview">
+    APIG Monster News Media. Switch products in the top navigation.
   </Card>
 </CardGroup>
 
-## Currently Documenting
-
-<Note>
-  The Accountability Project begins with Wayne County, Illinois. Our system is built to scale: as we add more counties and municipalities, the same geographic drill-down structure will apply to every new jurisdiction.
-</Note>
-
 ## How to Navigate
 
-Every record in the Accountability Project follows a geographic path: **State \> County \> City or Township \> Agency \> Position \> Person**. Start with Illinois, drill into a county, then into its cities and townships, then into the agencies that serve them. Each agency lists its positions and the people who hold them. Every entity has a persistent record with attached sources and a verification status, so you can see where the information came from and how current it is.
+Every record follows a geographic path: **State → County → City or Township → Agency → Position → Person**. Start with Illinois, drill into a county, then into its cities and townships, then into the agencies that serve them. Each agency lists its positions and the people who hold them. Every entity has a persistent record with attached sources and a verification status.
+
+## Two identities
+
+APIG and APIG Monster News Media are separate identities. Switch between them using the product switcher at the top of the site.
+
+- **APIG** — the primary investigative information system. This site.
+- **APIG Monster News Media** — the distinct news and media identity. See the [News product](/news/overview).
+
+<Info>
+  Mintlify supports a single site logo. When you enter APIG Monster News Media, the navigation changes but the logo does not. Full brand separation is deferred to the eventual custom APIG application. See [platform requirements](/specifications/platform-limitations).
+</Info>
